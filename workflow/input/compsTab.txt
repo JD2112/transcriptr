@@ -1,0 +1,4 @@
+comp	cond1	cond2
+LNO_vs_CTR	LNO	CTR
+HNO_vs_CTR	HNO	CTR
+HNO_vs_LNO	HNO	LNO
