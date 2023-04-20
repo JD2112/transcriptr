@@ -178,7 +178,7 @@ rule rearrangeCounts:
         """
         #Rscript {params} {input.tranx} {input.sampleInfo} {output.tab2}
 
-
+'''
 rule edgeR:
     input:
         genes = rules.rearrangeCounts.output.tab1,
@@ -203,3 +203,4 @@ rule edgeR:
         """
         Rscript {params.edgeR} {input.genes} {input.sampleInfo} {input.compsTab} {params.species} {params.cpm} {params.nsamp} {params.logFC} {params.FDR} {params.pval} {params.path}
         """
+'''
