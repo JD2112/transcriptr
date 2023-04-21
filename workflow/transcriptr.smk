@@ -21,16 +21,36 @@ BG = RESULTS + '/bedgraphs'
 rule all:
     input:
         #idx = directory('index'),
-        fqc = expand(LOGS + '/{sample}.fastqc.log', sample=SAMPLES),
-        bam = expand(BAMS + "/{sample}.Aligned.sortedByCoord.out.bam", sample=SAMPLES),
-        bg = expand(BG + "/{sample}.bedgraph", sample=SAMPLES),
-        fc1 = RESULTS + '/featureCounts_genes.txt',
+        ref = config['workdir'] + '/index/ref/ref.fa',
+        gtf = config['workdir'] + '/index/gtf/anno.gtf',
+#        fqc = expand(LOGS + '/{sample}.fastqc.log', sample=SAMPLES),
+#        bam = expand(BAMS + "/{sample}.Aligned.sortedByCoord.out.bam", sample=SAMPLES),
+#        bg = expand(BG + "/{sample}.bedgraph", sample=SAMPLES),
+#        fc1 = RESULTS + '/featureCounts_genes.txt',
         #fc2 = RESULTS + '/featureCounts_transcripts.txt',
-        m1 = RESULTS + '/featureCounts_genes_mod.txt',
+#        m1 = RESULTS + '/featureCounts_genes_mod.txt',
         #m2 = RESULTS + '/featureCounts_transcripts_mod.txt',
-        multiqc = RESULTS + '/multiqc_report.html',
+#        multiqc = RESULTS + '/multiqc_report.html',
         #res = RESULTS + "/edgeR_results" + "/raw_counts_cpm_after_norm.txt",
-        res = RESULTS + "/edgeR_results" + "/sessionInfo.txt",
+#        res = RESULTS + "/edgeR_results" + "/sessionInfo.txt",
+
+
+rule reference:
+    input:
+        refR = config['refR'],
+    output:
+        ref = config['workdir'] + '/index/ref/ref.fa',
+        gtf = config['workdir'] + '/index/gtf/anno.gtf'
+    params:
+        species = config['species'],
+        version = config['release'],
+        path = config['workdir'],
+    shell:
+        """
+        Rscript {input.refR} {params.species} {params.version} {params.path}
+        """
+
+
 
 
 '''
@@ -50,7 +70,6 @@ rule index:
         '--genomeFastaFiles {input.fa} ' #'--genomeFastaFiles <(zcat {input.fa}) '
         '--sjdbGTFfile {input.gtf} '
         '--sjdbOverhang 100'
-'''
 
 
 rule fastqc:
@@ -178,7 +197,7 @@ rule rearrangeCounts:
         """
         #Rscript {params} {input.tranx} {input.sampleInfo} {output.tab2}
 
-'''
+
 rule edgeR:
     input:
         genes = rules.rearrangeCounts.output.tab1,

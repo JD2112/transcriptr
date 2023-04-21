@@ -1,17 +1,19 @@
 {
     "data": "/mnt/WD2/CFFMHS-MH-2324/catlanes/fastq",
-    "workdir": "/mnt/WD1/transcriptR/test",
-    "index": "/mnt/WD1/transcriptR/index/human",
+    "workdir": "/mnt/WD1/test/biomartr",
+    #"index": "/mnt/WD1/transcriptR/index/human",
     #"ref": "/mnt/WD1/ref/STAR/ensembl_GRCh38/Homo_sapiens.GRCh38.dna.primary_assembly.fa",
     # needed for featuresCount
     "gtf": "/mnt/WD1/ref/STAR/ensembl_GRCh38/Homo_sapiens.GRCh38.106.gtf",
     "R1_suffix": "_R1_001.fastq.gz",
     "R2_suffix": "_R2_001.fastq.gz",
-    "rearrangeFC": "/mnt/WD1/transcriptR/TranscriptR/STARlight/scripts/rearrangeFeatureCounts.R",
-    "edgeR": "/mnt/WD1/transcriptR/TranscriptR/STARlight/scripts/edger.R",
+    "rearrangeFC": "/mnt/WD1/transcriptr/workflow/scripts/rearrangeFeatureCounts.R",
+    "edgeR": "/mnt/WD1/transcriptr/workflow/scripts/edger.R",
+    "refR": "/mnt/WD1/transcriptr/workflow/scripts/ref.R",
     "sampleInfo": "/mnt/WD2/CFFMHS-MH-2324/sampleInfo.txt",
     "compsTab": "/mnt/WD2/CFFMHS-MH-2324/compsTab.txt",
-    "species": "hsapiens_gene_ensembl",
+    "species": "homo_sapiens",
+    "release": "latest",
     # 'gene_id' or 'transcript_id'
     "attribute": "gene_id",
     # 0 (unstranded), 1 (stranded) and 2 (reversely stranded)
