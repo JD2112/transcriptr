@@ -1,0 +1,6 @@
+{
+    "data": "/mnt/WD2/CFFMHS-MH-2324/catlanes/fastq/",
+    "workdir": "/mnt/WD1/test/biomartr/",
+    "R1_suffix": "_R1_001.fastq.gz",
+    "R2_suffix": "_R2_001.fastq.gz"
+}
