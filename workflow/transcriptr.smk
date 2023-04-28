@@ -11,27 +11,26 @@ workdir:
 R1SUFFIX = config['R1_suffix']
 R2SUFFIX = config['R2_suffix']
 
-SAMPLES, = glob_wildcards(config['data'] + "/{sample}" + R1SUFFIX)
-RESULTS = config['workdir'] + '/results'
-LOGS = RESULTS + '/logs'
-BAMS = RESULTS + '/bams'
-BG = RESULTS + '/bedgraphs'
+SAMPLES, = glob_wildcards(config['data'] + "{sample}" + R1SUFFIX)
+RESULTS = config['workdir'] + 'results/'
+LOGS = RESULTS + 'logs/'
+BAMS = RESULTS + 'bams/'
+BG = RESULTS + 'bedgraphs/'
 
 
 rule all:
     input:
-        #idx = directory('index'),
-        ref = config['workdir'] + '/index/ref/ref.fa',
-        gtf = config['workdir'] + '/index/gtf/anno.gtf',
-#        fqc = expand(LOGS + '/{sample}.fastqc.log', sample=SAMPLES),
-#        bam = expand(BAMS + "/{sample}.Aligned.sortedByCoord.out.bam", sample=SAMPLES),
-#        bg = expand(BG + "/{sample}.bedgraph", sample=SAMPLES),
-#        fc1 = RESULTS + '/featureCounts_genes.txt',
-        #fc2 = RESULTS + '/featureCounts_transcripts.txt',
-#        m1 = RESULTS + '/featureCounts_genes_mod.txt',
-        #m2 = RESULTS + '/featureCounts_transcripts_mod.txt',
-#        multiqc = RESULTS + '/multiqc_report.html',
-        #res = RESULTS + "/edgeR_results" + "/raw_counts_cpm_after_norm.txt",
+        ref = config['workdir'] + 'index/ref/ref.fa',
+        gtf = config['workdir'] + 'index/gtf/anno.gtf',
+        #gp = config['workdir'] + 'index/genomeParameters.txt',
+        idx = config['workdir'] + 'index/STAR/',
+        fqc = expand(LOGS + 'fastqc/{sample}.fastqc.log', sample=SAMPLES),
+        bam = expand(BAMS + "{sample}.Aligned.sortedByCoord.out.bam", sample=SAMPLES),
+        bg = expand(BG + "{sample}.bedgraph", sample=SAMPLES),
+        fc = RESULTS + 'subread/featureCounts.txt',
+        tab = RESULTS + 'subread/featureCounts_sorted.txt',
+        multiqc = RESULTS + 'multiqc_report.html',
+#        res = RESULTS + "/edgeR_results" + "/raw_counts_cpm_after_norm.txt",
 #        res = RESULTS + "/edgeR_results" + "/sessionInfo.txt",
 
 
@@ -39,8 +38,8 @@ rule reference:
     input:
         refR = config['refR'],
     output:
-        ref = config['workdir'] + '/index/ref/ref.fa',
-        gtf = config['workdir'] + '/index/gtf/anno.gtf'
+        ref = config['workdir'] + 'index/ref/ref.fa',
+        gtf = config['workdir'] + 'index/gtf/anno.gtf'
     params:
         species = config['species'],
         version = config['release'],
@@ -51,35 +50,35 @@ rule reference:
         """
 
 
-
-
-'''
 rule index:
     input:
-        fa = config['ref'], # provide your reference FASTA file
-        gtf = config['gtf'] # provide your GTF file
+        fa = rules.reference.output.ref,
+        gtf = rules.reference.output.gtf,
+        #idx = config['workdir'] + 'index/',
+    params:
+        overhang = config['overhang'],
     output:
-        directory('index') # you can rename the index folder
-    threads: 
+        #gp = config['workdir'] + 'index/genomeParameters.txt',
+        idx = directory(config['workdir'] + 'index/STAR/'),
+    threads:
         12 # set the maximum number of available cores
     shell:
-        'mkdir {output} && '
         'STAR --runThreadN {threads} '
         '--runMode genomeGenerate '
-        '--genomeDir {output} '
+        '--genomeDir {output.idx} '
         '--genomeFastaFiles {input.fa} ' #'--genomeFastaFiles <(zcat {input.fa}) '
         '--sjdbGTFfile {input.gtf} '
-        '--sjdbOverhang 100'
+        '--sjdbOverhang {params.overhang}'
 
 
 rule fastqc:
     input:
-        R1 = config['data'] + "/{sample}" + R1SUFFIX,
-        R2 = config['data'] + "/{sample}" + R2SUFFIX,
+        R1 = config['data'] + "{sample}" + R1SUFFIX,
+        R2 = config['data'] + "{sample}" + R2SUFFIX,
     output:
-        out = directory(RESULTS + "/fastqc/{sample}")
+        out = directory(RESULTS + "fastqc/{sample}")
     log:
-        LOGS + '/{sample}.fastqc.log'
+        LOGS + 'fastqc/{sample}.fastqc.log'
     threads:
         48 # set the maximum number of available cores
     shell:
@@ -91,20 +90,15 @@ rule fastqc:
 
 rule align_sort:
     input:
-        R1 = config['data'] + "/{sample}" + R1SUFFIX,
-        R2 = config['data'] + "/{sample}" + R2SUFFIX,
-        idx = config['index']
-        #idx = rules.index.output
-        #idx = directory('index')
+        R1 = config['data'] + "{sample}" + R1SUFFIX,
+        R2 = config['data'] + "{sample}" + R2SUFFIX,
+        idx = rules.index.output.idx
     output:
-        #temp("{sample}.mapped.bam")
-        bam = BAMS + '/{sample}.Aligned.sortedByCoord.out.bam',
-        #sj = '{sample}.SJ.out.tab',
-        #log = '{sample}.Log.final.out'
+        bam = BAMS + '{sample}.Aligned.sortedByCoord.out.bam',
     params:
-        out = BAMS + '/{sample}.'
+        out = BAMS + '{sample}.'
     log:
-        LOGS + '/{sample}.STAR.log'
+        LOGS + 'star/{sample}.STAR.log'
     threads:
         12 # set the maximum number of available cores
     shell:
@@ -115,19 +109,15 @@ rule align_sort:
             #'--readFilesCommand zcat ' 
             '--quantMode GeneCounts '
             '--outFileNamePrefix {params.out} >> {log} 2>&1'
-        #'mv results/Aligned.sortedByCoord.out.bam {output.bam}'
-        #'mv results/SJ.out.tab {output.sj}'
-        #'mv results/Log.out {output.log}'
 
 
 rule bamCoverage:
     input:
         bam = rules.align_sort.output.bam,
     output:
-        bg = BG + '/{sample}.bedgraph',
+        bg = BG + '{sample}.bedgraph',
     log:
-        #log1 = LOGS + '/{sample}.index.log',
-        #log2 = LOGS + '/{sample}.bamCoverage.log'
+        LOGS + 'deeptools/{sample}.bamcoverage.log'
     threads:
         12
     shell:
@@ -139,37 +129,35 @@ rule bamCoverage:
 
 rule featureCounts:
     input:
-        bam = expand(BAMS + "/{sample}.Aligned.sortedByCoord.out.bam", sample=SAMPLES),
-        gtf = config['gtf'] # provide your GTF file
+        bam = expand(BAMS + "{sample}.Aligned.sortedByCoord.out.bam", sample=SAMPLES),
+        gtf = rules.reference.output.gtf,
     output:
-        res1 = RESULTS + '/featureCounts_genes.txt',
-        #res2 = RESULTS + '/featureCounts_transcripts.txt'
+        counts = RESULTS + 'subread/featureCounts.txt',
     params:
         stranded = config['stranded'],
         attribute = config['attribute'],
     log:
-        log1 = LOGS + '/featureCounts_genes.log',
-        log2 = LOGS + '/featureCounts_transcripts.log'
+        LOGS + 'subread/featureCounts.log',
     threads: 
         12
     shell:
         'featureCounts -a {input.gtf} '
         '-g {params.attribute} '
         '-p -s {params.stranded} '
-        '-o {output.res1} '
-        '-T {threads} {input.bam} >> {log.log1} 2>&1 \n'
+        '-o {output.counts} '
+        '-T {threads} {input.bam} >> {log} 2>&1 \n'
 
 
 rule multiqc:
     input:
-        genes = rules.featureCounts.output.res1,
-        fastqc = expand(LOGS + '/{sample}.fastqc.log', sample=SAMPLES),
+        counts = rules.featureCounts.output.counts,
+        fastqc = expand(LOGS + 'fastqc/{sample}.fastqc.log', sample=SAMPLES),
     output:
-        outf = RESULTS + '/multiqc_report.html',
+        outf = RESULTS + 'multiqc_report.html',
     params:
         indir = RESULTS,
     log:
-        log = LOGS + '/multiqc.log',
+        log = LOGS + 'multiqc/multiqc.log',
     threads: 
         12
     shell:
@@ -181,23 +169,21 @@ rule multiqc:
 
 rule rearrangeCounts:
     input:
-        genes = rules.featureCounts.output.res1,
-        #tranx = rules.featureCounts.output.res2,
+        counts = rules.featureCounts.output.counts,
         sampleInfo = config['sampleInfo']
     output:
-        tab1 = RESULTS + '/featureCounts_genes_mod.txt',
-        #tab2 = RESULTS + '/featureCounts_transcripts_mod.txt',
+        tab = RESULTS + 'subread/featureCounts_sorted.txt',
     params:
         rFC = config['rearrangeFC'],
     threads: 
         12
     shell:
         """
-        Rscript {params} {input.genes} {input.sampleInfo} {output.tab1}
+        Rscript {params} {input.counts} {input.sampleInfo} {output.tab}
         """
-        #Rscript {params} {input.tranx} {input.sampleInfo} {output.tab2}
 
 
+'''
 rule edgeR:
     input:
         genes = rules.rearrangeCounts.output.tab1,
