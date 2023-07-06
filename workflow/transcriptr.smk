@@ -30,8 +30,9 @@ rule all:
         fc = RESULTS + 'subread/featureCounts.txt',
         tab = RESULTS + 'subread/featureCounts_sorted.txt',
         multiqc = RESULTS + 'multiqc_report.html',
-#        res = RESULTS + "/edgeR_results" + "/raw_counts_cpm_after_norm.txt",
-#        res = RESULTS + "/edgeR_results" + "/sessionInfo.txt",
+        #multiqc = LOGS + 'multiqc/multiqc.log',
+        #res = RESULTS + "/edgeR_results" + "/raw_counts_cpm_after_norm.txt",
+        res = RESULTS + "edgeR_results" + "/sessionInfo.txt",
 
 
 rule reference:
@@ -183,16 +184,17 @@ rule rearrangeCounts:
         """
 
 
-'''
 rule edgeR:
     input:
-        genes = rules.rearrangeCounts.output.tab1,
+        #genes = rules.rearrangeCounts.output.tab1,
         #tranx = rules.rearrangeCounts.output.tab2,
+        genes = rules.rearrangeCounts.output.tab,
         sampleInfo = config['sampleInfo'],
         compsTab = config['compsTab'],
+        gtf = rules.reference.output.gtf,
     output:
         #res = RESULTS + "/edgeR_results" + "/raw_counts_cpm_after_norm.txt",
-        res = RESULTS + "/edgeR_results" + "/sessionInfo.txt",
+        res = RESULTS + "edgeR_results" + "/sessionInfo.txt",
     params:
         species = config['species'],
         cpm = config['cpm'],
@@ -202,10 +204,10 @@ rule edgeR:
         pval = config['pval'],
         path = RESULTS,
         edgeR = config['edgeR'],
+        attribute = config['attribute'],
     threads: 
         12
     shell:
         """
-        Rscript {params.edgeR} {input.genes} {input.sampleInfo} {input.compsTab} {params.species} {params.cpm} {params.nsamp} {params.logFC} {params.FDR} {params.pval} {params.path}
+        Rscript {params.edgeR} {input.genes} {input.sampleInfo} {input.compsTab} {params.species} {params.cpm} {params.nsamp} {params.logFC} {params.FDR} {params.pval} {params.path} {params.attribute} {input.gtf} 
         """
-'''

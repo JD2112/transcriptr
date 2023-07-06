@@ -7,8 +7,10 @@ args = commandArgs(trailingOnly=TRUE)
 suppressPackageStartupMessages({
 	library(edgeR)
 	library(data.table)
-	library(biomaRt)
+	#library(biomaRt)
 	library(openxlsx)
+	#library(biomartr)
+	library(rtracklayer)
 	#library(xlsx)
 	#library(stringr)
 	#library(tidyr)
@@ -53,7 +55,8 @@ do_eT <- function(comp, cond1, cond2) {
 	#print(paste(cond1, cond2, sep="_"))
 	dt <- exactTest(y, pair=c(cond2,cond1))
 	dt <- as.data.table(as.data.frame(topTags(dt, n=Inf)))
-	setnames(dt, "genes", "ensembl_gene_id")
+	#setnames(dt, "genes", "ensembl_gene_id")
+	setnames(dt, "genes", "id")
 	dt <- merge(dt, anno, all.x=T)
 	dt <- dt[order(FDR, decreasing=FALSE),]
 	return(dt)
@@ -61,7 +64,8 @@ do_eT <- function(comp, cond1, cond2) {
 
 edgeR2anno <- function(etObj, annoObj, fileName) {
   t <- as.data.table(as.data.frame(topTags(etObj, n=Inf)))
-  setnames(t, "genes", "ensembl_gene_id")
+  #setnames(t, "genes", "ensembl_gene_id")
+  setnames(t, "genes", "id")
   t <- merge(t, annoObj, all.x=T)
   t <- t[order(FDR, decreasing=FALSE),]
   write.table(t, file=fileName, row.names=FALSE, sep="\t", quote=FALSE)
@@ -100,6 +104,8 @@ nSamples <- as.numeric(args[6])
 flogFC <- as.numeric(args[7])
 fFDR <- as.numeric(args[8])
 fpval <- as.numeric(args[9])
+attribute <- args[11]
+gtf_path <- args[12]
 
 
 # Create the DGE list
@@ -157,22 +163,47 @@ plot_BCV(y, out, 'BCV_plot.pdf')
 
 
 # Start biomaRt database
-mart = useMart('ensembl')
+#mart = useMart('ensembl')
 # list all the ensembl database of organisms
 #listDatasets(mart)  
 #choose database of your interest ; in this case its "cfamiliaris_gene_ensembl" I guess
-ensembl = useMart( "ensembl", dataset=species)  
+#ensembl = useMart( "ensembl", dataset=species)  
 # choose attributes of your interest
 #listAttributes(ensembl)
 #gene <- getBM( attributes = c("ensembl_gene_id","external_gene_name"), values=as.data.table(topTags(CvsRT, n=Inf))$table.genes, mart=ensembl)  
-anno <- as.data.table(getBM( attributes = c("ensembl_gene_id","external_gene_name","chromosome_name", "start_position", "end_position", "strand", "description"), mart=ensembl))
+#anno <- as.data.table(getBM( attributes = c("ensembl_gene_id","external_gene_name","chromosome_name", "start_position", "end_position", "strand", "description"), mart=ensembl))
 #anno
 
+#gtf <- as.data.table(readGFF("/mnt/WD1/transcriptR/test/index/anno/anno.gtf"))
+#print(attribute)
+#print(gtf_path)
+
+gtf <- as.data.table(readGFF(gtf_path))
+#print(gtf)
+
+#gtf_g <- gtf[type == "gene",]
+#gtf_g <- gtf_g[, c(9, 11, 1, 4, 5, 7, 13)]
+
+#gtf_t <- gtf[type == "transcript",]
+#gtf_t <- gtf_t[, c(14, 16, 1, 4, 5, 7, 18)]
+
+if (attribute == "gene_id") {
+	gtf_g <- gtf[type == "gene",]
+	gtf_g <- gtf_g[, c(9, 11, 1, 4, 5, 7, 13)]
+	anno <- gtf_g
+	colnames(anno) <- c("id", "name", "chr", "start", "end", "strand", "biotype")
+} else {
+	gtf_t <- gtf[type == "transcript",]
+	gtf_t <- gtf_t[, c(14, 16, 1, 4, 5, 7, 18)]
+	anno <- gtf_t
+	colnames(anno) <- c("id", "name", "chr", "start", "end", "strand", "biotype")
+}
+
+#print(anno)
 
 # Comparisons and Annotation
 compT <- dt_list(do_eT, comps)
 #compT
-
 
 # Print complete and filtered tables
 print_tab(comps, compT)
@@ -182,4 +213,3 @@ sessionInfo()
 sink()
 
 write("Done!", stdout())
-
