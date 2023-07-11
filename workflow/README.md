@@ -5,7 +5,11 @@ RNA-seq STAR Pipeline
 Load the required modules:
 
 ```bash
-module load snakemake-7.12.1 STAR-2.7.10a subread-2.0.1 picard-2.23.8 fastqc-0.11.9 R-4.0.3 multiqc-1.9 cutadapt-3.3 samtools-1.11 deeptools-3.5.0
+module load snakemake-7.12.1 STAR-2.7.10a subread-2.0.1 fastqc-0.11.9 R-4.2.1 multiqc-1.9 samtools-1.11 deeptools-3.5.0
+
+## Removed
+picard-2.23.8
+cutadapt-3.3
 ```
 
 Run the Snakemake command pointing to the location of the .smk file and the config file:
