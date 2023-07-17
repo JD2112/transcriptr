@@ -81,11 +81,11 @@ rule fastqc:
     log:
         LOGS + 'fastqc/{sample}.fastqc.log'
     threads:
-        48 # set the maximum number of available cores
+        12 # set the maximum number of available cores
     shell:
         """
         mkdir {output.out}
-        fastqc {input.R1} {input.R2} -o {output.out} >> {log} 2>&1
+        ../../fastqc {input.R1} {input.R2} -o {output.out} >> {log} 2>&1
         """
 
 
