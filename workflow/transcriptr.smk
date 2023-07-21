@@ -33,6 +33,7 @@ rule all:
         #multiqc = LOGS + 'multiqc/multiqc.log',
         #res = RESULTS + "/edgeR_results" + "/raw_counts_cpm_after_norm.txt",
         res = RESULTS + "edgeR_results" + "/sessionInfo.txt",
+        fzip = RESULTS + "results.zip",
 
 
 rule reference:
@@ -64,8 +65,8 @@ rule index:
     threads:
         12 # set the maximum number of available cores
     shell:
-        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
-#        'STAR --runThreadN {threads} '
+#        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
+        'STAR --runThreadN {threads} '
         '--runMode genomeGenerate '
         '--genomeDir {output.idx} '
         '--genomeFastaFiles {input.fa} ' #'--genomeFastaFiles <(zcat {input.fa}) '
@@ -86,9 +87,11 @@ rule fastqc:
     shell:
         """
         mkdir {output.out}
-        ../../FastQC/fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1 
+        fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&
         """
-# fastqc {input.R1} {input.R2} -o {output.out} >> {log} 2>&1     #without docker run
+
+# fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1 # without docker run
+# ../../FastQC/fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1 # docker requirement
 
 
 rule align_sort:
@@ -105,8 +108,8 @@ rule align_sort:
     threads:
         12 # set the maximum number of available cores
     shell:
-        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
-#        'STAR --runThreadN {threads} '        
+#        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
+        'STAR --runThreadN {threads} '        
             '--genomeDir {input.idx} '
             '--readFilesIn <(zcat {input.R1}) <(zcat {input.R2}) '
             '--outSAMtype BAM SortedByCoordinate ' 
@@ -145,8 +148,8 @@ rule featureCounts:
     threads: 
         12
     shell:
-        '/subread/bin/featureCounts -a {input.gtf} ' # docker requirement
-#        'STAR --runThreadN {threads} '        
+#        '/subread/bin/featureCounts -a {input.gtf} ' # docker requirement
+        'featureCounts -a {input.gtf} '       
         '-g {params.attribute} '
         '-p -s {params.stranded} '
         '-o {output.counts} '
@@ -214,4 +217,22 @@ rule edgeR:
     shell:
         """
         Rscript {params.edgeR} {input.genes} {input.sampleInfo} {input.compsTab} {params.species} {params.cpm} {params.nsamp} {params.logFC} {params.FDR} {params.pval} {params.path} {params.attribute} {input.gtf} 
+        """
+
+
+rule zip:
+    input:
+        multiqc = rules.multiqc.output.outf,
+    output:
+        fzip = RESULTS + "results.zip",
+    params:
+        edger = RESULTS + "edgeR_results/",
+        fastqc = RESULTS + "fastqc/",
+        logs = RESULTS + "logs/",
+        subread = RESULTS + "subread/",
+    threads: 
+        12
+    shell:
+        """
+        zip -r {output.fzip} {input.multiqc} {params.edger} {params.fastqc} {params.subread} {params.logs} 
         """
