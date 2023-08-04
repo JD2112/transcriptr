@@ -7,6 +7,7 @@
     "refR": "/mnt/WD1/transcriptr/workflow/scripts/ref.R",
     "edgeR": "/mnt/WD1/transcriptr/workflow/scripts/edger.R",
     "DESeq2": "/mnt/WD1/transcriptr/workflow/scripts/deseq2.R",
+    "limma": "/mnt/WD1/transcriptr/workflow/scripts/limma.R",
     "sampleInfo": "/mnt/WD2/CFFMHS-MH-2324/sampleInfo.txt",
     "compsTab": "/mnt/WD2/CFFMHS-MH-2324/compsTab.txt",
     "species": "homo_sapiens",

@@ -1,21 +1,16 @@
 #!/usr/bin/env Rscript
 
-#Rscript edger.R ./Results/featureCounts_genes_mod.txt ./Results/sampleInfo.txt ./Results/compsTab.txt mmusculus_gene_ensembl 1 2 1.5 0.1 0 /path/to/results
+#Rscript limma.R ./Results/featureCounts_genes_mod.txt ./Results/sampleInfo.txt ./Results/compsTab.txt mmusculus_gene_ensembl 1 2 1.5 0.1 0 /path/to/results
 args = commandArgs(trailingOnly=TRUE)
 
 # Load the libraries
 suppressPackageStartupMessages({
 	library(edgeR)
 	library(data.table)
-	#library(biomaRt)
 	library(openxlsx)
-	#library(biomartr)
 	library(rtracklayer)
-	#library(xlsx)
-	#library(stringr)
-	#library(tidyr)
-	#library(ggplot2)
-	#library(RColorBrewer)
+	library(stringr)
+	library(ggplot2)
 })
 
 
@@ -52,15 +47,27 @@ dt_list <- function(fun, comps) {
 }
 
 do_eT <- function(comp, cond1, cond2) {
-	#print(paste(cond1, cond2, sep="_"))
-	dt <- exactTest(y, pair=c(cond2,cond1))
-	dt <- as.data.table(as.data.frame(topTags(dt, n=Inf)))
-	#setnames(dt, "genes", "ensembl_gene_id")
+	vs <- paste(cond1, cond2, sep="-")
+	#print(vs)
+	#contr <- makeContrasts(vs, levels=colnames(coef(fit)))
+	#do_makeContrasts(vs)
+	cmd <- paste("contr <- makeContrasts(", vs, ", levels=colnames(coef(fit)))", sep ='"')
+	tmp <- eval(parse(text=cmd))
+	tmp <- contrasts.fit(fit, tmp)
+	tmp <- eBayes(tmp)
+	#top.table <- topTable(tmp, sort.by="adj.P.Val", n=Inf)
+	top.table <- topTable(tmp, n=Inf)
+	dt <- as.data.table(top.table)
 	setnames(dt, "genes", "id")
 	dt <- merge(dt, anno, all.x=T)
-	dt <- dt[order(FDR, decreasing=FALSE),]
+	dt <- dt[order(dt$"adj.P.Val", decreasing=FALSE),]
 	return(dt)
 }
+
+#do_makeContrasts <- function(obj) {
+#	contr <- makeContrasts(obj, levels=colnames(coef(fit)))
+#	return(contr)
+#}
 
 edgeR2anno <- function(etObj, annoObj, fileName) {
   t <- as.data.table(as.data.frame(topTags(etObj, n=Inf)))
@@ -73,7 +80,7 @@ edgeR2anno <- function(etObj, annoObj, fileName) {
 }
 
 print_tab <- function(comps, compT) {
-	col <- ifelse(fpval == 0, quote(FDR), quote(PValue))
+	col <- ifelse(fpval == 0, quote(adj.P.Val), quote(P.Value))
     for (i in comps$comp){
         dt <- compT[[i]]
         write.table(dt, file=file.path(out, paste(i, "_unfiltered.tsv", sep="")), row.names=FALSE, col.names=TRUE, quote=FALSE, sep="\t")
@@ -87,16 +94,19 @@ print_tab <- function(comps, compT) {
 
 # Create the results folder
 #out <- file.path(getwd(), "edgeR_results")
-out <- file.path(args[10], "edgeR_results")
+out <- file.path(args[10], "limma_results")
 test_output(out)
 
 
 # Load the data
 data_raw <- read.table(args[1], sep='\t', quote='', comment.char='', head=T, stringsAsFactors=F, row.names=1)
+#data_raw <- read.table("/mnt/WD1/test/biomartr/results/subread/featureCounts_sorted.txt", sep='\t', quote='', comment.char='', head=T, stringsAsFactors=F, row.names=1)
 #print(as.data.table(data_raw))
 sampleInfo <- read.table(args[2], sep='\t', quote='', comment.char='', head=T, stringsAsFactors=F)
+#sampleInfo <- read.table("/mnt/WD2/CFFMHS-MH-2324/sampleInfo.txt", sep='\t', quote='', comment.char='', head=T, stringsAsFactors=F)
 #print(as.data.table(sampleInfo))
 comps <- fread(args[3])
+#comps <- fread("/mnt/WD2/CFFMHS-MH-2324/compsTab.txt")
 #print(comps)
 species <- args[4]
 nCPM <- as.numeric(args[5])
@@ -133,8 +143,8 @@ dgList <- dgeFull[keep,]
 dgList$samples$lib.size <- colSums(dgList$counts)
 #dgList$samples
 fdgList <- calcNormFactors(dgList, method="TMM")
-robj <- setDT(fdgList$samples, keep.rownames = "sample")
-write.xlsx(robj, file.path(out, "edgeR_obj.xlsx"), overwrite=TRUE, asTable=TRUE)
+#robj <- setDT(fdgList$samples, keep.rownames = "sample")
+#write.xlsx(robj, file.path(out, "edgeR_obj.xlsx"), overwrite=TRUE, asTable=TRUE)
 #fdgList$samples
 
 
@@ -145,47 +155,34 @@ plot_box(countsPerMillion, out, 'Boxplot_Post-Norm.pdf')
 
 
 # Print CPM for Heatmaps
-countsPerMillion <- cpm(fdgList, log=FALSE)
-write.table(countsPerMillion, file=file.path(out, 'raw_counts_cpm_after_norm.txt'), row.names=TRUE, sep="\t", quote=FALSE)
-countsPerMillionLog2 <- cpm(fdgList, log=TRUE)
-write.table(countsPerMillionLog2, file=file.path(out, 'raw_counts_log2cpm_after_norm.txt'), row.names=TRUE, sep="\t", quote=FALSE)
+#countsPerMillion <- cpm(fdgList, log=FALSE)
+#write.table(countsPerMillion, file=file.path(out, 'raw_counts_cpm_after_norm.txt'), row.names=TRUE, sep="\t", quote=FALSE)
+#countsPerMillionLog2 <- cpm(fdgList, log=TRUE)
+#write.table(countsPerMillionLog2, file=file.path(out, 'raw_counts_log2cpm_after_norm.txt'), row.names=TRUE, sep="\t", quote=FALSE)
 
 # Print .xlsx file format
-tCPM <- setDT(as.data.frame(countsPerMillion), keep.rownames = "gene")
-write.xlsx(tCPM, file.path(out, "raw_counts_cpm_after_norm.xlsx"), overwrite=TRUE, asTable=FALSE)
-tCPMlog2 <- setDT(as.data.frame(countsPerMillionLog2), keep.rownames = "gene")
-write.xlsx(tCPMlog2, file.path(out, "raw_counts_log2cpm_after_norm.xlsx"), overwrite=TRUE, asTable=FALSE)
+#tCPM <- setDT(as.data.frame(countsPerMillion), keep.rownames = "gene")
+#write.xlsx(tCPM, file.path(out, "raw_counts_cpm_after_norm.xlsx"), overwrite=TRUE, asTable=FALSE)
+#tCPMlog2 <- setDT(as.data.frame(countsPerMillionLog2), keep.rownames = "gene")
+#write.xlsx(tCPMlog2, file.path(out, "raw_counts_log2cpm_after_norm.xlsx"), overwrite=TRUE, asTable=FALSE)
 
 
 # Estimate dispersion
-y <- estimateDisp(fdgList)
-plot_BCV(y, out, 'BCV_plot.pdf')
+#y <- estimateDisp(fdgList)
+#plot_BCV(y, out, 'BCV_plot.pdf')
 
 
-# Start biomaRt database
-#mart = useMart('ensembl')
-# list all the ensembl database of organisms
-#listDatasets(mart)  
-#choose database of your interest ; in this case its "cfamiliaris_gene_ensembl" I guess
-#ensembl = useMart( "ensembl", dataset=species)  
-# choose attributes of your interest
-#listAttributes(ensembl)
-#gene <- getBM( attributes = c("ensembl_gene_id","external_gene_name"), values=as.data.table(topTags(CvsRT, n=Inf))$table.genes, mart=ensembl)  
-#anno <- as.data.table(getBM( attributes = c("ensembl_gene_id","external_gene_name","chromosome_name", "start_position", "end_position", "strand", "description"), mart=ensembl))
-#anno
+# Model Matrix
+groups <- sampleInfo$condition
+f <- factor(groups, levels=unique(groups))
+mm = model.matrix(~ 0 + f) 
+colnames(mm)=sub("f", "", colnames(mm))
 
-#gtf <- as.data.table(readGFF("/mnt/WD1/transcriptR/test/index/anno/anno.gtf"))
-#print(attribute)
-#print(gtf_path)
+y <- voom(fdgList, mm, plot=FALSE)
+fit <- lmFit(y, mm)
 
+# Annotation from GTF file
 gtf <- as.data.table(readGFF(gtf_path))
-#print(gtf)
-
-#gtf_g <- gtf[type == "gene",]
-#gtf_g <- gtf_g[, c(9, 11, 1, 4, 5, 7, 13)]
-
-#gtf_t <- gtf[type == "transcript",]
-#gtf_t <- gtf_t[, c(14, 16, 1, 4, 5, 7, 18)]
 
 if (attribute == "gene_id") {
 	gtf_g <- gtf[type == "gene",]
@@ -199,7 +196,6 @@ if (attribute == "gene_id") {
 	colnames(anno) <- c("id", "name", "chr", "start", "end", "strand", "biotype")
 }
 
-#print(anno)
 
 # Comparisons and Annotation
 compT <- dt_list(do_eT, comps)

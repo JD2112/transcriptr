@@ -34,6 +34,7 @@ rule all:
         #res = RESULTS + "/edgeR_results" + "/raw_counts_cpm_after_norm.txt",
         edgeR = RESULTS + "edgeR_results" + "/sessionInfo.txt",
         DESeq2 = RESULTS + "deseq2_results" + "/sessionInfo.txt",
+        limma = RESULTS + "limma_results" + "/sessionInfo.txt",
         fzip = RESULTS + "results.zip",
 
 
@@ -244,6 +245,32 @@ rule DESeq2:
         """
 
 
+rule limma:
+    input:
+        genes = rules.rearrangeCounts.output.tab,
+        sampleInfo = config['sampleInfo'],
+        compsTab = config['compsTab'],
+        gtf = rules.reference.output.gtf,
+    output:
+        res = RESULTS + "limma_results" + "/sessionInfo.txt",
+    params:
+        species = config['species'],
+        cpm = config['cpm'],
+        nsamp = config['nsamples'],
+        logFC = config['logFC'],
+        FDR = config['FDR'],
+        pval = config['pval'],
+        path = RESULTS,
+        limma = config['limma'],
+        attribute = config['attribute'],
+    threads: 
+        12
+    shell:
+        """
+        Rscript {params.limma} {input.genes} {input.sampleInfo} {input.compsTab} {params.species} {params.cpm} {params.nsamp} {params.logFC} {params.FDR} {params.pval} {params.path} {params.attribute} {input.gtf} 
+        """
+
+
 rule zip:
     input:
         multiqc = rules.multiqc.output.outf,
@@ -252,6 +279,7 @@ rule zip:
     params:
         edger = RESULTS + "edgeR_results/",
         deseq2 = RESULTS + "deseq2_results/",
+        limma = RESULTS + "limma_results/",
         fastqc = RESULTS + "fastqc/",
         logs = RESULTS + "logs/",
         subread = RESULTS + "subread/",
@@ -259,5 +287,5 @@ rule zip:
         12
     shell:
         """
-        zip -r {output.fzip} {input.multiqc} {params.edger} {params.deseq2} {params.fastqc} {params.subread} {params.logs} 
+        zip -r {output.fzip} {input.multiqc} {params.edger} {params.deseq2} {params.limma} {params.fastqc} {params.subread} {params.logs} 
         """
