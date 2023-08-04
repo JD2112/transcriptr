@@ -32,7 +32,8 @@ rule all:
         multiqc = RESULTS + 'multiqc_report.html',
         #multiqc = LOGS + 'multiqc/multiqc.log',
         #res = RESULTS + "/edgeR_results" + "/raw_counts_cpm_after_norm.txt",
-        res = RESULTS + "edgeR_results" + "/sessionInfo.txt",
+        edgeR = RESULTS + "edgeR_results" + "/sessionInfo.txt",
+        DESeq2 = RESULTS + "deseq2_results" + "/sessionInfo.txt",
         fzip = RESULTS + "results.zip",
 
 
@@ -65,8 +66,8 @@ rule index:
     threads:
         12 # set the maximum number of available cores
     shell:
-        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
-#        'STAR --runThreadN {threads} '
+#        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
+        'STAR --runThreadN {threads} '
         '--runMode genomeGenerate '
         '--genomeDir {output.idx} '
         '--genomeFastaFiles {input.fa} ' #'--genomeFastaFiles <(zcat {input.fa}) '
@@ -87,9 +88,10 @@ rule fastqc:
     shell:
         """
         mkdir {output.out}
-        ../../FastQC/fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1 # docker requirement
+        fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1
         """
 
+# ../../FastQC/fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1 # docker requirement
 # fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1 # without docker run
 
 
@@ -107,8 +109,8 @@ rule align_sort:
     threads:
         12 # set the maximum number of available cores
     shell:
-        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
-#        'STAR --runThreadN {threads} '        
+#        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
+        'STAR --runThreadN {threads} '        
             '--genomeDir {input.idx} '
             '--readFilesIn <(zcat {input.R1}) <(zcat {input.R2}) '
             '--outSAMtype BAM SortedByCoordinate ' 
@@ -147,8 +149,8 @@ rule featureCounts:
     threads: 
         12
     shell:
-        '/subread/bin/featureCounts -a {input.gtf} ' # docker requirement
-#        'featureCounts -a {input.gtf} '       
+#        '/subread/bin/featureCounts -a {input.gtf} ' # docker requirement
+        'featureCounts -a {input.gtf} '       
         '-g {params.attribute} '
         '-p -s {params.stranded} '
         '-o {output.counts} '
@@ -192,14 +194,11 @@ rule rearrangeCounts:
 
 rule edgeR:
     input:
-        #genes = rules.rearrangeCounts.output.tab1,
-        #tranx = rules.rearrangeCounts.output.tab2,
         genes = rules.rearrangeCounts.output.tab,
         sampleInfo = config['sampleInfo'],
         compsTab = config['compsTab'],
         gtf = rules.reference.output.gtf,
     output:
-        #res = RESULTS + "/edgeR_results" + "/raw_counts_cpm_after_norm.txt",
         res = RESULTS + "edgeR_results" + "/sessionInfo.txt",
     params:
         species = config['species'],
@@ -219,6 +218,32 @@ rule edgeR:
         """
 
 
+rule DESeq2:
+    input:
+        genes = rules.rearrangeCounts.output.tab,
+        sampleInfo = config['sampleInfo'],
+        compsTab = config['compsTab'],
+        gtf = rules.reference.output.gtf,
+    output:
+        res = RESULTS + "deseq2_results" + "/sessionInfo.txt",
+    params:
+        species = config['species'],
+        cpm = config['cpm'],
+        nsamp = config['nsamples'],
+        logFC = config['logFC'],
+        FDR = config['FDR'],
+        pval = config['pval'],
+        path = RESULTS,
+        deseq2 = config['DESeq2'],
+        attribute = config['attribute'],
+    threads: 
+        12
+    shell:
+        """
+        Rscript {params.deseq2} {input.genes} {input.sampleInfo} {input.compsTab} {params.species} {params.cpm} {params.nsamp} {params.logFC} {params.FDR} {params.pval} {params.path} {params.attribute} {input.gtf} 
+        """
+
+
 rule zip:
     input:
         multiqc = rules.multiqc.output.outf,
@@ -226,6 +251,7 @@ rule zip:
         fzip = RESULTS + "results.zip",
     params:
         edger = RESULTS + "edgeR_results/",
+        deseq2 = RESULTS + "deseq2_results/",
         fastqc = RESULTS + "fastqc/",
         logs = RESULTS + "logs/",
         subread = RESULTS + "subread/",
@@ -233,5 +259,5 @@ rule zip:
         12
     shell:
         """
-        zip -r {output.fzip} {input.multiqc} {params.edger} {params.fastqc} {params.subread} {params.logs} 
+        zip -r {output.fzip} {input.multiqc} {params.edger} {params.deseq2} {params.fastqc} {params.subread} {params.logs} 
         """

@@ -113,7 +113,7 @@ dgeFull <- DGEList(data_raw, genes=rownames(data_raw), group=sampleInfo$conditio
 #dgeFull$samples
 
 
-# DMS before normalization
+# MDS before normalization
 countsPerMillion <- cpm(dgeFull, log=TRUE)
 plot_MDS(countsPerMillion, out, 'MDS_Pre-Norm.pdf')
 plot_box(countsPerMillion, out, 'Boxplot_Pre-Norm.pdf')
@@ -138,7 +138,7 @@ write.xlsx(robj, file.path(out, "edgeR_obj.xlsx"), overwrite=TRUE, asTable=TRUE)
 #fdgList$samples
 
 
-# DMS after normalization
+# MDS after normalization
 countsPerMillion <- cpm(fdgList, log=TRUE)
 plot_MDS(countsPerMillion, out, 'MDS_Post-Norm.pdf')
 plot_box(countsPerMillion, out, 'Boxplot_Post-Norm.pdf')
