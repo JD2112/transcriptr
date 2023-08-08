@@ -92,9 +92,10 @@ data_raw <- read.table(args[1], sep='\t', quote='', comment.char='', head=T, str
 #data_raw <- read.table("/mnt/WD1/test/biomartr/results/subread/featureCounts_sorted.txt", sep='\t', quote='', comment.char='', head=T, stringsAsFactors=F, row.names=1)
 #print(as.data.table(data_raw))
 sampleInfo <- read.table(args[2], sep='\t', quote='', comment.char='', head=T, stringsAsFactors=TRUE)
-#ampleInfo <- read.table("/mnt/WD2/CFFMHS-MH-2324/sampleInfo.txt", sep='\t', quote='', comment.char='', head=T, stringsAsFactors=F)
+#sampleInfo <- read.table("/mnt/WD2/CFFMHS-MH-2324/sampleInfo.txt", sep='\t', quote='', comment.char='', head=T, stringsAsFactors=F)
 #print(as.data.table(sampleInfo))
 comps <- fread(args[3])
+#comps <- fread("/mnt/WD2/CFFMHS-MH-2324/compsTab.txt")
 #print(comps)
 species <- args[4]
 nCPM <- as.numeric(args[5])
@@ -123,8 +124,9 @@ plot_box(ldds, out, 'Boxplot_Pre-Norm.pdf')
 #keep <- rowSums(counts(dds) >= 10) >= smallestGroupSize
 #dds <- dds[keep,]
 
-dds <- estimateSizeFactors(dds)
-keep <- rowSums(counts(dds, normalized=TRUE) >= nCPM) >= nSamples
+#dds <- estimateSizeFactors(dds)
+#keep <- rowSums(counts(dds, normalized=TRUE) >= nCPM) >= nSamples
+keep <- rowSums(fpm(dds) >= nCPM) >= nSamples
 dds <- dds[keep,]
 
 
