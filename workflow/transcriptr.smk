@@ -67,8 +67,8 @@ rule index:
     threads:
         12 # set the maximum number of available cores
     shell:
-#        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
-        'STAR --runThreadN {threads} '
+        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
+#        'STAR --runThreadN {threads} '
         '--runMode genomeGenerate '
         '--genomeDir {output.idx} '
         '--genomeFastaFiles {input.fa} ' #'--genomeFastaFiles <(zcat {input.fa}) '
@@ -89,10 +89,10 @@ rule fastqc:
     shell:
         """
         mkdir {output.out}
-        fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1
+        ../../FastQC/fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1
         """
 
-# ../../FastQC/fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1 # docker requirement
+#  ../../FastQC/fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1# docker requirement
 # fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1 # without docker run
 
 
@@ -110,8 +110,8 @@ rule align_sort:
     threads:
         12 # set the maximum number of available cores
     shell:
-#        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
-        'STAR --runThreadN {threads} '        
+        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
+#        'STAR --runThreadN {threads} '        
             '--genomeDir {input.idx} '
             '--readFilesIn <(zcat {input.R1}) <(zcat {input.R2}) '
             '--outSAMtype BAM SortedByCoordinate ' 
@@ -150,8 +150,8 @@ rule featureCounts:
     threads: 
         12
     shell:
-#        '/subread/bin/featureCounts -a {input.gtf} ' # docker requirement
-        'featureCounts -a {input.gtf} '       
+        '/subread/bin/featureCounts -a {input.gtf} ' # docker requirement
+#        'featureCounts -a {input.gtf} '       
         '-g {params.attribute} '
         '-p -s {params.stranded} '
         '-o {output.counts} '
