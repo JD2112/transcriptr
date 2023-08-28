@@ -29,9 +29,7 @@ Graphical User Interface-based RNAsequnce analysis
 #### requirements
 #### Commands
 
-```
-docker run --rm -p 3838:3838 jd21/transcriptr:beta2.0
-```
+
 
 ## Step-by-step guide
 
