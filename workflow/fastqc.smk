@@ -14,7 +14,7 @@ R1SUFFIX = config['R1_suffix']
 R2SUFFIX = config['R2_suffix']
 
 SAMPLES, = glob_wildcards(config['data'] + "{sample}" + R1SUFFIX)
-RESULTS = config['workdir'] + 'results/'
+RESULTS = config['workdir'] + 'results_qc/'
 LOGS = RESULTS + 'logs/'
 
 
