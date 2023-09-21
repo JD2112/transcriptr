@@ -54,10 +54,12 @@ release <- make_release(version)
 index <- file.path(args[3], "index")
 ref_out <- file.path(index, "ref")
 gtf_out <- file.path(index, "gtf")
+gff_out <- file.path(index, "gff")
 
 test_output(index)
 test_output(ref_out)
 test_output(gtf_out)
+test_output(gff_out)
 
 
 # Download biomartr reference files
@@ -80,10 +82,19 @@ gtf <- getGTF(
 	assembly_type = "primary_assembly"
 )
 
-
+gff <- getGFF(
+  db = "ensembl",
+  organism = species,
+  #reference = FALSE,
+  release = release,
+  gunzip = FALSE,
+  remove_annotation_outliers = FALSE,
+  path = file.path(gff_out)
+)
 # Rename files
 gunzip(gtf, remove=TRUE)
 un_gtf <- tools::file_path_sans_ext(gtf)
 
 rename_file(ref, file.path(ref_out, "ref.fa"))
 rename_file(un_gtf, file.path(gtf_out, "anno.gtf"))
+rename_file(gff, file.path(gff_out, "ref.gff3"))
