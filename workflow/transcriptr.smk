@@ -1,7 +1,6 @@
 ################################
 ## STARlight RNA-seq Pipeline ##
 ################################
-## MAINTAINER: Massimiliano Volpe, Ph.D.
 
 configfile:
     "config.json"
@@ -23,8 +22,8 @@ rule all:
     input:
         ref = config['workdir'] + 'index/ref/ref.fa',
         gtf = config['workdir'] + 'index/gtf/anno.gtf',
-        faidx = config['workdir'] + 'index/ref/ref.fa.fai',
         #gp = config['workdir'] + 'index/genomeParameters.txt',
+        faidx = config['workdir'] + 'index/ref/ref.fa.fai',
         idx = config['workdir'] + 'index/STAR/',
         fqc = expand(LOGS + 'fastqc/{sample}.fastqc.log', sample=SAMPLES),
         bam = expand(BAMS + "{sample}.Aligned.sortedByCoord.out.bam", sample=SAMPLES),
@@ -45,7 +44,7 @@ rule reference:
         refR = config['refR'],
     output:
         ref = config['workdir'] + 'index/ref/ref.fa',
-        gtf = config['workdir'] + 'index/gtf/anno.gtf',
+        gtf = config['workdir'] + 'index/gtf/anno.gtf'
         gff = config['workdir'] + 'index/gff/ref.gff3'
     params:
         species = config['species'],
@@ -67,7 +66,7 @@ rule samtools_index:
         """
         samtools faidx {input.genome}
         """
-
+        
 rule index:
     input:
         fa = rules.reference.output.ref,
@@ -81,7 +80,8 @@ rule index:
     threads:
         12 # set the maximum number of available cores
     shell:
-        'STAR --runThreadN {threads} '
+        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
+#        'STAR --runThreadN {threads} '
         '--runMode genomeGenerate '
         '--genomeDir {output.idx} '
         '--genomeFastaFiles {input.fa} ' #'--genomeFastaFiles <(zcat {input.fa}) '
@@ -98,12 +98,15 @@ rule fastqc:
     log:
         LOGS + 'fastqc/{sample}.fastqc.log'
     threads:
-        48 # set the maximum number of available cores
+        12 # set the maximum number of available cores
     shell:
         """
         mkdir {output.out}
-        fastqc {input.R1} {input.R2} -o {output.out} >> {log} 2>&1
+        ../../FastQC/fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1
         """
+
+#  ../../FastQC/fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1# docker requirement
+# fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1 # without docker run
 
 
 rule align_sort:
@@ -120,7 +123,8 @@ rule align_sort:
     threads:
         12 # set the maximum number of available cores
     shell:
-        'STAR --runThreadN {threads} '
+        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
+#        'STAR --runThreadN {threads} '        
             '--genomeDir {input.idx} '
             '--readFilesIn <(zcat {input.R1}) <(zcat {input.R2}) '
             '--outSAMtype BAM SortedByCoordinate ' 
@@ -159,7 +163,8 @@ rule featureCounts:
     threads: 
         12
     shell:
-        'featureCounts -a {input.gtf} '
+        '/subread/bin/featureCounts -a {input.gtf} ' # docker requirement
+#        'featureCounts -a {input.gtf} '       
         '-g {params.attribute} '
         '-p -s {params.stranded} '
         '-o {output.counts} '
