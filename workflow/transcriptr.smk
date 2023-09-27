@@ -23,6 +23,7 @@ rule all:
         ref = config['workdir'] + 'index/ref/ref.fa',
         gtf = config['workdir'] + 'index/gtf/anno.gtf',
         #gp = config['workdir'] + 'index/genomeParameters.txt',
+        faidx = config['workdir'] + 'index/ref/ref.fa.fai',
         idx = config['workdir'] + 'index/STAR/',
         fqc = expand(LOGS + 'fastqc/{sample}.fastqc.log', sample=SAMPLES),
         bam = expand(BAMS + "{sample}.Aligned.sortedByCoord.out.bam", sample=SAMPLES),
@@ -44,6 +45,7 @@ rule reference:
     output:
         ref = config['workdir'] + 'index/ref/ref.fa',
         gtf = config['workdir'] + 'index/gtf/anno.gtf'
+        gff = config['workdir'] + 'index/gff/ref.gff3'
     params:
         species = config['species'],
         version = config['release'],
@@ -53,7 +55,18 @@ rule reference:
         Rscript {input.refR} {params.species} {params.version} {params.path}
         """
 
-
+rule samtools_index:
+    input:
+        genome = rules.reference.output.ref
+    output:
+        faidx = config['workdir'] + 'index/ref/ref.fa.fai'
+    params:
+        path = config['workdir']
+    shell:
+        """
+        samtools faidx {input.genome}
+        """
+        
 rule index:
     input:
         fa = rules.reference.output.ref,
