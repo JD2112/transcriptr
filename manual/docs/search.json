@@ -1,0 +1,331 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "TranscriptR manual",
+    "section": "",
+    "text": "e-mail: methylr@googlegroups.com\n\nAcknowledgements\nBioinformatics,\nCore Facility,\nFaculty of Medicine and Health Sciences,\nLinköping University,\nLinköping,\nSweden\nWe would like to acknowledge the Core Facility, Faculty of Medicine and Health Sciences, Linköping University, Linköping, Sweden and Clinical Genomics Linköping, Science for Life Laboratory, Sweden for their support.\nDISCLAIMER:  All packages used in methylR* are publicly available and open-source license. We have modified the source as required for methylR. Venn and UpSet plots inspired by the intervene package (Khan and Mathelier 2017), we modified as required for methylR.*\n\n\n\n\nKhan, Aziz, and Anthony Mathelier. 2017. “Intervene: A Tool for Intersection and Visualization of Multiple Gene or Genomic Region Sets.” BMC Bioinformatics 18 (1): 1–8.\n\n\n\n\nCopyright © 2023-2024. Massimiliano Volpe and Jyotirmoy Das."
+  },
+  {
+    "objectID": "intro.html#requirements",
+    "href": "intro.html#requirements",
+    "title": "TranscriptR: Transcriptome Data Analysis Pipeline",
+    "section": "Requirements",
+    "text": "Requirements\n\nLinuxOS - (AMD64)\n\nUbuntu 20.04LTS\nDocker (version 20.10.18)\nweb-browser: Firefox (version 105)\n\nMacOS - (AMD64)\n\nMonterey (version 12.5.1)\nDocker (version 20.10.17)\nDocker Desktop (version 4.12.0)\nweb-browsers:\n\nGoogle Chrome (version 106),\nFirefox (version 106),\nApple Safari (version 15.6.1)\n\n\nWindowsOS - (AMD64)\n\nWindows 10 (version 21H2)\nDocker (version 20.10.20)\nDocker Desktop (version 4.13.0)\nWSL2 - (Ubuntu 20.04LTS)\nweb-browsers:\n\nFirefox (version 106),\nGoogle Chrome (version 107),\nMicrosoft Edge (version 106).\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nTranscriptR cannot run on ARM64 chipset architecture."
+  },
+  {
+    "objectID": "intro.html#how-to-use",
+    "href": "intro.html#how-to-use",
+    "title": "TranscriptR: Transcriptome Data Analysis Pipeline",
+    "section": "How to Use",
+    "text": "How to Use\n\nLocal use\nTranscriptR is packed into docker container that is available online. Please check the github link to run the container from your local computer.\n\n\n\n\n\n\n\nImportant\n\n\n\nPlease remember, after start analyzing one transcriptome analysis run, the ‘submit’ button will be dectivated until refreshing the session. In this case, the user needs to upload the data again for another analysis.\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote: If you want to run with the test data, Please download the testdata from Coming soon…"
+  },
+  {
+    "objectID": "quality.html#how-to-use",
+    "href": "quality.html#how-to-use",
+    "title": "1  Quality Analysis",
+    "section": "1.1 How to use",
+    "text": "1.1 How to use\nDetails are provided below -\n\n1.1.1 Data upload\nThe current version can handle the upload of single fastq files. You can select all of the fastq. User can browse through the folder to upload data or drag & drop files directly.\n\n\n\n\n\n\nNote\n\n\n\nPlease note it will take some time to upload the data and once the data uploaded, the list will be displayed in the browser (see Figure 1.2)\n\n\n\n\n\nFigure 1.2: Upload fastq"
+  },
+  {
+    "objectID": "quality.html#parameters-configurations",
+    "href": "quality.html#parameters-configurations",
+    "title": "1  Quality Analysis",
+    "section": "1.2 Parameters configurations",
+    "text": "1.2 Parameters configurations\nWe provided the JSON file (see Figure 1.3) to the user if they want to use the transcriptr snakemake pipeline by their own. Please download a copy of your JSON file.\n\n\n\nFigure 1.3: JSON file for quality analysis"
+  },
+  {
+    "objectID": "quality.html#run-and-visualization",
+    "href": "quality.html#run-and-visualization",
+    "title": "1  Quality Analysis",
+    "section": "1.3 Run and Visualization",
+    "text": "1.3 Run and Visualization\n\n1.3.1 Run Quality Analysis\nOnce all fastq (fastq.gz files only!) files are uploaded on the browser, please check the names and click ‘Run Quality Analysis’ to submit the job.\n\n\n\n\n\n\nImportant\n\n\n\nPlease remember, the fastqc will use 12 cores in the background to estimate the quality of the data. Make sure the computer has at least 16 cores.\n\n\n\n\n1.3.2 Visualization\n\n1.3.2.1 Run logs\nWe provided ‘shiny logs’ box Figure 1.4 to show the user the background run. It might be possible after submitting the job, the browser hangs and cannot be reloaded. Please wait till the background job finished. The sucess/failure in the run will appear in the ‘shiny logs’ box.\n\n\n\nFigure 1.4: shiny logs\n\n\n\n\n1.3.2.2 Result - MultiQC\nOnce the run sucessfully finished, the user can view the MultiQC result in the MultiQC result box. Please click to ‘show MultiQC’.\n\n\n\nFigure 1.5: MultiQC result\n\n\n\n\n\n\n\n\nNote\n\n\n\nIf MultiQC result box cannot display any result (see Figure 1.5), please reload the browser and check again. Make sure all jobs finished successfully.\n\n\n\n\n\n\n\n\nTip\n\n\n\nCheck the github repository for sample data file. You may download the Sample_sheet.csv file and use as a template for your sample_sheet."
+  },
+  {
+    "objectID": "transcriptome.html#data-input-and-parameters-settings",
+    "href": "transcriptome.html#data-input-and-parameters-settings",
+    "title": "2  Transcriptome Analysis",
+    "section": "2.1 Data input and parameters settings",
+    "text": "2.1 Data input and parameters settings\nIn this section, for better user accessibility, we divided this into 3 sub-parts -\n\n\n\nFigure 2.1: Fastq upload\n\n\n\n2.1.1 Fastq upload\n\nIf the user performed the Quality analysis (Chapter 1) already, they don’t need to upload the data again, they can use ‘continue from Quality Analysis’.\nThe user can also upload the data directly by selecting ‘upload data’ option.\n\n\n\n\n\n\n\nNote\n\n\n\nPlease note it will take some time to upload the data and once the data uploaded, the list will be displayed in the Data file viewer (see Figure 1.2 Figure 2.1).\n\n\n\n\n2.1.2 Sample info\nIn the Sample info section, users need to upload the ‘sample sheet/meta data file’ that includes atleast two columns (‘sample name’ and ‘sample condition’) (see Figure 2.2). For Differential Gene Expression (DEG) analysis, user need to provide the comparison conditions as showed in Figure 2.2.\n\n\n\nFigure 2.2: Sample information\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nAfter uploading the files, all files will be appear in the browser window (see Figure 2.2), please check and verify everything is properly uploaded.\nUser can upload any file format, such as text (.txt), CSV (.csv), Excel (.xls, .xlsx).\n\n\n\n\n\n2.1.3 Parameters settings\nSelecting the right parameters for the analysis is the key to the successful run of TranscriptR. The parameters settings (see Figure 2.3) are sub-divided for better understanding and view -\n\n\n\nFigure 2.3: Parameters settings\n\n\n\n2.1.3.1 Species and database\n\nSelect Species: The user need to select the species from the species list. Here we provided more than 350 species presented in the ‘biomart’ for the analysis. Note that all other species than ‘Human’, ‘Mouse’ and ‘Rat’ come with the scientific name as provided in ‘Ensembl’. The default is ‘Human’.\nSelect release version: The default is latest. The user can choose other database version as provided by Ensembl. Please provide the number only in the ‘box’, example, if you want to use version ‘109’, provide only ‘109’ (see Figure 2.4).\n\n\n\n\nFigure 2.4: Parameters: Species and database\n\n\n\n\n2.1.3.2 Alignment parameters\n\nChoose R1/R2 suffix: For paired-end analysis, please provide the R1 and R2 suffixes.\nOverhang: The default is 100.\nChoose sequence type: Choose whether the sequence is stranded, unstranded or reverse-stranded.\nChoose ID: Select display ID for gene id or transcriptome id. Default is gene ID.\n\n\n\n\nFigure 2.5: Parameters: Alignment\n\n\n\n\n2.1.3.3 DEG filtration\nAs ‘TranscriptR’ provides the differential gene expression (DEG) analysis result, user need to provide the required filtration for the analysis.\n1. Enter CPM value: The default is 1.\n2. Number of samples: The default is 3.\n3. Choose logFC value: The default is 1.5.\n4. Choose FDR value: The default is 0.05.\n\n\n\nFigure 2.6: Parameters: DEF filtration"
+  },
+  {
+    "objectID": "transcriptome.html#visualization-multiqc",
+    "href": "transcriptome.html#visualization-multiqc",
+    "title": "2  Transcriptome Analysis",
+    "section": "2.2 Visualization: MultiQC",
+    "text": "2.2 Visualization: MultiQC\nPlease see Chapter 1 for details."
+  },
+  {
+    "objectID": "transcriptome.html#visualization-plots",
+    "href": "transcriptome.html#visualization-plots",
+    "title": "2  Transcriptome Analysis",
+    "section": "2.3 Visualization: Plots",
+    "text": "2.3 Visualization: Plots\nSince TranscriptR provides differential gene expression (DEG) analysis by three different pipelines, namely EdgeR, DESeq2 and limma, all plots are divided into these three results.\n\n\n\nFigure 2.7: Visualization: plots\n\n\n\n\n\n\n\n\nNote\n\n\n\n\nThe plots will be displayed as Figure 2.7 in a PDF format. All of these can be downloaded when the user download the results from the ‘Download results’ tab.\nPlease note, if the plots are not loaded after the job completed and clicked on ‘show BoxPlot/Show MDS Plot’ button, refresh the browser and it will appear in the box."
+  },
+  {
+    "objectID": "transcriptome.html#visualization-deg-table",
+    "href": "transcriptome.html#visualization-deg-table",
+    "title": "2  Transcriptome Analysis",
+    "section": "2.4 Visualization: DEG table",
+    "text": "2.4 Visualization: DEG table\nWe provided differential gene expression (DEG) analysis result as a table format (see Figure 2.8). To display the table, user need to -   1. choose the analysis type (as TranscriptR provides three different pipeline results), such as EdgeR analysis, DESeq analysis or limma analysis and\n2. select DEG table from the drop-down list. The list is generated from the information provided by the comparison table.\n\n\n\nFigure 2.8: Visualization: DEG table\n\n\nIn the DEG table, we added information for -\n1. ID: ENSEMBL gene ID or transcript ID\n2. logFC: log fold change value for each ID. Red color shows the higher expression and blue represents the low expression (same corresponds to gene symbol).\n3. logCPM: log CPM value provided\n4. P_value: p-value provided for each ID.\n5. FDR: FDR provided for each ID.\n6. Gene Symbol: official gene symbol added in the table. Coloured according to the logFC value.\n7. Ensembl link: we added external link for ensembl database to view further information on the ID.\n8. GeneCard link: we added genecard database link for more information on the ID.\n9. Gene details: Clicking on ’show details button will result to display the boxplot of CPM data for each group (see the note below) and the gene information from HGNC (human only).\n10. Chr: Chromosomal location\n11. Start: Start position of the chromosome\n12. End: End position of the chromosome\n13. Strand: chromosomal strand\n14. Types: types of genes/transcript.\n\n\n\n\n\n\nImportant\n\n\n\nPlease note, we already mentioned that the user may need to reload/refresh the browser after successful run to visualize the results. In this process, the uploaded data table (mentioned in Section 2.1.2) will be lost. To view the CPM boxplot, the user need the upload the sample information data tables again and click on ‘Show details’ on the DEG table."
+  },
+  {
+    "objectID": "transcriptome.html#visualization-intersectde",
+    "href": "transcriptome.html#visualization-intersectde",
+    "title": "2  Transcriptome Analysis",
+    "section": "2.5 Visualization: InterSectDE",
+    "text": "2.5 Visualization: InterSectDE\nFurther, we implemented intersection function for the above-mentioned three types of DEG analyses in the ’InterSectDEG tab.\n1. To visualize the result, the user needs to select the same result table (eg. groupAvsgroupB) for all three analyses. Please remember selecting different table may results incorrect table and figure.\n2. After selecting same result table files from all three analyses, click to ‘show intersect result’. Both intersect table and Venn diagram will appear in respective boxes.\n3. To download the full table, check to show all** entries (see Figure 2.9).\n4. The Venn diagram can be downloaded in different file format with respective height, width or resolution (see Figure 2.9).\n\n\n\nFigure 2.9: InterSect result\n\n\nBelow is the details of ‘InterSect DEG’ table result (see Figure 2.9) -\n1. id\n2. name\n3. chr\n4. start\n5. end\n6. strand\n7. biotype\n8. edgeR_logFC\n9. edgeR_logCPM\n10. edgeR_PValue\n11. edgeR_FDR\n12. edgeR_baseMean\n13. DESeq2_log2FoldChange\n14. DESeq2_lfcSE\n15. DESeq2_stat\n16. DESeq2_pvalue\n17. DESeq2_padj\n18. limma_logFC\n19. limma_AveExpr\n20. limma_t\n21. limma_P.Value\n22. limma_adj.P.Val\n23. limma_B"
+  },
+  {
+    "objectID": "transcriptome.html#session-logs",
+    "href": "transcriptome.html#session-logs",
+    "title": "2  Transcriptome Analysis",
+    "section": "2.6 Session & logs",
+    "text": "2.6 Session & logs\nWe included the next tab to show ‘GTF information’, ‘Reference information’, ‘Shiny logs’ and ‘Session information’ for the pipeline run."
+  },
+  {
+    "objectID": "transcriptome.html#download-results",
+    "href": "transcriptome.html#download-results",
+    "title": "2  Transcriptome Analysis",
+    "section": "2.7 Download Results",
+    "text": "2.7 Download Results\nIn the ‘Download results’ tab, user can download all results performed and saved during the Transcriptome Analysis run in a zip folder. This also contains the snakemake and session logs."
+  },
+  {
+    "objectID": "igv.html#parameters-and-genome-view",
+    "href": "igv.html#parameters-and-genome-view",
+    "title": "3  Integrative Genome Viewer",
+    "section": "3.1 Parameters and Genome View",
+    "text": "3.1 Parameters and Genome View\n\nPlease select the ‘bedgraph’ file from the drop-down list.\n‘Run IGV’ and it will create the chromosome map on the side box, ‘genome view’.\nIn the ‘Genome View’ box, select the chromosome number in interest.\nClick on ‘Add as BedGraph’ to view the result on the chromosome level.\nUse cursor to zoom in/out on the location/region.\n\n\n\n\nFigure 3.1: Genome View"
+  },
+  {
+    "objectID": "Multi_D_Analysis.html#how-to-use",
+    "href": "Multi_D_Analysis.html#how-to-use",
+    "title": "4  Dimensional Analysis",
+    "section": "4.1 How to use",
+    "text": "4.1 How to use\nFor both analysis, user need to provide a TEXT (tab-delimited) file with numeric values, e.g. the output normalized table from methylysis, i.e. the normalized value table. However the user can use similar tables for the analysis.\n\n4.1.1 Data Upload\n\nSelect the text file (tab-delimited file) and upload it.\nUser can choose the option to use number of variables from the uploaded data file.\nOn the right tab, under “MDS plot”, user will find the button to “Run MDS Analysis”\nNext tab is designed for the PCA plot and here user can have an input of text file to highlight the group."
+  },
+  {
+    "objectID": "Multi_D_Analysis.html#analysis-result",
+    "href": "Multi_D_Analysis.html#analysis-result",
+    "title": "4  Dimensional Analysis",
+    "section": "4.2 Analysis result",
+    "text": "4.2 Analysis result\n\n4.2.1 MDS plot\n\nAfter the click on “Run MDS Analysis”, the program will take some time to generate the plot and will appear as soon the run finishes. The zoom bar can be used to zoom in/out the plot.\nThe generated figure can be downloaded in different format, vector graphics support - PDF and SVG or PNG and TIFF. User can download all different options for the same figure.\n\n\n\n\n\nMDS plot\n\n\n\n\n4.2.2 PCA plot\n\nThe plot will be generated after computing the PCA, “Run PCA” with the group colors and legend.\nThe generated plot is dynamic and positional details with the group name can be seen with mouse hovering.\nThe plot is generated using the plotly application, it can zoom in/out, save figure as PNG format, and do all other available functionality for plotly figures.\nUser can also download the dynamic figure as html file.\nTo generate the PCA plot one additional TEXT file is needed. This single-column file must have “group” as header and should store the sample group in the same order as you have in the Sample_Group column of the Sample_shee.csv file. Please find here an example of this file that you can use with the test data provided with this distribution.\n\n\n\n\n\n\n\n\nNote\n\n\n\nPlease note that, the single column with header “group” should be supplied in this file. Match the column names of the variable data file with the group.\nExample: If in the variable data file, the column names are - sampleA1 sampleA2 sampleA3 sampleB1 sampleB2 sampleB3 the group text file should be like this - group\nA\nA\nA\nB\nB\nB\nFor more, please see the test data files.\n\n\n\n\n\nPrincipal Component Analysis plot"
+  },
+  {
+    "objectID": "Multi_D_Analysis.html#r-packages-used",
+    "href": "Multi_D_Analysis.html#r-packages-used",
+    "title": "4  Dimensional Analysis",
+    "section": "4.3 R packages used",
+    "text": "4.3 R packages used\n\nFactoMineR\nfactoExtra\nexplor\n\n\n\n\n\nLacher, DA. 1987. “Interpretation of Laboratory Results Using Multidimensional Scaling and Principal Component Analysis.” Annals of Clinical & Laboratory Science 17 (6): 412–17.\n\n\nLacher, David A, and ED O’Donnell. 1988. “Comparison of Multidimensional Scaling and Principal Component Analysis of Interspecific Variation in Bacteria.” Annals of Clinical & Laboratory Science 18 (6): 455–62.\n\n\nMugavin, Marie E. 2008. “Multidimensional Scaling: A Brief Overview.” Nursing Research 57 (1): 64–68."
+  },
+  {
+    "objectID": "Volcano_plot.html#how-to-use",
+    "href": "Volcano_plot.html#how-to-use",
+    "title": "5  Volcano plot",
+    "section": "5.1 How to use",
+    "text": "5.1 How to use\n\n5.1.1 Data upload & Parameters setup\n\n5.1.1.1 Data upload\n\nUser needs to upload a Tab (.txt) file with adjusted p-values and logFC values. At present, user can use the DMCs data file directly generated from the main analysis (see ?sec-methylysis).\nTo setup the adjusted p-value, user can change the cut-off. Default is setup to 0.01.\nLogFC cut-off can also be changed as per user requirement. Default is setup to 0.3.\nAfter the file upload and setting up the cut-off for adjusted p-value and logFC, click the “Run Analysis” button."
+  },
+  {
+    "objectID": "Volcano_plot.html#analysis-result",
+    "href": "Volcano_plot.html#analysis-result",
+    "title": "5  Volcano plot",
+    "section": "5.2 Analysis result",
+    "text": "5.2 Analysis result\n\n5.2.1 Volcano plot\n\nThe figure will generated as soon as the computation finishes. However, it might takes some more time depending on the size of the file. If user upload a file with 750K rows, it will take 3-5 minutes to generate the figure (See Appendix D). It is noteworthy that this big data in volcano plot, may be unstable in the browser.\nUser can download the plot as figure (same as before) and the dynamic figure as a html file.\n\n\n\n\n\n\n\n\nNote\n\n\n\nPlease note displaying of the volcano plot will take some time, even after the warning “generating plot, please wait…” disappears. Please wait for 1-2 minutes to get the visualization. The same may happen to the volcano plot data table.\n\n\n\n\n\nVolcano plot\n\n\n\n\n\n\n\n\nTip\n\n\n\nVolcano plot figure colors annotation- Significant & Fold Change, Significant , FoldChange or NotSignificant \n\n\n\nOn the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis result (See ?sec-methylysis).\n\n\n\n5.2.2 Volcano data\nOne data table will be generated using the input data and will have a column marked with Significant & Fold Change, Significant , FoldChange or NotSignificant depends on the adjusted p-value and logFC cut-off.\n\n\n\n\nVolcano data table"
+  },
+  {
+    "objectID": "Volcano_plot.html#r-packages-used",
+    "href": "Volcano_plot.html#r-packages-used",
+    "title": "5  Volcano plot",
+    "section": "5.3 R packages used",
+    "text": "5.3 R packages used\n\nplotly"
+  },
+  {
+    "objectID": "heatmap.html",
+    "href": "heatmap.html",
+    "title": "6  HeatMap",
+    "section": "",
+    "text": "Copyright © 2023-2024. Massimiliano Volpe and Jyotirmoy Das."
+  },
+  {
+    "objectID": "assco.html",
+    "href": "assco.html",
+    "title": "Enrichment Analysis",
+    "section": "",
+    "text": "Copyright © 2023-2024. Massimiliano Volpe and Jyotirmoy Das."
+  },
+  {
+    "objectID": "go_analysis.html#how-to-use",
+    "href": "go_analysis.html#how-to-use",
+    "title": "7  Gene Ontology (GO) enrichment analysis",
+    "section": "7.1 How to use",
+    "text": "7.1 How to use\n\n7.1.1 Data upload & Parameters setup\n\n7.1.1.1 Parameters setup\n\nChoose GO analysis type: user can choose to do the analysis whether over-representation analysis or the gene-set enrichment analysis (GSEA) from the drop-down menu.\nSelect the adjusted p-value: user can also choose the adjusted p-value for the analysis. Default is set to 0.05.\nSelect the adjusted q-value: q-value or the FDR can also be adjusted as per user’s requirement. Default is 0.05.\nSelect number of ontology classes: to see the number of ontologies on the graph, user can setup different number. Default is 20.\nSelect P-value adjustment method As per clusterProfiler, we set different p-value adjustment methods, Benjamini-Hochberg, Benjamini-Yeketuli, Bonferroni, Holm, Hommel, Hochberg, FDR or none. Default is Benjamini-Hochberg.\nSelect ontology class: As defined in GO classification, we included all three ontology classes which user can select to show the plot.\n\n\n\n7.1.1.2 Data upload\nAt present, user can upload the DMC data produced by the main analysis (see ?sec-methylysis ) directly. The input file should be in a text (tab-delimited) format."
+  },
+  {
+    "objectID": "go_analysis.html#analysis-result",
+    "href": "go_analysis.html#analysis-result",
+    "title": "7  Gene Ontology (GO) enrichment analysis",
+    "section": "7.2 Analysis result",
+    "text": "7.2 Analysis result\n\nOn the right tab, the analysis result the plot will be generated as soon as computation finished. The plot is generated with plotly and it will be dynamic in nature as before. User can download the plot as PNG format, zoom in/out or do other stuffs as per plotly figures. The dynamic figure can also be downloaded as a html file.\n\n\n\n\n\n\n\nNote\n\n\n\n\nAll horizontal bars (Gene Ontology terms) are clickable and will open a new tab with the respective gene onlogy detail from the AmiGO database.\nEach interactive figure can be downloaded as HTML file and PNG file. The HTML file is clickable and each gene ontology term can open the respective detail from AmiGO database.\n\n\n\n\n7.2.1 Biological processes\n\n\n\nGene Ontology - Biological Processes\n\n\n\n\n7.2.2 Cellular component\n\n\n\nGene Ontology - Cellular Component\n\n\n\n\n7.2.3 Molecular function\n\n\n\nGene Ontology - Molecular Function\n\n\n\nOn the second right tab, user will get the result as a table format. It might takes some time to compute result and generates the table. User can download the result as an Excel file from the current page or the entire result.\n\n\n\n\n\nGene Ontology data table\n\n\n\n\n\n\n\n\nWarning\n\n\n\n\nIn the gene onlogy enrichment table, the GO ID is clickable and will open the respective GO class from the AmiGO database. However, this feature is only avaible on the browser, if the user download the table, there is no such link to check the GO source.\nThe GO enrichment table will download the full result (i.e., all GO classes, Cellular Component, Molecular Function and Biological Processes), user donot need to run the table again for different GO classes."
+  },
+  {
+    "objectID": "go_analysis.html#r-packages-used",
+    "href": "go_analysis.html#r-packages-used",
+    "title": "7  Gene Ontology (GO) enrichment analysis",
+    "section": "7.3 R packages used",
+    "text": "7.3 R packages used\n\nclusterProfiler\n\n\n\n\n\nWu, Tianzhi, Erqiang Hu, Shuangbin Xu, Meijun Chen, Pingfan Guo, Zehan Dai, Tingze Feng, et al. 2021. “clusterProfiler 4.0: A Universal Enrichment Tool for Interpreting Omics Data.” The Innovation 2 (3): 100141.\n\n\nYu, Guangchuang, Li-Gen Wang, Yanyan Han, and Qing-Yu He. 2012. “clusterProfiler: An r Package for Comparing Biological Themes Among Gene Clusters.” Omics: A Journal of Integrative Biology 16 (5): 284–87."
+  },
+  {
+    "objectID": "pathway_analysis.html#how-to-use",
+    "href": "pathway_analysis.html#how-to-use",
+    "title": "8  Pathway enrichment analysis",
+    "section": "8.1 How to use",
+    "text": "8.1 How to use\n\n8.1.1 Data upload & Parameters setup\n\n8.1.1.1 Data upload\nUser can upload the direct output result from the main analysis. At present, user can upload the DMC data produced by the main analysis (See ?sec-methylysis). The input file should be in a text (tab-delimited) format.\n\n\n8.1.1.2 Parameters setup\n\nChoose pathway analysis type: Please select pathway analysis type from the drop-down list\n\nOver representation analysis (ORA);\nGene set enrichment analysis (GSEA); By default, the tool will use the over representation analysis.\n\nChoose pathway database: user can choose to use different pathway database, namely\n\nReactome,\nKEGG or\nWikipathways.\n\nChoose number of pathways: Please select number of pathways for graphical display. The default is Top 20 pathways. The Top 20 enriched pathways is selected based on the adjusted P-values.\n\n\n\n\n\n\n\nTip\n\n\n\n\nIf the analysis result does not get 20 pathways (as default setup) or the number selected by the user, then the plot will only shows the result with less number of pathways. User can change the parameters to see if they can get more number of enriched pathways.\nIf there is no enriched pathways with selected parameters, the figure tab may show warning like “check the logs or contact the author” , please change the parameters and run again the analysis. If you are experiencing trouble, donot hesitate to contact us.\n\n\n\n\nSelect P-value cut-off for correction: The default value for p-value correction is set to 0.05. User can set their own cut-off values.\nSelect P-value correction method: The default method for adjustment of P-value is the Benjamini-Hochberg (BH) correction method. User can choose different method using the drop-down list:\n\nBenjamini-Hochberg (BH)\nBenjamini-Yeketuli (BY)\nBonferroni\nHolm\nHommel\nHochberg\nFDR\nnone\n\nUpload data file: The input file should be in a text (tab-delimited) format. The user can upload the ChAMP result file (DMC file) directly for the analysis."
+  },
+  {
+    "objectID": "pathway_analysis.html#analysis-result",
+    "href": "pathway_analysis.html#analysis-result",
+    "title": "8  Pathway enrichment analysis",
+    "section": "8.2 Analysis result",
+    "text": "8.2 Analysis result\n\nPathway enrichment plot: after “Run Analysis”, the plot will be generated as soon as computation has been done. Depends on the size of data, it might take few minutes (See Appendix D). At present the plot will be generated as a dot plot which is also a product of plotly, hence dynamic and have similar functionalities with mouse pointing. At present, with the mouse hover over, each dot will show the pathway name, count of genes from the input list for that particular pathway, the corrected p-value and gene ratio. The color scale bar shows in the legend. User can download the figure as PNG as described above and the dynamic figure as a html file.\n\n\n\n\n\n\n\n\nNote\n\n\n\n\nAll dots (pathway enrichment terms) are clickable and will open a new tab with the respective pathway detail from the selected database (Reactome/KEGG/Wiki).\nThe interactive figure can be downloaded as HTML file and PNG file. The HTML file is clickable and each pathway enrichment term can open the respective database for pathway details.\n\n\n\n\n\n\nPathway Enrichment Plot\n\n\n\nPathway enrichment table: with the same input file and parameter setup, user can also get the result as an excel file (current page as well as full table).\n\n\n\n\n\nPathway Enrichment Table\n\n\n\n\n\n\n\n\nWarning\n\n\n\nIn the pathway enrichment table, the pathway ID is clickable and will open the respective pathway from the database. However, this feature is only avaible on the browser, if the user download the table, there is no such link to check the pathway source."
+  },
+  {
+    "objectID": "pathway_analysis.html#r-packages-used",
+    "href": "pathway_analysis.html#r-packages-used",
+    "title": "8  Pathway enrichment analysis",
+    "section": "8.3 R packages used",
+    "text": "8.3 R packages used\n\nclusterProfiler\n\n\n\n\n\nGillespie, Marc, Bijay Jassal, Ralf Stephan, Marija Milacic, Karen Rothfels, Andrea Senff-Ribeiro, Johannes Griss, et al. 2021. “The reactome pathway knowledgebase 2022.” Nucleic Acids Research 50 (D1): D687–92. https://doi.org/10.1093/nar/gkab1028.\n\n\nKanehisa, Minoru, and Susumu Goto. 2000. “KEGG: Kyoto Encyclopedia of Genes and Genomes.” Nucleic Acids Research 28 (1): 27–30. https://doi.org/10.1093/nar/28.1.27.\n\n\nMartens, Marvin, Ammar Ammar, Anders Riutta, Andra Waagmeester, Denise N Slenter, Kristina Hanspers, Ryan A. Miller, et al. 2020. “WikiPathways: connecting communities.” Nucleic Acids Research 49 (D1): D613–21. https://doi.org/10.1093/nar/gkaa1024.\n\n\nPico, Thomas AND van Iersel, Alexander R AND Kelder. 2008. “WikiPathways: Pathway Editing for the People.” PLOS Biology 6 (7): 1–4. https://doi.org/10.1371/journal.pbio.0060184."
+  },
+  {
+    "objectID": "setana.html",
+    "href": "setana.html",
+    "title": "Set Analysis",
+    "section": "",
+    "text": "Copyright © 2023-2024. Massimiliano Volpe and Jyotirmoy Das."
+  },
+  {
+    "objectID": "venn_analysis.html#how-to-use",
+    "href": "venn_analysis.html#how-to-use",
+    "title": "9  Venn analysis",
+    "section": "9.1 How to use",
+    "text": "9.1 How to use\nBelow given the details for the use of Venn analysis module.\n\n9.1.1 Data upload & Parameters setup\n\n9.1.1.1 Parameters setup\n\nUpload: Data can be uploaded as Tab (.txt) or Comma (.csv) or Semicolon (.csv but with ;) separated format. A demo test dataset is running by default and it is available for download by clicking on the “example data” button.\nSettings: Under settings, there are multiple options to display the plot -\n\nSelect sets: will select sets from the uploaded data. User can remove the set as they need.\nVenn type: different type of venn diagram can be selected from the drop-down menu\n\n\nChow-Ruskey\nClassical\nEdwards\nSquare\nBattle\n\nThe diagram can be weighted or Eular.\n\nBorder line width: border line can be drawn with the slider option.\nBorder line type: border line type can be selected from the drop-down menu.\nZoom in/out Venn diagram: select the zoom option on the slide bar.\n\nFont & Color: multiple ooptions are included for font and colours -\n\nSelect color theme: Colour theme can be chosen from the drop-down menu.\nLabel font size: Change the font size of the Label.\nNumber font size: Change the font size of the number."
+  },
+  {
+    "objectID": "venn_analysis.html#results",
+    "href": "venn_analysis.html#results",
+    "title": "9  Venn analysis",
+    "section": "9.2 Results",
+    "text": "9.2 Results\nUser can download the figure in different format, PDF, PNG, SVG or TIFF.\n\n\n\nVenn Result"
+  },
+  {
+    "objectID": "venn_analysis.html#r-packages-used",
+    "href": "venn_analysis.html#r-packages-used",
+    "title": "9  Venn analysis",
+    "section": "9.3 R packages used",
+    "text": "9.3 R packages used\n\nVennerable\nreadr\nintervene\n\n\n\n\n\nKhan, Aziz, and Anthony Mathelier. 2017. “Intervene: A Tool for Intersection and Visualization of Multiple Gene or Genomic Region Sets.” BMC Bioinformatics 18 (1): 1–8."
+  },
+  {
+    "objectID": "upset_plot.html#how-to-use",
+    "href": "upset_plot.html#how-to-use",
+    "title": "10  UpSet Plots",
+    "section": "10.1 How to use",
+    "text": "10.1 How to use\n\n10.1.1 Data upload\n\nUpload: Data can be uploaded as Tab (.txt) or Comma (.csv) or Semicolon (.csv but with ;) separated format. Please look into the example data file. A demo test dataset is running by default and it is available for download by clicking on the “List example data” button. UpSet module takes three types of inputs.\n\nList type data: List data is a correctly formatted csv/text file, with lists of names. Each column represents a set, and each row represents an element (names/gene/SNPs). Header names (first row) will be used as set names.\nBinary type data: In the binary input file each column represents a set, and each row represents an element. If a names is in the set then it is represented as a 1, else it is represented as a 0.\nCombination/expression type data: Combination/expression type data is the possible combinations of set intersections.\n\n\n\n\n\n\n\n\nNote\n\n\n\nPLEASE NOTE: “OR enter set combinations/expression” has the priority over “Upload file”. If you use the “set combinations”, and then want to “upload file”, please remove the “set combination” from the input box. To see how the “OR enter set combinations/expression” works, please use the example below the box (not the list/binary example file).\n\n\n\n\n10.1.2 Parameters setup\n\nSettings: there are multiple options to display the plot -\n\nselect sets: select the dataset from the input data.\nNumber of intersections to show: Please add the number to calculate the intersection.\nOrder intersections by: From the drop-down menu, please select the intersection order -\n\n\nFrequency\ndegree\n\n\nIncreasing/Decreasing: Please select the order of the frequency/degree.\nScale intersections: Please select the scale intersection from the drop-down menu -\n\n\nOriginal,\nlog10,\nlog2\n\n\nscale sets: Please select the scale intersection from the drop-down menu -\n\n\nOriginal,\nlog10,\nlog2\n\n\nPlot width: select the plot width from the slider.\nPlot height: select the plot height from the slider.\nBar matrix ratio: select the bar matrix ratio from the slider.\nAngle of number on the bar: slider to change the angle of the numbers on the bar.\nConnecting point size: change the connecting point size .\nConnecting line size: change the connecting line size.\n\nFont & Color: multiple options are included for font and colours -\n\nSelect main bar colour: Change colour of the bars of intersection size.\nSelect set bar colour: Change the set bar colour on the side (set).\nFont size of intersection size label: Change the font size of the intersection size.\nSet size label font: Change the font size of the set label.\nSet size ticks font: Change the tick size (numerical value) on the set size bar.\nIntersection size numbers font size: Change the tick size (numerical value) on the intersection set bar.\nSet names font size: Change the font size for the set names."
+  },
+  {
+    "objectID": "upset_plot.html#result",
+    "href": "upset_plot.html#result",
+    "title": "10  UpSet Plots",
+    "section": "10.2 Result",
+    "text": "10.2 Result\nUser can download the figure in different format, PDF, PNG, SVG or TIFF.\n\n\n\nUpSet plot"
+  },
+  {
+    "objectID": "upset_plot.html#r-packages-used",
+    "href": "upset_plot.html#r-packages-used",
+    "title": "10  UpSet Plots",
+    "section": "10.3 R packages used",
+    "text": "10.3 R packages used\n\nUpSetR\nintervene\n\n\n\n\n\nKhan, Aziz, and Anthony Mathelier. 2017. “Intervene: A Tool for Intersection and Visualization of Multiple Gene or Genomic Region Sets.” BMC Bioinformatics 18 (1): 1–8."
+  },
+  {
+    "objectID": "appendix1.html#methods",
+    "href": "appendix1.html#methods",
+    "title": "Appendix A — Create the input zip file for methylR",
+    "section": "A.1 Methods",
+    "text": "A.1 Methods\nWe will describe three methods to create a zip file:\n\nWindows zip utility\n7-zip (https://www.7-zip.org/)\nBash script (https://www.github.com/)\nCommand line (Ubuntu Linux)\n\n\nA.1.1 Description\nUsers need to collect the Sample_sheet.csv file and all the idat files belonging to the analysis as they come from the sequencer. All the methods require to create a New folder (you can give any name, for example testData) and move the Sample_sheet.csv file inside. Enter the testData directory and then create a folder named idat, then move all the directories generated with the analysis and containing the idat files (green and red) into this idat folder. In the end you will get this kind of organisation:\n\n\n\nHow to create zip: Figure 1"
+  },
+  {
+    "objectID": "appendix1.html#windows-zip-utility-windows-7-8-10-11",
+    "href": "appendix1.html#windows-zip-utility-windows-7-8-10-11",
+    "title": "Appendix A — Create the input zip file for methylR",
+    "section": "A.2 1. Windows zip utility (Windows 7, 8, 10, 11)",
+    "text": "A.2 1. Windows zip utility (Windows 7, 8, 10, 11)\n\nRight-click on the New folder you created with the file structure discussed above.\nThen click Send to > Compressed (zipped) folder\n\n\n\n\nHow to create zip: Figure 2"
+  },
+  {
+    "objectID": "appendix1.html#zip-utility-windows-7-8-10-11",
+    "href": "appendix1.html#zip-utility-windows-7-8-10-11",
+    "title": "Appendix A — Create the input zip file for methylR",
+    "section": "A.3 2. 7-zip utility (Windows 7, 8, 10, 11)",
+    "text": "A.3 2. 7-zip utility (Windows 7, 8, 10, 11)\n7-Zip is a free open-source file archiver with a high compression ratio. You can use 7-Zip on any computer, including a computer in a commercial organization. You don’t need to register or pay for 7-Zip. You can download 7-zip for Windows at (https://www.7-zip.org/). If you have installed 7-zip and want to create the input file for methylR you just:\n\nRight-click on the New folder you created with the file structure discussed above.\nThen click 7-Zip > Add to archive…\n\n\n\n\nHow to create zip: Figure 3"
+  },
+  {
+    "objectID": "appendix1.html#bash-script-macoslinux",
+    "href": "appendix1.html#bash-script-macoslinux",
+    "title": "Appendix A — Create the input zip file for methylR",
+    "section": "A.4 3. Bash script (MacOS/Linux)",
+    "text": "A.4 3. Bash script (MacOS/Linux)\nWe provide an automathized bash script that is able to create the file structure discussed above for you.\n\nA.4.1 Linux:\nDepending on which interface you use (e.g., GNOME, KDE, Xfce), the terminal will be accessed differently. We recommend you check Ubuntu’s Using the Terminal page for the several ways to access the terminal.\n\nClick Start and search for “Terminal”. Alternatively, press Alt + Ctrl + t and type “cmd” then click OK.\nThen type the following command:\n\ncd /path/to/data/\nsh script.sh\n\n\nA.4.2 MacOS:\n\nYou can access the terminal by pressing ⌘ + space on your keyboard and searching for “terminal”.\nThen type the following command and press Enter:\n\ncd /path/to/data/\nsh script.sh"
+  },
+  {
+    "objectID": "appendix1.html#command-line-linux",
+    "href": "appendix1.html#command-line-linux",
+    "title": "Appendix A — Create the input zip file for methylR",
+    "section": "A.5 4. Command line (Linux)",
+    "text": "A.5 4. Command line (Linux)\nDepending on which interface you use (e.g. GNOME, KDE, Xfce), the terminal will be accessed differently. We recommend you check Ubuntu’s Using the Terminal page for the several ways to access the terminal.\n\nClick Start and search for “Terminal”. Alternatively, press Alt + Ctrl + t and type “cmd” then click OK.\nThen move to the New folder and create the zip archive by typing the following command and press Enter:\n\ncd /path/to/data/\nzip folder/"
+  },
+  {
+    "objectID": "appendix2.html#on-windows",
+    "href": "appendix2.html#on-windows",
+    "title": "Appendix B — Use of Docker Container",
+    "section": "B.1 On Windows",
+    "text": "B.1 On Windows\n\n\n\n\n\n\nDanger\n\n\n\nPLEASE NOTE: Only AMD64 OS\n\n\n\nPlease make sure you have installed latest version of Docker Desktop on your Windows machine.\nUsing ‘command-prompt’ or ‘Powershell’, run the command docker pull jd21/methylr:latest.\nOpen Docker Desktop, under the tab ‘images’, on the LOCAL images, the docker image will be available as shown in the following figure\n\n\n\n\nDocker container: Figure 1\n\n\n\nNow, click on the RUN, it will open the ‘Optional settings’. Under the ‘Optional settings’, select the ‘Port (Host port)’ and write 3838 and click ‘RUN’.\n\n\n\n\n\nDocker image run\n\n\n\nClick on the Containers on the side tab and then click PORT(S) ‘3838:3838’. The default web-browser will open and in a few minutes will start the app (It will take approximately 1-3 minutes to view the app).\n\n\n\n\n\n\n\nNote\n\n\n\nNOTE: You can copy http://localhost:3838 after running the container and open it on other web-browser to run the app.\n\n\n\n\n\n\nDocker container run"
+  },
+  {
+    "objectID": "appendix2.html#on-macos",
+    "href": "appendix2.html#on-macos",
+    "title": "Appendix B — Use of Docker Container",
+    "section": "B.2 On MacOS",
+    "text": "B.2 On MacOS\n\n\n\n\n\n\nDanger\n\n\n\nPLEASE NOTE: (Intel, Only AMD64 OS - not supported on Apple M1/M2 processors)\n\n\n\nPlease make sure you have installed latest version of Docker Desktop on your MacOS.\nRun the command, docker pull jd21/methylr:latest on Mac terminal.\nIf you are using the Docker Desktop to use methylR, please follow the instructions from 3 to 5 as mentioned above for Windows.\nAlternatively, if you want to use the MacOS terminal to run the app (Only supported on Intel AMD64 OS architecture), please use this command docker run --rm -p 3838:3838 jd21/methylr:latest directly and after pulling all the images by docker, terminal will display\n\n[2022-10-30T07:57:41.311] [INFO] shiny-server - Shiny Server v1.5.18.979 (Node.js v12.22.6)\n[2022-10-30T07:57:41.312] [INFO] shiny-server - Using config file \"/etc/shiny-server/shiny-server.conf\"\n[2022-10-30T07:57:41.342] [WARN] shiny-server - Running as root unnecessarily is a security risk! You could be running more securely as non-root.\n[2022-10-30T07:57:41.345] [INFO] shiny-server - Starting listener on http://[::]:3838\n\nNow, open the web-browser and run http://localhost:3838 will load the app within 1-3 minutes.\n\n\n\n\n\n\n\nNote\n\n\n\nPLEASE NOTE: It may possible that you run the docker container on MacOS Apple M1, but the application may not work as expected. We strongly recommend to use AMD64 OS architecture to run methylR"
+  },
+  {
+    "objectID": "appendix2.html#on-linux-ubuntu-20.04lts",
+    "href": "appendix2.html#on-linux-ubuntu-20.04lts",
+    "title": "Appendix B — Use of Docker Container",
+    "section": "B.3 On Linux (Ubuntu 20.04LTS)",
+    "text": "B.3 On Linux (Ubuntu 20.04LTS)\n\nIf you want to use the linux terminal to run methylR, use the following command on the terminal\n\ndocker run --rm -p 3838:3838 jd21/methylr:latest\n\nIf you want to use the Docker Desktop for Linux, first pull the docker container using docker pull jd21/methylr:latest from terminal and then follow Step 3-5 as mentioned above for Windows.\n\n\n\n\n\n\n\nNote\n\n\n\n\nPlease contact the IT support if Docker is running properly. You can also contact the developers using the GitHub or the Google groups or directly email the developer.\nIf after uploading the data for methylation analysis (see ?sec-methylysis), the browser get disconnected, please check you have installed the docker or docker-desktop with administrative privilages. From terminal, user can run,\n\n$ sudo usermod -aG docker $USER\nor\n$ sudo chown $USER /var/run/docker.sock"
+  },
+  {
+    "objectID": "appendix3.html#method",
+    "href": "appendix3.html#method",
+    "title": "Appendix C — Convert DMCs table to BED",
+    "section": "C.1 Method",
+    "text": "C.1 Method\nPython3 must be installed on your system, no additional libraries are required. If your system lacks any python installation, please refer to this page: Python 3 Installation & Setup Guide.\n\nC.1.1 Description\nTo use ChAMP2bed.py open a terminal and move to the directory storing your main methylR results. ChAMP2bed.py must be in the same directory storing your DMCs table:\n\n\n\nBED format: figure 1\n\n\nRun the command:\npython3 ChAMP2bed.py myDMC_EPIC_BatchCorrected.txt\nOr adjust with the actual filename for your table. It will produce a new file with the same filename from your table but with the .bed extension:\n\n\n\nBED format: figure 2\n\n\nYou can use this file as input for Gviz or import it either in IGV or as a custom track in any other genome browser. Be sure to match the proper genome version used to perform the analysis and to download the correct GTF/GFF3 file if you want to display the CpG (“blue”) together with additional features, such as genes (“green”):\n\n\n\nBED format: figure 3"
+  },
+  {
+    "objectID": "appendix4.html",
+    "href": "appendix4.html",
+    "title": "Appendix D — Time calculation",
+    "section": "",
+    "text": "Here we showed the calculation time of each process in methylR for both full and lite versions.\n\n\n\nmodule\nprocesses\ncalculation time (mm:ss)\n\n\n\n\nmethylysis\nlocal run - ChAMP\n\n\n\n\n(params: BMIQ, batch correction, cores = 4)\n03:11 s\n\n\n\nserver run - ChAMP\n\n\n\n\n(params: BMIQ, batch correction, cores = 2)\n03:10 s*\n\n\n\nlocal run - minfi\n\n\n\n\n(params: raw, filters, cores = 4)\n04:01 s\n\n\n\nserver run - minfi\n\n\n\n\n(params: raw, filters, cores = 2)\n03:40 s\n\n\nmulti-D\n\n00:2 s\n\n\ngene features\n\n00:02 s\n\n\nheatmap\n\n00:01 s\n\n\nvolcano\n\n00:18 s\n\n\nchromosome\n\n00:04 s\n\n\ngene ontology\n\n01:30 s\n\n\npathway analysis\n\n00:18 s\n\n\n\n\n\n\nCopyright © 2023-2024. Massimiliano Volpe and Jyotirmoy Das."
+  },
+  {
+    "objectID": "appendix5.html#troubleshooting",
+    "href": "appendix5.html#troubleshooting",
+    "title": "Appendix E — FAQs/Troubleshooting",
+    "section": "E.1 Troubleshooting",
+    "text": "E.1 Troubleshooting\n\nIssue with the server: The University/IT needs to restart the server for maintenance, security updates and it may be down for few hours. Please use the docker container from your local computer or wait few hours before the server gets online again.\n‘reload, connection closed’: Please reload/refresh the page or if the problem persists, close the browser, clear the browser cache and re-open the site.\ncalculation time: We estimated the calculation time based on the provided test data. It varies with the amount of data and parameters chosen, please wait till the process finished.\nerror message on local run: Check your docker permission and docker version.\ncheck your log file or contact the app author Please restart the Docker container and launch the app again. Run it again. If the problem persists, contact us. Make sure your input file has the same format as described in the manual."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Gillespie, Marc, Bijay Jassal, Ralf Stephan, Marija Milacic, Karen\nRothfels, Andrea Senff-Ribeiro, Johannes Griss, et al. 2021.\n“The reactome pathway knowledgebase\n2022.” Nucleic Acids Research 50 (D1): D687–92.\nhttps://doi.org/10.1093/nar/gkab1028.\n\n\nKanehisa, Minoru, and Susumu Goto. 2000. “KEGG: Kyoto Encyclopedia of Genes and\nGenomes.” Nucleic Acids Research 28 (1): 27–30.\nhttps://doi.org/10.1093/nar/28.1.27.\n\n\nKhan, Aziz, and Anthony Mathelier. 2017. “Intervene: A Tool for\nIntersection and Visualization of Multiple Gene or Genomic Region\nSets.” BMC Bioinformatics 18 (1): 1–8.\n\n\nLacher, DA. 1987. “Interpretation of Laboratory Results Using\nMultidimensional Scaling and Principal Component Analysis.”\nAnnals of Clinical & Laboratory Science 17 (6): 412–17.\n\n\nLacher, David A, and ED O’Donnell. 1988. “Comparison of\nMultidimensional Scaling and Principal Component Analysis of\nInterspecific Variation in Bacteria.” Annals of Clinical\n& Laboratory Science 18 (6): 455–62.\n\n\nMartens, Marvin, Ammar Ammar, Anders Riutta, Andra Waagmeester, Denise N\nSlenter, Kristina Hanspers, Ryan A. Miller, et al. 2020. “WikiPathways: connecting communities.”\nNucleic Acids Research 49 (D1): D613–21. https://doi.org/10.1093/nar/gkaa1024.\n\n\nMugavin, Marie E. 2008. “Multidimensional Scaling: A Brief\nOverview.” Nursing Research 57 (1): 64–68.\n\n\nPico, Thomas AND van Iersel, Alexander R AND Kelder. 2008.\n“WikiPathways: Pathway Editing for the People.” PLOS\nBiology 6 (7): 1–4. https://doi.org/10.1371/journal.pbio.0060184.\n\n\nWu, Tianzhi, Erqiang Hu, Shuangbin Xu, Meijun Chen, Pingfan Guo, Zehan\nDai, Tingze Feng, et al. 2021. “clusterProfiler 4.0: A Universal\nEnrichment Tool for Interpreting Omics Data.” The\nInnovation 2 (3): 100141.\n\n\nYu, Guangchuang, Li-Gen Wang, Yanyan Han, and Qing-Yu He. 2012.\n“clusterProfiler: An r Package for Comparing Biological Themes\nAmong Gene Clusters.” Omics: A Journal of Integrative\nBiology 16 (5): 284–87.\n\n\n\n\n\nCopyright © 2023-2024. Massimiliano Volpe and Jyotirmoy Das."
+  }
+]

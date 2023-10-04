@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -324,7 +324,7 @@ Danger
 <section id="fastq-upload" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="fastq-upload"><span class="header-section-number">2.1.1</span> Fastq upload</h3>
 <ol type="1">
-<li>If the user performed the <strong><em>Quality analysis</em></strong> (<a href="#sec-seqqual"><span class="quarto-unresolved-ref">sec-seqqual</span></a>) already, they don’t need to upload the data again, they can use <strong><em>‘continue from Quality Analysis’</em></strong>.</li>
+<li>If the user performed the <strong><em>Quality analysis</em></strong> (<a href="quality.html"><span>Chapter&nbsp;1</span></a>) already, they don’t need to upload the data again, they can use <strong><em>‘continue from Quality Analysis’</em></strong>.</li>
 <li>The user can also upload the data directly by selecting <strong><em>‘upload data’</em></strong> option.</li>
 </ol>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -337,13 +337,13 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please note it will take some time to upload the data and once the data uploaded, the list will be displayed in the <strong>Data file viewer</strong> (see <a href="#fig-qual2">Figure&nbsp;<span class="quarto-unresolved-ref">fig-qual2</span></a> <a href="#fig-trans1">Figure&nbsp;<span class="quarto-unresolved-ref">fig-trans1</span></a>).</p>
+<p>Please note it will take some time to upload the data and once the data uploaded, the list will be displayed in the <strong>Data file viewer</strong> (see <a href="quality.html#fig-qual2">Figure&nbsp;<span>1.2</span></a> <a href="#fig-trans1">Figure&nbsp;<span>2.1</span></a>).</p>
 </div>
 </div>
 </section>
 <section id="sec-sampleinfo" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="sec-sampleinfo"><span class="header-section-number">2.1.2</span> Sample info</h3>
-<p>In the <strong><em>Sample info</em></strong> section, users need to upload the ‘sample sheet/meta data file’ that includes atleast two columns (‘sample name’ and ‘sample condition’) (see <a href="#fig-trans2">Figure&nbsp;<span class="quarto-unresolved-ref">fig-trans2</span></a>). For Differential Gene Expression (DEG) analysis, user need to provide the comparison conditions as showed in <a href="#fig-trans2">Figure&nbsp;<span class="quarto-unresolved-ref">fig-trans2</span></a>.</p>
+<p>In the <strong><em>Sample info</em></strong> section, users need to upload the ‘sample sheet/meta data file’ that includes atleast two columns (‘sample name’ and ‘sample condition’) (see <a href="#fig-trans2">Figure&nbsp;<span>2.2</span></a>). For Differential Gene Expression (DEG) analysis, user need to provide the comparison conditions as showed in <a href="#fig-trans2">Figure&nbsp;<span>2.2</span></a>.</p>
 <div id="fig-trans2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="_images/transcriptome/transcriptr3.png" class="img-fluid figure-img"></p>
@@ -361,7 +361,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>After uploading the files, all files will be appear in the browser window (see <a href="#fig-trans2">Figure&nbsp;<span class="quarto-unresolved-ref">fig-trans2</span></a>), please check and verify everything is properly uploaded.</li>
+<li>After uploading the files, all files will be appear in the browser window (see <a href="#fig-trans2">Figure&nbsp;<span>2.2</span></a>), please check and verify everything is properly uploaded.</li>
 <li>User can upload any file format, such as text (.txt), CSV (.csv), Excel (.xls, .xlsx).</li>
 </ol>
 </div>
@@ -369,7 +369,7 @@ Tip
 </section>
 <section id="parameters-settings" class="level3" data-number="2.1.3">
 <h3 data-number="2.1.3" class="anchored" data-anchor-id="parameters-settings"><span class="header-section-number">2.1.3</span> Parameters settings</h3>
-<p>Selecting the right parameters for the analysis is the key to the successful run of <strong>TranscriptR</strong>. The <strong>parameters settings</strong> (see <a href="#fig-trans3">Figure&nbsp;<span class="quarto-unresolved-ref">fig-trans3</span></a>) are sub-divided for better understanding and view -</p>
+<p>Selecting the right parameters for the analysis is the key to the successful run of <strong>TranscriptR</strong>. The <strong>parameters settings</strong> (see <a href="#fig-trans3">Figure&nbsp;<span>2.3</span></a>) are sub-divided for better understanding and view -</p>
 <div id="fig-trans3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="_images/transcriptome/transcriptr4.png" class="img-fluid figure-img"></p>
@@ -380,7 +380,7 @@ Tip
 <h4 data-number="2.1.3.1" class="anchored" data-anchor-id="species-and-database"><span class="header-section-number">2.1.3.1</span> Species and database</h4>
 <ol type="1">
 <li><strong>Select Species</strong>: The user need to select the <em>species</em> from the species list. Here we provided more than 350 species presented in the ‘biomart’ for the analysis. Note that all other species than ‘Human’, ‘Mouse’ and ‘Rat’ come with the <strong>scientific name</strong> as provided in <a href="http://www.ensembl.org/info/about/species.html" target="_blank">‘Ensembl’</a>. The default is ‘Human’.</li>
-<li><strong>Select release version</strong>: The default is <em>latest</em>. The user can choose other database version as provided by <a href="https://ftp.ensembl.org/pub/" target="_blank">Ensembl</a>. Please provide the number only in the ‘box’, example, if you want to use version ‘109’, provide only ‘109’ (see <a href="#fig-trans4">Figure&nbsp;<span class="quarto-unresolved-ref">fig-trans4</span></a>).</li>
+<li><strong>Select release version</strong>: The default is <em>latest</em>. The user can choose other database version as provided by <a href="https://ftp.ensembl.org/pub/" target="_blank">Ensembl</a>. Please provide the number only in the ‘box’, example, if you want to use version ‘109’, provide only ‘109’ (see <a href="#fig-trans4">Figure&nbsp;<span>2.4</span></a>).</li>
 </ol>
 <div id="fig-trans4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -422,7 +422,7 @@ Tip
 </section>
 <section id="visualization-multiqc" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="visualization-multiqc"><span class="header-section-number">2.2</span> Visualization: MultiQC</h2>
-<p>Please see <a href="#sec-seqqual"><span class="quarto-unresolved-ref">sec-seqqual</span></a> for details.</p>
+<p>Please see <a href="quality.html"><span>Chapter&nbsp;1</span></a> for details.</p>
 </section>
 <section id="visualization-plots" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="visualization-plots"><span class="header-section-number">2.3</span> Visualization: Plots</h2>
@@ -444,7 +444,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>The plots will be displayed as <a href="#fig-trans7">Figure&nbsp;<span class="quarto-unresolved-ref">fig-trans7</span></a> in a PDF format. All of these can be downloaded when the user download the results from the <em>‘Download results’</em> tab.</li>
+<li>The plots will be displayed as <a href="#fig-trans7">Figure&nbsp;<span>2.7</span></a> in a PDF format. All of these can be downloaded when the user download the results from the <em>‘Download results’</em> tab.</li>
 <li>Please note, if the plots are not loaded after the <em>job</em> completed and clicked on ‘show BoxPlot/Show MDS Plot’ button, refresh the browser and it will appear in the box.</li>
 </ol>
 </div>
@@ -452,7 +452,7 @@ Note
 </section>
 <section id="visualization-deg-table" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="visualization-deg-table"><span class="header-section-number">2.4</span> Visualization: DEG table</h2>
-<p>We provided differential gene expression (DEG) analysis result as a table format (see <a href="#fig-trans8">Figure&nbsp;<span class="quarto-unresolved-ref">fig-trans8</span></a>). To display the table, user need to - &nbsp; 1. choose the analysis type (as <strong>TranscriptR</strong> provides three different pipeline results), such as <em>EdgeR analysis</em>, <em>DESeq analysis</em> or <em>limma analysis</em> and<br>
+<p>We provided differential gene expression (DEG) analysis result as a table format (see <a href="#fig-trans8">Figure&nbsp;<span>2.8</span></a>). To display the table, user need to - &nbsp; 1. choose the analysis type (as <strong>TranscriptR</strong> provides three different pipeline results), such as <em>EdgeR analysis</em>, <em>DESeq analysis</em> or <em>limma analysis</em> and<br>
 2. select DEG table from the drop-down list. The list is generated from the information provided by the <em>comparison table</em>.</p>
 <div id="fig-trans8" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -485,7 +485,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please note, we already mentioned that the user may need to reload/refresh the browser after successful run to visualize the results. In this process, the uploaded data table (<strong>mentioned in <a href="#sec-sampleinfo"><span class="quarto-unresolved-ref">sec-sampleinfo</span></a></strong>) will be lost. To view the CPM boxplot, the user need the upload the sample information data tables again and click on <em>‘Show details’</em> on the DEG table.</p>
+<p>Please note, we already mentioned that the user may need to reload/refresh the browser after successful run to visualize the results. In this process, the uploaded data table (<strong>mentioned in <a href="#sec-sampleinfo"><span>Section&nbsp;2.1.2</span></a></strong>) will be lost. To view the CPM boxplot, the user need the upload the sample information data tables again and click on <em>‘Show details’</em> on the DEG table.</p>
 </div>
 </div>
 </section>
@@ -494,15 +494,15 @@ Important
 <p>Further, we implemented intersection function for the above-mentioned three types of DEG analyses in the <em>’InterSectDEG</em> tab.<br>
 1. To visualize the result, the user needs to select the <em>same result</em> table (eg. groupAvsgroupB) for all three analyses. <strong>Please remember selecting different table may results incorrect table and figure.<br>
 2. After selecting same result table files from all three analyses, click to <em>‘show intersect result’</em>. Both intersect table and Venn diagram will appear in respective boxes.<br>
-3. To download the full table, check to show </strong>all** entries (see <a href="#fig-trans9">Figure&nbsp;<span class="quarto-unresolved-ref">fig-trans9</span></a>).<br>
-4. The Venn diagram can be downloaded in different file format with respective height, width or resolution (see <a href="#fig-trans9">Figure&nbsp;<span class="quarto-unresolved-ref">fig-trans9</span></a>).</p>
+3. To download the full table, check to show </strong>all** entries (see <a href="#fig-trans9">Figure&nbsp;<span>2.9</span></a>).<br>
+4. The Venn diagram can be downloaded in different file format with respective height, width or resolution (see <a href="#fig-trans9">Figure&nbsp;<span>2.9</span></a>).</p>
 <div id="fig-trans9" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="_images/transcriptome/transcript10.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;2.9: InterSect result</figcaption><p></p>
 </figure>
 </div>
-<p>Below is the details of <em>‘InterSect DEG’</em> table result (see <a href="#fig-trans9">Figure&nbsp;<span class="quarto-unresolved-ref">fig-trans9</span></a>) -<br>
+<p>Below is the details of <em>‘InterSect DEG’</em> table result (see <a href="#fig-trans9">Figure&nbsp;<span>2.9</span></a>) -<br>
 1. <strong>id</strong><br>
 2. <strong>name</strong><br>
 3. <strong>chr</strong><br>
