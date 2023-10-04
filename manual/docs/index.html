@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Massimiliano Volpe">
 <meta name="author" content="Jyotirmoy Das">
 
-<title>MethylR manual</title>
+<title>TranscriptR manual</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,7 +91,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">MethylR manual</h1>
+      <h1 class="quarto-secondary-nav-title">TranscriptR manual</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -104,19 +104,19 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">MethylR manual</a> 
+      <a href="./">TranscriptR manual</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/JD2112/methylr" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/JD2112/transcriptr" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./MethylR-manual.pdf">
+          <a class="dropdown-item sidebar-tools-main-item" href="./TranscriptR-manual.pdf">
             <i class="bi bi-bi-file-pdf pe-1"></i>
           Download PDF
           </a>
         </li>
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./MethylR-manual.epub">
+          <a class="dropdown-item sidebar-tools-main-item" href="./TranscriptR-manual.epub">
             <i class="bi bi-bi-journal pe-1"></i>
           Download ePub
           </a>
@@ -154,7 +154,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./intro.html" class="sidebar-item-text sidebar-link">Welcome to methylR: DNA Methylation Data Analysis Pipeline</a>
+            <a href="./intro.html" class="sidebar-item-text sidebar-link">TranscriptR: Transcriptome Data Analysis Pipeline</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -162,32 +162,22 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./methylysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Methylysis</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./feanaly.html" class="sidebar-item-text sidebar-link">Feature Analysis</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Multi_D_Analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multi-D Analysis</span></a>
+  <a href="./quality.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Gene_Features_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gene Features analysis</span></a>
+  <a href="./transcriptome.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Transcriptome Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pairwise_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pairwise analysis (Heatmap)</span></a>
+  <a href="./igv.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Integrative Genome Viewer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Multi_D_Analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dimensional Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -197,19 +187,19 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chromosome_plot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chromosome plot</span></a>
+  <a href="./heatmap.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">HeatMap</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./assco.html" class="sidebar-item-text sidebar-link">Association Study</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a href="./assco.html" class="sidebar-item-text sidebar-link">Enrichment Analysis</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./go_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Gene Ontology (GO) enrichment analysis</span></a>
@@ -225,11 +215,11 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./setana.html" class="sidebar-item-text sidebar-link">Set Analysis</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./venn_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Venn analysis</span></a>
@@ -244,12 +234,12 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Create the input zip file for <em>methylR</em></span></a>
@@ -295,15 +285,15 @@ div.csl-indent {
   <ul>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link active" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/JD2112/methylr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/JD2112/transcriptr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">MethylR manual</h1>
-<p class="subtitle lead">methylR: from sequencer to publication</p>
+<h1 class="title d-none d-lg-block">TranscriptR manual</h1>
+<p class="subtitle lead">Reproducible RNA-seq data analysis using TranscriptR</p>
 </div>
 
 
@@ -325,7 +315,7 @@ div.csl-indent {
 
 </header>
 
-<p><img src="cover.png" title="MethylR manual" class="quarto-cover-image img-fluid"></p>
+<p><img src="cover.png" title="TranscriptR manual" class="quarto-cover-image img-fluid"></p>
 <p>e-mail: <a href="methylr@googlegroups.com">methylr@googlegroups.com</a></p>
 <section id="acknowledgements" class="level1 unnumbered">
 <h1 class="unnumbered">Acknowledgements</h1>
@@ -336,17 +326,17 @@ Linköping University,<br>
 Linköping,<br>
 Sweden</p>
 <p><strong><em>We would like to acknowledge the Core Facility, Faculty of Medicine and Health Sciences, Linköping University, Linköping, Sweden and Clinical Genomics Linköping, Science for Life Laboratory, Sweden for their support.</em></strong></p>
-<p><strong><em>DISCLAIMER: </em></strong> <strong><em>All packages used in </em>methylR* are publicly available and open-source license. We have modified the source as required for <em>methylR</em>. Venn and UpSet plots inspired by the <a href="https://github.com/asntech/intervene">intervene</a> package <span class="citation" data-cites="khan2017intervene">(<a href="references.html#ref-khan2017intervene" role="doc-biblioref">Khan and Mathelier 2017</a>)</span>, we modified as required for <em>methylR</em>.</strong>*</p>
+<p><strong><em>DISCLAIMER: </em></strong> <strong><em>All packages used in </em>methylR* are publicly available and open-source license. We have modified the source as required for <em>methylR</em>. Venn and UpSet plots inspired by the <a href="https://github.com/asntech/intervene">intervene</a> package <span class="citation" data-cites="khan2017intervene">(<a href="#ref-khan2017intervene" role="doc-biblioref">Khan and Mathelier 2017</a>)</span>, we modified as required for <em>methylR</em>.</strong>*</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-khan2017intervene" class="csl-entry" role="doc-biblioentry">
 Khan, Aziz, and Anthony Mathelier. 2017. <span>“Intervene: A Tool for Intersection and Visualization of Multiple Gene or Genomic Region Sets.”</span> <em>BMC Bioinformatics</em> 18 (1): 1–8.
 </div>
 </div>
 </section>
 
-<p>Copyright © 2022-2023. Massimiliano Volpe and Jyotirmoy Das.</p></main> <!-- /main -->
+<p>Copyright © 2023-2024. Massimiliano Volpe and Jyotirmoy Das.</p></main> <!-- /main -->
 <!-- R Shiny
 # https://github.com/rstudio/shiny-examples/blob/master/048-including-html-text-and-markdown-files/include.html
 # In R Shiny use:
@@ -495,7 +485,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text">Welcome to methylR: DNA Methylation Data Analysis Pipeline</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">TranscriptR: Transcriptome Data Analysis Pipeline</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

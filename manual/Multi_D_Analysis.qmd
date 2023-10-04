@@ -1,4 +1,4 @@
-# Multi-D Analysis {#sec-multid}
+# Dimensional Analysis {#sec-multid}
 ^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
 
 In *methylR*, multiple dimensional analysis includes two type of analysis - \

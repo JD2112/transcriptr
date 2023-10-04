@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MethylR manual - Welcome to methylR: DNA Methylation Data Analysis Pipeline</title>
+<title>TranscriptR manual - TranscriptR: Transcriptome Data Analysis Pipeline</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -49,7 +30,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./methylysis.html" rel="next">
+<link href="./quality.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -90,7 +71,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Welcome to methylR: DNA Methylation Data Analysis Pipeline</h1>
+      <h1 class="quarto-secondary-nav-title">TranscriptR: Transcriptome Data Analysis Pipeline</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -103,19 +84,19 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">MethylR manual</a> 
+      <a href="./">TranscriptR manual</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/JD2112/methylr" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/JD2112/transcriptr" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./MethylR-manual.pdf">
+          <a class="dropdown-item sidebar-tools-main-item" href="./TranscriptR-manual.pdf">
             <i class="bi bi-bi-file-pdf pe-1"></i>
           Download PDF
           </a>
         </li>
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./MethylR-manual.epub">
+          <a class="dropdown-item sidebar-tools-main-item" href="./TranscriptR-manual.epub">
             <i class="bi bi-bi-journal pe-1"></i>
           Download ePub
           </a>
@@ -153,7 +134,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./intro.html" class="sidebar-item-text sidebar-link active">Welcome to methylR: DNA Methylation Data Analysis Pipeline</a>
+            <a href="./intro.html" class="sidebar-item-text sidebar-link active">TranscriptR: Transcriptome Data Analysis Pipeline</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -161,32 +142,22 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./methylysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Methylysis</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./feanaly.html" class="sidebar-item-text sidebar-link">Feature Analysis</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Multi_D_Analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multi-D Analysis</span></a>
+  <a href="./quality.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Gene_Features_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gene Features analysis</span></a>
+  <a href="./transcriptome.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Transcriptome Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pairwise_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pairwise analysis (Heatmap)</span></a>
+  <a href="./igv.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Integrative Genome Viewer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Multi_D_Analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dimensional Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -196,19 +167,19 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chromosome_plot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chromosome plot</span></a>
+  <a href="./heatmap.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">HeatMap</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./assco.html" class="sidebar-item-text sidebar-link">Association Study</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a href="./assco.html" class="sidebar-item-text sidebar-link">Enrichment Analysis</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./go_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Gene Ontology (GO) enrichment analysis</span></a>
@@ -224,11 +195,11 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./setana.html" class="sidebar-item-text sidebar-link">Set Analysis</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./venn_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Venn analysis</span></a>
@@ -243,12 +214,12 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Create the input zip file for <em>methylR</em></span></a>
@@ -298,14 +269,14 @@ div.csl-indent {
   <li><a href="#local-use" id="toc-local-use" class="nav-link" data-scroll-target="#local-use">Local use</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/JD2112/methylr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/JD2112/transcriptr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Welcome to methylR: DNA Methylation Data Analysis Pipeline</h1>
+<h1 class="title d-none d-lg-block">TranscriptR: Transcriptome Data Analysis Pipeline</h1>
 </div>
 
 
@@ -320,6 +291,19 @@ div.csl-indent {
 
 </header>
 
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Danger
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>PLEASE NOTE WE INCLUDED THE POSSIBILITY OF THE HUMAN TRANSCRIPTOME DATA ANALYSIS FROM THE SEQUENCE DATA. NONE OF THE OWNER OF THE CODE OR DATA CENTER IS RESPONSIBLE FOR HANDLING THE HUMAN DATA. IT IS UPTO THE USER IF THEY WANT TO USE THE ONLINE VERSION FOR HUMAN DATA ANALYSIS.</p>
+</div>
+</div>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -333,8 +317,22 @@ Important
 <p>TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.</p>
 </div>
 </div>
-<p>DNA Methylation is one of the most studied epigenetic modifications in humans, playing a critical role in cellular response, development and differentiation <span class="citation" data-cites="Das2019">(<a href="references.html#ref-Das2019" role="doc-biblioref">Das et al. 2019</a>)</span>. The transfer of a methyl group onto the C5 position of the cytosine to form 5-methyl-cytosine is considered as the DNA methylation or epigenetic mechanism in human or mammalian genome <span class="citation" data-cites="moore2013dna">(<a href="references.html#ref-moore2013dna" role="doc-biblioref">Moore, Le, and Fan 2013</a>)</span>. Epigenetic research has its roots in plant science, which emerged in the early 20th century. In human medicine, cancer biology has driven the field forwards during the last two decades and in combination with modern, array-based techniques and nex-generation sequencing now provides the scientific community with an easily accessible tool to study epigenetics at a whole-genome level <span class="citation" data-cites="das2021dna">(<a href="references.html#ref-das2021dna" role="doc-biblioref">Das et al. 2021</a>)</span>. To find the methylated site or the CpG site, Illumina<sup>(R)</sup> uses DNA methylation array-based technology. Till date three different array platforms are available from Illumina for human genome to identify the CpG site or specific DNA methylation location, namely 27K, 450K or 850K. A more detail history and timeline can be found here in this <a href="https://www.frontiersin.org/articles/10.3389/fgene.2011.00074/full">article</a> by Harrison and Pari-McDermott (2011) <span class="citation" data-cites="harrison2011dna">(<a href="references.html#ref-harrison2011dna" role="doc-biblioref">Harrison and Parle-McDermott 2011</a>)</span>. After performing the array, the major part is the analysis of the raw data generated from the machine. Numerous tools are available to analyze the data using different operating system, various computational languages. And all of these tools require extensive handling of computational resources. For the Biologist or those who have limited computational knowledge, it is extremely difficult to handle all these tools.</p>
-<p>Here, in <em>methylR</em>, we presented a shiny-based web server approach to minimize the above-mentioned difficulties. MethylR has graphical user interface to support and understand the various options used in the DNA methylation analysis with an extensive manual/tutorial how to use it. The background computational power depends on the user’s computer which can also be optimized. We successfully tested the pipeline on Linux based system.<br>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Few important notes</strong> 1. All box navigation bars open &amp; close with <em>‘double click’</em>. 2. <em>‘Sidebar’</em> is fully collapsible to create a maximized view. 3. Remember to read the manual carefully before submit the <em>‘run’</em>.</p>
+</div>
+</div>
+<p>TranscriptR –introduction</p>
+<p>After performing the sequencing, the major part is the analysis of the raw data generated from the machine. Numerous tools are available to analyze the data using different operating system, various computational languages. And all of these tools require extensive handling of computational resources. For the Biologist or those who have limited computational knowledge, it is extremely difficult to handle all these tools.</p>
+<p>Here, in <em>TranscriptR</em>, we presented a shiny-based web server approach to minimize the above-mentioned difficulties. TranscriptR has graphical user interface to support and understand the various options used in the transcriptome data analysis with an extensive manual/tutorial how to use it. The background computational power depends on the user’s computer (local use) which can also be optimized. We successfully tested the pipeline on Linux based system.<br>
 </p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -387,7 +385,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>MethylR cannot run on <a href="https://en.wikipedia.org/wiki/List_of_ARM_processors">ARM64 chipset</a> architecture.</p>
+<p>TranscriptR cannot run on <a href="https://en.wikipedia.org/wiki/List_of_ARM_processors">ARM64 chipset</a> architecture.</p>
 </div>
 </div>
 </section>
@@ -395,7 +393,7 @@ Note
 <h2 class="anchored" data-anchor-id="how-to-use">How to Use</h2>
 <section id="local-use" class="level3">
 <h3 class="anchored" data-anchor-id="local-use">Local use</h3>
-<p><em>methylR</em> is packed into docker container that is available online. Singularity can also be used to run the docker container directly from terminal. Please check the <a href="https://github.com/JD2112/methylr">github link</a> to run the container from your local computer.<br>
+<p><em>TranscriptR</em> is packed into docker container that is available online. Please check the <a href="https://github.com/JD2112/transcriptr">github link</a> to run the container from your local computer.<br>
 </p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -407,7 +405,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For convenient analysis, after one complete analysis (either with <em>ChAMP</em> or <em>minfi</em>), close the browser (to clear the temporary memory) and start again.</p>
+<p>Please remember, after start analyzing one transcriptome analysis run, the ‘submit’ button will be dectivated until refreshing the session. In this case, the user needs to upload the data again for another analysis.</p>
 </div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -420,29 +418,15 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Note: If you want to run with the test data, Please download the testdata from <a href="https://sourceforge.net/projects/methylr/files/testData.zip">https://sourceforge.net/projects/methylr/files/testData.zip</a></p>
+<p>Note: If you want to run with the test data, Please download the testdata from <a href="www.google.com" target="_blank">Coming soon…</a></p>
 </div>
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-das2021dna" class="csl-entry" role="doc-biblioentry">
-Das, Jyotirmoy, Nina Idh, Liv Ingunn Bjoner Sikkeland, Jakob Paues, and Maria Lerm. 2021. <span>“DNA Methylome-Based Validation of Induced Sputum as an Effective Protocol to Study Lung Immunity: Construction of a Classifier of Pulmonary Cell Types.”</span> <em>Epigenetics</em>, 1–12.
-</div>
-<div id="ref-Das2019" class="csl-entry" role="doc-biblioentry">
-Das, Jyotirmoy, Deepti Verma, Mika Gustafsson, and Maria Lerm. 2019. <span>“<span class="nocase">Identification of DNA methylation patterns predisposing for an efficient response to BCG vaccination in healthy BCG-na<span class="nocase">ï</span>ve subjects</span>.”</span> <em>Epigenetics</em>, April, 1–13. <a href="https://doi.org/10.1080/15592294.2019.1603963">https://doi.org/10.1080/15592294.2019.1603963</a>.
-</div>
-<div id="ref-harrison2011dna" class="csl-entry" role="doc-biblioentry">
-Harrison, Alan, and Anne Parle-McDermott. 2011. <span>“DNA Methylation: A Timeline of Methods and Applications.”</span> <em>Frontiers in Genetics</em> 2: 74.
-</div>
-<div id="ref-moore2013dna" class="csl-entry" role="doc-biblioentry">
-Moore, Lisa D, Thuc Le, and Guoping Fan. 2013. <span>“DNA Methylation and Its Basic Function.”</span> <em>Neuropsychopharmacology</em> 38 (1): 23–38.
-</div>
-</div>
 </section>
 </section>
 
-<p>Copyright © 2022-2023. Massimiliano Volpe and Jyotirmoy Das.</p></main> <!-- /main -->
+<p>Copyright © 2023-2024. Massimiliano Volpe and Jyotirmoy Das.</p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -583,8 +567,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./methylysis.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Methylysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./quality.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

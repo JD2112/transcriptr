@@ -21,13 +21,11 @@ book:
     - part: intro.qmd
       chapters:
         - quality.qmd
-    - part: feanaly.qmd
-      chapters:
+        - transcriptome.qmd
+        - igv.qmd
         - Multi_D_Analysis.qmd
-        - Gene_Features_analysis.qmd
-        - pairwise_analysis.qmd
         - Volcano_plot.qmd
-        - Chromosome_plot.qmd
+        - heatmap.qmd
     - part: assco.qmd
       chapters:
         - go_analysis.qmd

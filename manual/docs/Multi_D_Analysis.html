@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MethylR manual - 2&nbsp; Multi-D Analysis</title>
+<title>TranscriptR manual - 4&nbsp; Dimensional Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,8 +49,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Gene_Features_analysis.html" rel="next">
-<link href="./feanaly.html" rel="prev">
+<link href="./Volcano_plot.html" rel="next">
+<link href="./igv.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -90,7 +90,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multi-D Analysis</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dimensional Analysis</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -103,19 +103,19 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">MethylR manual</a> 
+      <a href="./">TranscriptR manual</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/JD2112/methylr" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/JD2112/transcriptr" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./MethylR-manual.pdf">
+          <a class="dropdown-item sidebar-tools-main-item" href="./TranscriptR-manual.pdf">
             <i class="bi bi-bi-file-pdf pe-1"></i>
           Download PDF
           </a>
         </li>
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./MethylR-manual.epub">
+          <a class="dropdown-item sidebar-tools-main-item" href="./TranscriptR-manual.epub">
             <i class="bi bi-bi-journal pe-1"></i>
           Download ePub
           </a>
@@ -153,7 +153,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./intro.html" class="sidebar-item-text sidebar-link">Welcome to methylR: DNA Methylation Data Analysis Pipeline</a>
+            <a href="./intro.html" class="sidebar-item-text sidebar-link">TranscriptR: Transcriptome Data Analysis Pipeline</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -161,32 +161,22 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./methylysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Methylysis</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./feanaly.html" class="sidebar-item-text sidebar-link">Feature Analysis</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Multi_D_Analysis.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multi-D Analysis</span></a>
+  <a href="./quality.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Gene_Features_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gene Features analysis</span></a>
+  <a href="./transcriptome.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Transcriptome Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pairwise_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pairwise analysis (Heatmap)</span></a>
+  <a href="./igv.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Integrative Genome Viewer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Multi_D_Analysis.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dimensional Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -196,19 +186,19 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chromosome_plot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chromosome plot</span></a>
+  <a href="./heatmap.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">HeatMap</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./assco.html" class="sidebar-item-text sidebar-link">Association Study</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a href="./assco.html" class="sidebar-item-text sidebar-link">Enrichment Analysis</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./go_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Gene Ontology (GO) enrichment analysis</span></a>
@@ -224,11 +214,11 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./setana.html" class="sidebar-item-text sidebar-link">Set Analysis</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./venn_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Venn analysis</span></a>
@@ -243,12 +233,12 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Create the input zip file for <em>methylR</em></span></a>
@@ -292,25 +282,25 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link active" data-scroll-target="#how-to-use"><span class="toc-section-number">2.1</span>  How to use</a>
+  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link active" data-scroll-target="#how-to-use"><span class="toc-section-number">4.1</span>  How to use</a>
   <ul class="collapse">
-  <li><a href="#data-upload" id="toc-data-upload" class="nav-link" data-scroll-target="#data-upload"><span class="toc-section-number">2.1.1</span>  Data Upload</a></li>
+  <li><a href="#data-upload" id="toc-data-upload" class="nav-link" data-scroll-target="#data-upload"><span class="toc-section-number">4.1.1</span>  Data Upload</a></li>
   </ul></li>
-  <li><a href="#analysis-result" id="toc-analysis-result" class="nav-link" data-scroll-target="#analysis-result"><span class="toc-section-number">2.2</span>  Analysis result</a>
+  <li><a href="#analysis-result" id="toc-analysis-result" class="nav-link" data-scroll-target="#analysis-result"><span class="toc-section-number">4.2</span>  Analysis result</a>
   <ul class="collapse">
-  <li><a href="#mds-plot" id="toc-mds-plot" class="nav-link" data-scroll-target="#mds-plot"><span class="toc-section-number">2.2.1</span>  MDS plot</a></li>
-  <li><a href="#pca-plot" id="toc-pca-plot" class="nav-link" data-scroll-target="#pca-plot"><span class="toc-section-number">2.2.2</span>  PCA plot</a></li>
+  <li><a href="#mds-plot" id="toc-mds-plot" class="nav-link" data-scroll-target="#mds-plot"><span class="toc-section-number">4.2.1</span>  MDS plot</a></li>
+  <li><a href="#pca-plot" id="toc-pca-plot" class="nav-link" data-scroll-target="#pca-plot"><span class="toc-section-number">4.2.2</span>  PCA plot</a></li>
   </ul></li>
-  <li><a href="#r-packages-used" id="toc-r-packages-used" class="nav-link" data-scroll-target="#r-packages-used"><span class="toc-section-number">2.3</span>  R packages used</a></li>
+  <li><a href="#r-packages-used" id="toc-r-packages-used" class="nav-link" data-scroll-target="#r-packages-used"><span class="toc-section-number">4.3</span>  R packages used</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/JD2112/methylr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/JD2112/transcriptr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-multid" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multi-D Analysis</span></span></h1>
+<h1 class="title"><span id="sec-multid" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dimensional Analysis</span></span></h1>
 </div>
 
 
@@ -329,13 +319,13 @@ div.csl-indent {
 <p>In <em>methylR</em>, multiple dimensional analysis includes two type of analysis -<br>
 1. <strong>MDS</strong>: Multidimensional Scaling<br>
 2. <strong>PCA</strong>: Prinicipal Component Analysis</p>
-<p>Multidimensional scaling is a visual representation of distances or dissimilarities between set of objects. <strong>MDS</strong> finds set of vectors in <em>p</em>-dimensional space such that the matrix of Euclidean distance among them corresponds as closely as possible to some function of the input matrix. The input to multidimensional scaling is a distance matrix. To get some more details on how to use <strong>MDS</strong> in biological data, read <span class="citation" data-cites="mugavin2008multidimensional lacher1987interpretation lacher1988comparison">(<a href="references.html#ref-mugavin2008multidimensional" role="doc-biblioref">Mugavin 2008</a>; <a href="references.html#ref-lacher1987interpretation" role="doc-biblioref">D. Lacher 1987</a>; <a href="references.html#ref-lacher1988comparison" role="doc-biblioref">D. A. Lacher and O’Donnell 1988</a>)</span><br>
+<p>Multidimensional scaling is a visual representation of distances or dissimilarities between set of objects. <strong>MDS</strong> finds set of vectors in <em>p</em>-dimensional space such that the matrix of Euclidean distance among them corresponds as closely as possible to some function of the input matrix. The input to multidimensional scaling is a distance matrix. To get some more details on how to use <strong>MDS</strong> in biological data, read <span class="citation" data-cites="mugavin2008multidimensional lacher1987interpretation lacher1988comparison">(<a href="#ref-mugavin2008multidimensional" role="doc-biblioref">Mugavin 2008</a>; <a href="#ref-lacher1987interpretation" role="doc-biblioref">D. Lacher 1987</a>; <a href="#ref-lacher1988comparison" role="doc-biblioref">D. A. Lacher and O’Donnell 1988</a>)</span><br>
 Principal Component Analysis (PCA) is the original vectors in n-dimensional space and the data are projected onto the directions in the data with the most variance.</p>
-<section id="how-to-use" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">2.1</span> How to use</h2>
+<section id="how-to-use" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">4.1</span> How to use</h2>
 <p>For both analysis, user need to provide a TEXT (tab-delimited) file with numeric values, <em>e.g.</em> the output normalized table from methylysis, <em>i.e.</em> the normalized value table. However the user can use similar tables for the analysis.</p>
-<section id="data-upload" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">2.1.1</span> Data Upload</h3>
+<section id="data-upload" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">4.1.1</span> Data Upload</h3>
 <ol type="1">
 <li>Select the text file (tab-delimited file) and upload it.</li>
 <li>User can choose the option to use number of variables from the uploaded data file.</li>
@@ -344,10 +334,10 @@ Principal Component Analysis (PCA) is the original vectors in n-dimensional spac
 </ol>
 </section>
 </section>
-<section id="analysis-result" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="analysis-result"><span class="header-section-number">2.2</span> Analysis result</h2>
-<section id="mds-plot" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="mds-plot"><span class="header-section-number">2.2.1</span> MDS plot</h3>
+<section id="analysis-result" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="analysis-result"><span class="header-section-number">4.2</span> Analysis result</h2>
+<section id="mds-plot" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="mds-plot"><span class="header-section-number">4.2.1</span> MDS plot</h3>
 <ol type="1">
 <li>After the click on “Run MDS Analysis”, the program will take some time to generate the plot and will appear as soon the run finishes. The zoom bar can be used to zoom in/out the plot.</li>
 <li>The generated figure can be downloaded in different format, vector graphics support - PDF and SVG or PNG and TIFF. User can download all different options for the same figure.<br>
@@ -360,8 +350,8 @@ Principal Component Analysis (PCA) is the original vectors in n-dimensional spac
 </figure>
 </div>
 </section>
-<section id="pca-plot" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="pca-plot"><span class="header-section-number">2.2.2</span> PCA plot</h3>
+<section id="pca-plot" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="pca-plot"><span class="header-section-number">4.2.2</span> PCA plot</h3>
 <ol type="1">
 <li>The plot will be generated after computing the PCA, “Run PCA” with the group colors and legend.</li>
 <li>The generated plot is dynamic and positional details with the group name can be seen with mouse hovering.</li>
@@ -399,8 +389,8 @@ For more, please see the <a href="https://sourceforge.net/projects/methylr/">tes
 </div>
 </section>
 </section>
-<section id="r-packages-used" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="r-packages-used"><span class="header-section-number">2.3</span> R packages used</h2>
+<section id="r-packages-used" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="r-packages-used"><span class="header-section-number">4.3</span> R packages used</h2>
 <ol type="1">
 <li><a href="https://cran.r-project.org/web/packages/FactoMineR/FactoMineR.pdf">FactoMineR</a></li>
 <li><a href="https://cran.r-project.org/web/packages/factoextra/factoextra.pdf">factoExtra</a></li>
@@ -408,7 +398,7 @@ For more, please see the <a href="https://sourceforge.net/projects/methylr/">tes
 </ol>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-lacher1987interpretation" class="csl-entry" role="doc-biblioentry">
 Lacher, DA. 1987. <span>“Interpretation of Laboratory Results Using Multidimensional Scaling and Principal Component Analysis.”</span> <em>Annals of Clinical &amp; Laboratory Science</em> 17 (6): 412–17.
 </div>
@@ -427,7 +417,7 @@ Mugavin, Marie E. 2008. <span>“Multidimensional Scaling: A Brief Overview.”<
 </ol>
 </section>
 
-<p>Copyright © 2022-2023. Massimiliano Volpe and Jyotirmoy Das.</p></main> <!-- /main -->
+<p>Copyright © 2023-2024. Massimiliano Volpe and Jyotirmoy Das.</p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -563,13 +553,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./feanaly.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Feature Analysis</span>
+      <a href="./igv.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Integrative Genome Viewer</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Gene_Features_analysis.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gene Features analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Volcano_plot.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Volcano plot</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

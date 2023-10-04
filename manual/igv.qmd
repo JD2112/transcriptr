@@ -1,0 +1,11 @@
+# Integrative Genome Viewer
+Thanks to **IGV-Shiny**, we have included a sub-section to visualize the BedGraph result in the genome viewer.
+
+## Parameters and Genome View
+1. Please select the *'bedgraph'* file from the drop-down list.
+2. *'Run IGV'* and it will create the chromosome map on the side box, *'genome view'*.
+3. In the *'Genome View'* box, select the chromosome number in interest.
+4. Click on *'Add as BedGraph'* to view the result on the chromosome level.
+5. Use cursor to zoom in/out on the location/region. 
+
+![Genome View](_images/igv/igv1.png){#fig-igv1}
