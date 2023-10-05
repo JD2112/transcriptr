@@ -186,7 +186,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, frame hidden, breakable, enhanced, sharp corners, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, breakable, enhanced, boxrule=0pt, sharp corners, interior hidden, frame hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Contents}
 {
@@ -203,7 +203,7 @@
 
 \markboth{Acknowledgements}{Acknowledgements}
 
-e-mail: \url{methylr@googlegroups.com}
+e-mail: \url{TranscriptR@googlegroups.com}
 
 Bioinformatics,\\
 Core Facility,\\
@@ -217,16 +217,36 @@ Medicine and Health Sciences, Linköping University, Linköping, Sweden
 and Clinical Genomics Linköping, Science for Life Laboratory, Sweden for
 their support.}}
 
-\textbf{\emph{DISCLAIMER: }} \textbf{\emph{All packages used in
-}methylR* are publicly available and open-source license. We have
-modified the source as required for \emph{methylR}. Venn and UpSet plots
-inspired by the \href{https://github.com/asntech/intervene}{intervene}
-package \autocite{khan2017intervene}, we modified as required for
-\emph{methylR}.}*
+\bookmarksetup{startatroot}
+
+\hypertarget{disclaimer}{%
+\chapter*{Disclaimer}\label{disclaimer}}
+\addcontentsline{toc}{chapter}{Disclaimer}
+
+\markboth{Disclaimer}{Disclaimer}
+
+\textbf{\emph{All packages used in }TranscriptR* are publicly available
+and open-source license. We have modified the source as required for
+\emph{TranscriptR}. IGV genome viewer is inspired by
+\href{https://github.com/gladkia/igvShiny}{igvShiny} Venn and UpSet
+plots inspired by the
+\href{https://github.com/asntech/intervene}{intervene} package
+\autocite{khan2017intervene}, we modified as required for
+\emph{TranscriptR}.}*
+
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
+
+\textbf{PLEASE NOTE} WE INCLUDED THE POSSIBILITY OF THE HUMAN
+TRANSCRIPTOME DATA ANALYSIS FROM THE SEQUENCE DATA. NONE OF THE OWNER OF
+THE CODE OR DATA CENTER IS RESPONSIBLE FOR HANDLING THE HUMAN DATA. IT
+IS UPTO THE USER IF THEY WANT TO USE THE ONLINE VERSION FOR HUMAN DATA
+ANALYSIS.
+
+\end{tcolorbox}
 
 \part{TranscriptR: Transcriptome Data Analysis Pipeline}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 PLEASE NOTE WE INCLUDED THE POSSIBILITY OF THE HUMAN TRANSCRIPTOME DATA
 ANALYSIS FROM THE SEQUENCE DATA. NONE OF THE OWNER OF THE CODE OR DATA
@@ -235,7 +255,7 @@ IF THEY WANT TO USE THE ONLINE VERSION FOR HUMAN DATA ANALYSIS.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-warning-color-frame, colbacktitle=quarto-callout-warning-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP,
 BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND
@@ -243,12 +263,12 @@ TRY AGAIN.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
-\textbf{Few important notes} 1. All box navigation bars open \& close
-with \emph{`double click'}. 2. \emph{`Sidebar'} is fully collapsible to
-create a maximized view. 3. Remember to read the manual carefully before
-submit the \emph{`run'}.
+\textbf{Few important notes}\\
+1. All box navigation bars open \& close with \emph{`double click'}.\\
+2. \emph{`Sidebar'} is fully collapsible to create a maximized view.\\
+3. Remember to read the manual carefully before submit the \emph{`run'}.
 
 \end{tcolorbox}
 
@@ -352,7 +372,7 @@ We successfully tested the pipeline on Linux based system.\\
   \end{itemize}
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 TranscriptR cannot run on
 \href{https://en.wikipedia.org/wiki/List_of_ARM_processors}{ARM64
@@ -375,7 +395,7 @@ online. Please check the
 \href{https://github.com/JD2112/transcriptr}{github link} to run the
 container from your local computer.\\
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 Please remember, after start analyzing one transcriptome analysis run,
 the `submit' button will be dectivated until refreshing the session. In
@@ -383,7 +403,7 @@ this case, the user needs to upload the data again for another analysis.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 Note: If you want to run with the test data, Please download the
 testdata from \href{www.google.com}{Coming soon\ldots{}}
@@ -392,6 +412,16 @@ testdata from \href{www.google.com}{Coming soon\ldots{}}
 
 \hypertarget{sec-seqqual}{%
 \chapter{Quality Analysis}\label{sec-seqqual}}
+
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
+
+\textbf{PLEASE NOTE} WE INCLUDED THE POSSIBILITY OF THE HUMAN
+TRANSCRIPTOME DATA ANALYSIS FROM THE SEQUENCE DATA. NONE OF THE OWNER OF
+THE CODE OR DATA CENTER IS RESPONSIBLE FOR HANDLING THE HUMAN DATA. IT
+IS UPTO THE USER IF THEY WANT TO USE THE ONLINE VERSION FOR HUMAN DATA
+ANALYSIS.
+
+\end{tcolorbox}
 
 The \emph{Quality Analysis} is the first section in \emph{transcriptR}.
 It allows the user to asses for the quality of the RNA-seq experiment.
@@ -427,7 +457,7 @@ The current version can handle the upload of single fastq files. You can
 select all of the fastq. User can browse through the folder to upload
 data or drag \& drop files directly.
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 Please note it will take some time to upload the data and once the data
 uploaded, the list will be displayed in the browser (see
@@ -472,7 +502,7 @@ Once all fastq (\textbf{fastq.gz files only!}) files are uploaded on the
 browser, please check the names and click \textbf{\emph{`Run Quality
 Analysis'}} to submit the job.
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 Please remember, the \emph{fastqc} will use 12 cores in the background
 to estimate the quality of the data. Make sure the computer has at least
@@ -519,7 +549,7 @@ result in the \textbf{\emph{MultiQC result}} box. Please click to
 
 \end{figure}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 If \emph{MultiQC result} box cannot display any result (see
 Figure~\ref{fig-qual5}), please reload the browser and check again. Make
@@ -527,7 +557,7 @@ sure all jobs finished successfully.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 Check the
 \href{https://github.com/JD2112/methylr/tree/main/data}{github}
@@ -539,7 +569,7 @@ file and use as a template for your sample\_sheet.
 \hypertarget{sec-transcript}{%
 \chapter{Transcriptome Analysis}\label{sec-transcript}}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 \textbf{PLEASE NOTE} WE INCLUDED THE POSSIBILITY OF THE HUMAN
 TRANSCRIPTOME DATA ANALYSIS FROM THE SEQUENCE DATA. NONE OF THE OWNER OF
@@ -585,7 +615,7 @@ sub-parts -
   \textbf{\emph{`upload data'}} option.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 Please note it will take some time to upload the data and once the data
 uploaded, the list will be displayed in the \textbf{Data file viewer}
@@ -612,7 +642,7 @@ comparison conditions as showed in Figure~\ref{fig-trans2}.
 
 \end{figure}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -751,7 +781,7 @@ results.
 
 \end{figure}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -813,7 +843,7 @@ only).\\
 13. \textbf{Strand}: chromosomal strand\\
 14. \textbf{Types}: types of genes/transcript.
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 Please note, we already mentioned that the user may need to
 reload/refresh the browser after successful run to visualize the
@@ -935,8 +965,8 @@ visualize the BedGraph result in the genome viewer.
   APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
   CONTAINER AND TRY AGAIN.}
 
-In \emph{methylR}, multiple dimensional analysis includes two type of
-analysis -\\
+In \emph{TranscriptR}, multiple dimensional analysis includes two type
+of analysis -\\
 1. \textbf{MDS}: Multidimensional Scaling\\
 2. \textbf{PCA}: Prinicipal Component Analysis
 
@@ -952,38 +982,47 @@ Principal Component Analysis (PCA) is the original vectors in
 n-dimensional space and the data are projected onto the directions in
 the data with the most variance.
 
-\hypertarget{how-to-use-2}{%
-\section{How to use}\label{how-to-use-2}}
+\hypertarget{mds}{%
+\section{MDS}\label{mds}}
 
-For both analysis, user need to provide a TEXT (tab-delimited) file with
-numeric values, \emph{e.g.} the output normalized table from methylysis,
-\emph{i.e.} the normalized \beta value table. However the user can use
-similar tables for the analysis.
+\hypertarget{how-to-use-2}{%
+\subsection{How to use}\label{how-to-use-2}}
+
+For both analysis, user need to provide a \textbf{TEXT (tab-delimited)
+file with numeric values}, \emph{e.g.} the output normalized (CPM) table
+from `Transcriptome Analysis'. However the user can use similar tables
+for the analysis.
 
 \hypertarget{data-upload-1}{%
-\subsection{Data Upload}\label{data-upload-1}}
+\subsubsection{Data Upload}\label{data-upload-1}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Select the text file (tab-delimited file) and upload it.
-\item
   User can choose the option to use number of variables from the
   uploaded data file.
 \item
-  On the right tab, under ``MDS plot'', user will find the button to
-  ``Run MDS Analysis''
+  User can change the size of the points by using \emph{`select size'}.
 \item
-  Next tab is designed for the PCA plot and here user can have an input
-  of text file to highlight the group.
+  User can choose where to show which dimension (e.g.~Select X/Y (axis)
+  dimension - 1,2,3, etc.). Default is Dimension 1 for X-axis and
+  Dimension 2 for Y-axis.
+\item
+  Next, the user can change the label of X and Y-axis.
+\item
+  Select the text file (tab-delimited file) and upload it.
+\item
+  In addition, we added the option to colour the groups. The user needs
+  to upload the group file - one column file with different group names
+  (same as number of samples).
+\item
+  To group the colour, the user needs to specify the number of groups.
+  At present, maximum 10 groups can be coloured.
 \end{enumerate}
 
 \hypertarget{analysis-result}{%
-\section{Analysis result}\label{analysis-result}}
-
-\hypertarget{mds-plot}{%
-\subsection{MDS plot}\label{mds-plot}}
+\subsubsection{Analysis result}\label{analysis-result}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -998,25 +1037,46 @@ similar tables for the analysis.
   different options for the same figure.\\
 \end{enumerate}
 
-\begin{figure}[H]
-
-{\centering \includegraphics{./_images/mdsPlot.png}
-
-}
-
-\caption{MDS plot}
-
-\end{figure}
-
 \hypertarget{pca-plot}{%
-\subsection{PCA plot}\label{pca-plot}}
+\section{PCA plot}\label{pca-plot}}
+
+\hypertarget{data-upload-2}{%
+\subsection{Data Upload}\label{data-upload-2}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  The plot will be generated after computing the PCA, ``Run PCA'' with
-  the group colors and legend.
+  User can choose the option to use \emph{number of most variables}
+  (default is 1000) from the uploaded data file.
+\item
+  User can change the size of the points by using \emph{`select size'}
+  (default is 1).
+\item
+  User can write their own \emph{Main title} for the plot (e.g., PCA
+  plot).
+\item
+  User can write the \emph{legend title} for the plot (e.g., Groups).
+\item
+  Next, the user can change the label of X and Y-axis.
+\item
+  User can choose to show the \emph{`Mean point'}. The mean point
+  calculates the mean value of the respective group and plot them.
+\item
+  User can \emph{`Select Colour Palette'} from the drop-down list.
+\item
+  Select the text file (tab-delimited file) and upload it.
+\item
+  User needs to \emph{`Upload group file'} (same as MDS) and \emph{`Run
+  PCA Analysis'}.
+\end{enumerate}
+
+\hypertarget{analysis-result-1}{%
+\subsection{Analysis Result}\label{analysis-result-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   The generated plot is dynamic and positional details with the group
   name can be seen with mouse hovering.
@@ -1026,17 +1086,9 @@ similar tables for the analysis.
   functionality for plotly figures.
 \item
   User can also download the dynamic figure as html file.
-\item
-  To generate the PCA plot one additional TEXT file is needed. This
-  single-column file must have ``group'' as header and should store the
-  sample group in the same order as you have in the Sample\_Group column
-  of the Sample\_shee.csv file. Please find
-  \href{https://github.com/JD2112/methylr/blob/main/data/groupData.txt}{here}
-  an example of this file that you can use with the test data provided
-  with this distribution.\\
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 Please note that, the single column with header \textbf{``group''}
 should be supplied in this file. Match the column names of the variable
@@ -1051,7 +1103,7 @@ B\\
 B\\
 B\\
 For more, please see the
-\href{https://sourceforge.net/projects/methylr/}{test data} files.
+\href{https://sourceforge.net/projects/TranscriptR/}{test data} files.
 
 \end{tcolorbox}
 
@@ -1090,7 +1142,7 @@ Volcano plot is a nice tool to visualize in a two-dimensional way for
 differentially methylated CpG site or differentially expressed genes
 using the statistical \emph{p}-values as well as the fold change value.
 Like a volcano, the plot can show the significant or insignificant data
-in a scatter plot manner. Here with \emph{methylR}, we used plotly
+in a scatter plot manner. Here with \emph{TranscriptR}, we used plotly
 output to visualize the volcano plot to see the CpG or gene name (if the
 data from the differential analysis) with their respective
 \emph{p}-values (adjusted \emph{p}-values) and the logFC (or mean
@@ -1099,24 +1151,30 @@ methylation difference).
 \hypertarget{how-to-use-3}{%
 \section{How to use}\label{how-to-use-3}}
 
-\hypertarget{data-upload-parameters-setup}{%
-\subsection{Data upload \& Parameters
-setup}\label{data-upload-parameters-setup}}
-
-\hypertarget{data-upload-2}{%
-\subsubsection{Data upload}\label{data-upload-2}}
+\hypertarget{input-file-and-viewer}{%
+\subsection{Input File and Viewer}\label{input-file-and-viewer}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  User needs to upload a \textbf{Tab} (.txt) file with adjusted
-  \emph{p}-values and logFC values. At present, user can use the DMCs
-  data file directly generated from the main analysis (see
-  \textbf{?@sec-methylysis}).
+  User needs to upload the data file (.tsv, .txt, .csv, .xls, .xlsx). At
+  present, user can use the \emph{Transcriptome Analysis} data file
+  directly generated from the main analysis (see
+  Chapter~\ref{sec-transcript}). The uploaded file will be displayed in
+  the \emph{`Input File Viewer'}.
 \item
-  To setup the adjusted \emph{p}-value, user can change the cut-off.
-  Default is setup to 0.01.
+  User need to select three columns,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{`Select gene name column'}:
+  \item
+    \emph{`Select logFC column'}:
+  \item
+    \emph{`Select adjusted/p-value column'}:
+  \end{itemize}
 \item
   LogFC cut-off can also be changed as per user requirement. Default is
   setup to 0.3.
@@ -1125,8 +1183,8 @@ setup}\label{data-upload-parameters-setup}}
   \emph{p}-value and logFC, click the ``Run Analysis'' button.
 \end{enumerate}
 
-\hypertarget{analysis-result-1}{%
-\section{Analysis result}\label{analysis-result-1}}
+\hypertarget{analysis-result-2}{%
+\section{Analysis result}\label{analysis-result-2}}
 
 \hypertarget{volcano-plot}{%
 \subsection{Volcano plot}\label{volcano-plot}}
@@ -1146,7 +1204,7 @@ setup}\label{data-upload-parameters-setup}}
   figure as a html file.\\
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 Please note displaying of the volcano plot will take some time, even
 after the warning {``generating plot, please wait\ldots{}''}
@@ -1166,7 +1224,7 @@ the volcano plot data table.
 
 \end{figure}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 Volcano plot figure colors annotation- {Significant \& Fold
 Change}\textcolor{pink}{"Significant \& Fold Change"}, {Significant}
@@ -1183,7 +1241,7 @@ Change}\textcolor{pink}{"Significant \& Fold Change"}, {Significant}
 \item
   On the right tab, user can also see the volcano data table which is
   useful when they are using the full dataset from the main analysis
-  result (See \textbf{?@sec-methylysis}).
+  result (See Chapter~\ref{sec-transcript}).
 \end{enumerate}
 
 \hypertarget{volcano-data}{%
@@ -1238,9 +1296,9 @@ package} \autocite{yu2012clusterprofiler,wu2021clusterprofiler}.
 \hypertarget{how-to-use-4}{%
 \section{How to use}\label{how-to-use-4}}
 
-\hypertarget{data-upload-parameters-setup-1}{%
+\hypertarget{data-upload-parameters-setup}{%
 \subsection{Data upload \& Parameters
-setup}\label{data-upload-parameters-setup-1}}
+setup}\label{data-upload-parameters-setup}}
 
 \hypertarget{parameters-setup}{%
 \subsubsection{Parameters setup}\label{parameters-setup}}
@@ -1277,11 +1335,11 @@ setup}\label{data-upload-parameters-setup-1}}
 \subsubsection{Data upload}\label{data-upload-3}}
 
 At present, user can upload the DMC data produced by the main analysis
-(see \textbf{?@sec-methylysis} ) directly. The input file should be in a
-\textbf{text (tab-delimited)} format.
+(see Chapter~\ref{sec-transcript} ) directly. The input file should be
+in a \textbf{text (tab-delimited)} format.
 
-\hypertarget{analysis-result-2}{%
-\section{Analysis result}\label{analysis-result-2}}
+\hypertarget{analysis-result-3}{%
+\section{Analysis result}\label{analysis-result-3}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1294,7 +1352,7 @@ At present, user can upload the DMC data produced by the main analysis
   dynamic figure can also be downloaded as a html file.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1372,7 +1430,7 @@ At present, user can upload the DMC data produced by the main analysis
 
 \end{figure}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-warning-color-frame, colbacktitle=quarto-callout-warning-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1420,17 +1478,17 @@ compute the enriched pathways from three different databases,
 \hypertarget{how-to-use-5}{%
 \section{How to use}\label{how-to-use-5}}
 
-\hypertarget{data-upload-parameters-setup-2}{%
+\hypertarget{data-upload-parameters-setup-1}{%
 \subsection{Data upload \& Parameters
-setup}\label{data-upload-parameters-setup-2}}
+setup}\label{data-upload-parameters-setup-1}}
 
 \hypertarget{data-upload-4}{%
 \subsubsection{Data upload}\label{data-upload-4}}
 
 User can upload the direct output result from the main analysis. At
 present, user can upload the DMC data produced by the main analysis (See
-\textbf{?@sec-methylysis}). The input file should be in a \textbf{text
-(tab-delimited)} format.
+Chapter~\ref{sec-transcript}). The input file should be in a
+\textbf{text (tab-delimited)} format.
 
 \hypertarget{parameters-setup-1}{%
 \subsubsection{Parameters setup}\label{parameters-setup-1}}
@@ -1469,7 +1527,7 @@ present, user can upload the DMC data produced by the main analysis (See
   pathways is selected based on the adjusted P-values.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1526,8 +1584,8 @@ present, user can upload the DMC data produced by the main analysis (See
   file (DMC file) directly for the analysis.
 \end{enumerate}
 
-\hypertarget{analysis-result-3}{%
-\section{Analysis result}\label{analysis-result-3}}
+\hypertarget{analysis-result-4}{%
+\section{Analysis result}\label{analysis-result-4}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1545,7 +1603,7 @@ present, user can upload the DMC data produced by the main analysis (See
   described above and the dynamic figure as a html file.\\
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1592,7 +1650,7 @@ present, user can upload the DMC data produced by the main analysis (See
 
 \end{figure}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-warning-color-frame, colbacktitle=quarto-callout-warning-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 In the pathway enrichment table, the pathway ID is clickable and will
 open the respective pathway from the database. However, this feature is
@@ -1632,9 +1690,9 @@ datasets) to perform the Venn analysis. We adopt the part from
 
 Below given the details for the use of Venn analysis module.
 
-\hypertarget{data-upload-parameters-setup-3}{%
+\hypertarget{data-upload-parameters-setup-2}{%
 \subsection{Data upload \& Parameters
-setup}\label{data-upload-parameters-setup-3}}
+setup}\label{data-upload-parameters-setup-2}}
 
 \hypertarget{parameters-setup-2}{%
 \subsubsection{Parameters setup}\label{parameters-setup-2}}
@@ -1782,7 +1840,7 @@ part from \href{https://github.com/asntech/intervene}{intervene}
   \end{enumerate}
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 PLEASE NOTE: \textbf{\emph{``OR enter set combinations/expression''}}
 has the priority over \textbf{``Upload file''}. If you use the ``set
@@ -2118,7 +2176,7 @@ zip folder/
 \hypertarget{on-windows}{%
 \section{On Windows}\label{on-windows}}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-caution-color-frame, colbacktitle=quarto-callout-caution-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 PLEASE NOTE: Only AMD64 OS
 
@@ -2179,7 +2237,7 @@ PLEASE NOTE: Only AMD64 OS
   minutes to view the app).
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 \textbf{NOTE}: You can copy \emph{http://localhost:3838} after running
 the container and open it on other web-browser to run the app.\\
@@ -2199,7 +2257,7 @@ the container and open it on other web-browser to run the app.\\
 \hypertarget{on-macos}{%
 \section{On MacOS}\label{on-macos}}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-caution-color-frame, colbacktitle=quarto-callout-caution-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 PLEASE NOTE: (Intel, Only AMD64 OS - not supported on Apple M1/M2
 processors)
@@ -2244,7 +2302,7 @@ processors)
   load the app within 1-3 minutes.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 PLEASE NOTE: It may possible that you run the docker container on MacOS
 Apple M1, but the application may not work as expected. We strongly
@@ -2278,7 +2336,7 @@ docker run --rm -p 3838:3838 jd21/methylr:latest
   Windows.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, left=2mm, arc=.35mm, coltitle=black, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, leftrule=.75mm, titlerule=0mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, coltitle=black, colback=white, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, breakable, left=2mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomrule=.15mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2291,9 +2349,9 @@ docker run --rm -p 3838:3838 jd21/methylr:latest
   directly \href{mailto:methylr@googlegroups.com}{email the developer}.
 \item
   If after uploading the data for methylation analysis (see
-  \textbf{?@sec-methylysis}), the browser get disconnected, please check
-  you have installed the docker or docker-desktop with administrative
-  privilages. From terminal, user can run,
+  Chapter~\ref{sec-transcript}), the browser get disconnected, please
+  check you have installed the docker or docker-desktop with
+  administrative privilages. From terminal, user can run,
 \end{enumerate}
 
 \begin{verbatim}

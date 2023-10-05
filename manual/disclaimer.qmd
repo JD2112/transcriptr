@@ -1,0 +1,7 @@
+# Disclaimer {.unnumbered}
+
+***All packages used in *TranscriptR* are publicly available and open-source license. We have modified the source as required for *TranscriptR*.  IGV genome viewer is inspired by [igvShiny](https://github.com/gladkia/igvShiny){target="_blank"} Venn and UpSet plots inspired by the [intervene](https://github.com/asntech/intervene){target="_blank"} package [@khan2017intervene], we modified as required for *TranscriptR*.***
+
+::: {.callout-important title="IMPORTANT" collapse=false}
+**PLEASE NOTE** WE INCLUDED THE POSSIBILITY OF THE HUMAN TRANSCRIPTOME DATA ANALYSIS FROM THE SEQUENCE DATA. NONE OF THE OWNER OF THE CODE OR DATA CENTER IS RESPONSIBLE FOR HANDLING THE HUMAN DATA. IT IS UPTO THE USER IF THEY WANT TO USE THE ONLINE VERSION FOR HUMAN DATA ANALYSIS.
+:::

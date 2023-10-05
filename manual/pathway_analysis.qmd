@@ -7,7 +7,7 @@ Pathway enrichment analysis helps the user to get the mechanistic insights of th
 
 ### Data upload & Parameters setup
 #### Data upload
-User can upload the direct output result from the main analysis. At present, user can upload the DMC data produced by the main analysis (See @sec-methylysis). The input file should be in a **text (tab-delimited)** format.
+User can upload the direct output result from the main analysis. At present, user can upload the DMC data produced by the main analysis (See @sec-transcript). The input file should be in a **text (tab-delimited)** format.
 
 #### Parameters setup
 

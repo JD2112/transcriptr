@@ -1,36 +1,47 @@
 # Dimensional Analysis {#sec-multid}
 ^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
 
-In *methylR*, multiple dimensional analysis includes two type of analysis - \
+In *TranscriptR*, multiple dimensional analysis includes two type of analysis - \
 1. **MDS**: Multidimensional Scaling \
 2. **PCA**: Prinicipal Component Analysis
 
 Multidimensional scaling is a visual representation of distances or dissimilarities between set of objects. **MDS** finds set of vectors in *p*-dimensional space such that the matrix of Euclidean distance among them corresponds as closely as possible to some function of the input matrix. The input to multidimensional scaling is a distance matrix. To get some more details on how to use **MDS** in biological data, read [@mugavin2008multidimensional; @lacher1987interpretation; @lacher1988comparison] \
 Principal Component Analysis (PCA) is the original vectors in n-dimensional space and the data are projected onto the directions in the data with the most variance.
 
-## How to use
-For both analysis, user need to provide a TEXT (tab-delimited) file with numeric values, *e.g.* the output normalized table from methylysis, *i.e.* the normalized \beta value table. However the user can use similar tables for the analysis.
+## MDS
+### How to use
+For both analysis, user need to provide a **TEXT (tab-delimited) file with numeric values**, *e.g.* the output normalized (CPM) table from 'Transcriptome Analysis'. However the user can use similar tables for the analysis.
 
-### Data Upload
-1. Select the text file (tab-delimited file) and upload it.
-2. User can choose the option to use number of variables from the uploaded data file.
-3. On the right tab, under "MDS plot", user will find the button to "Run MDS Analysis"
-4. Next tab is designed for the PCA plot and here user can have an input of text file to highlight the group.
+#### Data Upload
+1. User can choose the option to use number of variables from the uploaded data file.
+2. User can change the size of the points by using *'select size'*.
+3. User can choose where to show which dimension (e.g. Select X/Y (axis) dimension - 1,2,3, etc.). Default is Dimension 1 for X-axis and Dimension 2 for Y-axis. 
+4. Next, the user can change the label of X and Y-axis. 
+5. Select the text file (tab-delimited file) and upload it.
+6. In addition, we added the option to colour the groups. The user needs to upload the group file - one column file with different group names (same as number of samples).
+7. To group the colour, the user needs to specify the number of groups. At present, maximum 10 groups can be coloured.
 
-## Analysis result
-
-### MDS plot
+#### Analysis result
 1. After the click on "Run MDS Analysis", the program will take some time to generate the plot and will appear as soon the run finishes. The zoom bar can be used to zoom in/out the plot.
 2. The generated figure can be downloaded in different format, vector graphics support - PDF and SVG or PNG and TIFF. User can download all different options for the same figure. \
 
-![MDS plot](_images/mdsPlot.png)
+## PCA plot
 
-### PCA plot
-1. The plot will be generated after computing the PCA, "Run PCA" with the group colors and legend.
-2. The generated plot is dynamic and positional details with the group name can be seen with mouse hovering.
-3. The plot is generated using the plotly application, it can zoom in/out, save figure as PNG format, and do all other available functionality for plotly figures.
-4. User can also download the dynamic figure as html file.
-5. To generate the PCA plot one additional TEXT file is needed. This single-column file must have "group" as header and should store the sample group in the same order as you have in the Sample_Group column of the Sample_shee.csv file. Please find [here](https://github.com/JD2112/methylr/blob/main/data/groupData.txt) an example of this file that you can use with the test data provided with this distribution. \
+### Data Upload
+1. User can choose the option to use *number of most variables* (default is 1000) from the uploaded data file.
+2. User can change the size of the points by using *'select size'* (default is 1).
+3. User can write their own *Main title* for the plot (e.g., PCA plot).
+4. User can write the *legend title* for the plot (e.g., Groups). 
+5. Next, the user can change the label of X and Y-axis. 
+6. User can choose to show the *'Mean point'*. The mean point calculates the mean value of the respective group and plot them.
+7. User can *'Select Colour Palette'* from the drop-down list.
+8. Select the text file (tab-delimited file) and upload it.
+9. User needs to *'Upload group file'* (same as MDS) and *'Run PCA Analysis'*.
+
+### Analysis Result
+1. The generated plot is dynamic and positional details with the group name can be seen with mouse hovering.
+2. The plot is generated using the plotly application, it can zoom in/out, save figure as PNG format, and do all other available functionality for plotly figures.
+3. User can also download the dynamic figure as html file.
 
 ::: {.callout-note}
 Please note that, the single column with header **"group"** should be supplied in this file. Match the column names of the variable data file with the group. \
@@ -45,7 +56,7 @@ A \
 B \
 B \
 B \
-For more, please see the [test data](https://sourceforge.net/projects/methylr/) files.
+For more, please see the [test data](https://sourceforge.net/projects/TranscriptR/) files.
 :::
 
 ![Principal Component Analysis plot](_images/PCA.png)

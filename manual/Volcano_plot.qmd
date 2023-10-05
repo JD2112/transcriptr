@@ -3,13 +3,15 @@
 ^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
 
 Volcano plot is a nice tool to visualize in a two-dimensional way for differentially methylated CpG site or differentially expressed genes using the statistical *p*-values as well as the fold change value. Like a volcano, the plot can show the significant or insignificant data in a scatter plot manner.
-Here with *methylR*, we used plotly output to visualize the volcano plot to see the CpG or gene name (if the data from the differential analysis) with their respective *p*-values (adjusted *p*-values) and the logFC (or mean methylation difference).
+Here with *TranscriptR*, we used plotly output to visualize the volcano plot to see the CpG or gene name (if the data from the differential analysis) with their respective *p*-values (adjusted *p*-values) and the logFC (or mean methylation difference).
 
 ## How to use
-### Data upload & Parameters setup
-#### Data upload
-1. User needs to upload a **Tab** (.txt) file with adjusted *p*-values and logFC values. At present, user can use the DMCs data file directly generated from the main analysis (see @sec-methylysis).
-2. To setup the adjusted *p*-value, user can change the cut-off. Default is setup to 0.01.
+### Input File and Viewer
+1. User needs to upload the data file (.tsv, .txt, .csv, .xls, .xlsx). At present, user can use the *Transcriptome Analysis* data file directly generated from the main analysis (see @sec-transcript). The uploaded file will be displayed in the *'Input File Viewer'*.
+2. User need to select three columns,
+    - *'Select gene name column'*:
+    - *'Select logFC column'*:
+    - *'Select adjusted/p-value column'*:
 3. LogFC cut-off can also be changed as per user requirement. Default is setup to 0.3.
 4. After the file upload and setting up the cut-off for adjusted *p*-value and logFC, click the "Run Analysis" button.
 
@@ -30,7 +32,7 @@ Please note displaying of the volcano plot will take some time, even after the w
 Volcano plot figure colors annotation- [Significant \& Fold Change]{style="color: pink;"}\textcolor{pink}{"Significant \& Fold Change"}, [Significant]{style="color: cyan;"} \textcolor{cyan}{"Significant"}, [FoldChange]{style="color: green;"} \textcolor{green}{FoldChange} or [NotSignificant]{style="color: orange;"} \textcolor{orange}{"Notsignificant"}
 :::
 
-3. On the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis result (See @sec-methylysis).
+3. On the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis result (See @sec-transcript).
 
 ### Volcano data
 One data table will be generated using the input data and will have a column marked with [Significant \& Fold Change]{style="color: pink;"}\textcolor{pink}{"Significant \& Fold Change"}, [Significant]{style="color: cyan;"} \textcolor{cyan}{"Significant"}, [FoldChange]{style="color: green;"} \textcolor{green}{FoldChange} or [NotSignificant]{style="color: orange;"} \textcolor{orange}{"Notsignificant"} depends on the adjusted *p*-value and logFC cut-off. \

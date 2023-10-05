@@ -18,6 +18,7 @@ book:
     - name: Jyotirmoy Das
   chapters:
     - index.qmd
+    - disclaimer.qmd
     - part: intro.qmd
       chapters:
         - quality.qmd

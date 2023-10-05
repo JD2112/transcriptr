@@ -1,17 +1,17 @@
-# TranscriptR: Transcriptome Data Analysis Pipeline
+# TranscriptR: Transcriptome Data Analysis Pipeline {#sec-intro}
 
-::: {.callout-caution}
+::: {.callout-important title="IMPORTANT" collapse=false}
 PLEASE NOTE WE INCLUDED THE POSSIBILITY OF THE HUMAN TRANSCRIPTOME DATA ANALYSIS FROM THE SEQUENCE DATA. NONE OF THE OWNER OF THE CODE OR DATA CENTER IS RESPONSIBLE FOR HANDLING THE HUMAN DATA. IT IS UPTO THE USER IF THEY WANT TO USE THE ONLINE VERSION FOR HUMAN DATA ANALYSIS.
 :::
 
-::: {.callout-important}
+::: {.callout-warning}
 TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.
 :::
 
 :::{.callout-tip}
-**Few important notes**
-1. All box navigation bars open & close with *'double click'*.
-2. *'Sidebar'* is fully collapsible to create a maximized view.
+**Few important notes** \
+1. All box navigation bars open & close with *'double click'*. \
+2. *'Sidebar'* is fully collapsible to create a maximized view. \
 3. Remember to read the manual carefully before submit the *'run'*.
 :::
 

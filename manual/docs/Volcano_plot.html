@@ -132,6 +132,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./disclaimer.html" class="sidebar-item-text sidebar-link">Disclaimer</a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./intro.html" class="sidebar-item-text sidebar-link">TranscriptR: Transcriptome Data Analysis Pipeline</a>
@@ -265,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link active" data-scroll-target="#how-to-use"><span class="toc-section-number">5.1</span>  How to use</a>
   <ul class="collapse">
-  <li><a href="#data-upload-parameters-setup" id="toc-data-upload-parameters-setup" class="nav-link" data-scroll-target="#data-upload-parameters-setup"><span class="toc-section-number">5.1.1</span>  Data upload &amp; Parameters setup</a></li>
+  <li><a href="#input-file-and-viewer" id="toc-input-file-and-viewer" class="nav-link" data-scroll-target="#input-file-and-viewer"><span class="toc-section-number">5.1.1</span>  Input File and Viewer</a></li>
   </ul></li>
   <li><a href="#analysis-result" id="toc-analysis-result" class="nav-link" data-scroll-target="#analysis-result"><span class="toc-section-number">5.2</span>  Analysis result</a>
   <ul class="collapse">
@@ -297,20 +302,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Volcano plot is a nice tool to visualize in a two-dimensional way for differentially methylated CpG site or differentially expressed genes using the statistical <em>p</em>-values as well as the fold change value. Like a volcano, the plot can show the significant or insignificant data in a scatter plot manner. Here with <em>methylR</em>, we used plotly output to visualize the volcano plot to see the CpG or gene name (if the data from the differential analysis) with their respective <em>p</em>-values (adjusted <em>p</em>-values) and the logFC (or mean methylation difference).</p>
+<p>Volcano plot is a nice tool to visualize in a two-dimensional way for differentially methylated CpG site or differentially expressed genes using the statistical <em>p</em>-values as well as the fold change value. Like a volcano, the plot can show the significant or insignificant data in a scatter plot manner. Here with <em>TranscriptR</em>, we used plotly output to visualize the volcano plot to see the CpG or gene name (if the data from the differential analysis) with their respective <em>p</em>-values (adjusted <em>p</em>-values) and the logFC (or mean methylation difference).</p>
 <section id="how-to-use" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">5.1</span> How to use</h2>
-<section id="data-upload-parameters-setup" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="data-upload-parameters-setup"><span class="header-section-number">5.1.1</span> Data upload &amp; Parameters setup</h3>
-<section id="data-upload" class="level4" data-number="5.1.1.1">
-<h4 data-number="5.1.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">5.1.1.1</span> Data upload</h4>
+<section id="input-file-and-viewer" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="input-file-and-viewer"><span class="header-section-number">5.1.1</span> Input File and Viewer</h3>
 <ol type="1">
-<li>User needs to upload a <strong>Tab</strong> (.txt) file with adjusted <em>p</em>-values and logFC values. At present, user can use the DMCs data file directly generated from the main analysis (see <span class="quarto-unresolved-ref">?sec-methylysis</span>).</li>
-<li>To setup the adjusted <em>p</em>-value, user can change the cut-off. Default is setup to 0.01.</li>
+<li>User needs to upload the data file (.tsv, .txt, .csv, .xls, .xlsx). At present, user can use the <em>Transcriptome Analysis</em> data file directly generated from the main analysis (see <a href="transcriptome.html"><span>Chapter&nbsp;2</span></a>). The uploaded file will be displayed in the <em>‘Input File Viewer’</em>.</li>
+<li>User need to select three columns,
+<ul>
+<li><em>‘Select gene name column’</em>:</li>
+<li><em>‘Select logFC column’</em>:</li>
+<li><em>‘Select adjusted/p-value column’</em>:</li>
+</ul></li>
 <li>LogFC cut-off can also be changed as per user requirement. Default is setup to 0.3.</li>
 <li>After the file upload and setting up the cut-off for adjusted <em>p</em>-value and logFC, click the “Run Analysis” button.</li>
 </ol>
-</section>
 </section>
 </section>
 <section id="analysis-result" class="level2" data-number="5.2">
@@ -355,7 +362,7 @@ Tip
 </div>
 </div>
 <ol start="3" type="1">
-<li>On the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis result (See <span class="quarto-unresolved-ref">?sec-methylysis</span>).</li>
+<li>On the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis result (See <a href="transcriptome.html"><span>Chapter&nbsp;2</span></a>).</li>
 </ol>
 </section>
 <section id="volcano-data" class="level3" data-number="5.2.2">

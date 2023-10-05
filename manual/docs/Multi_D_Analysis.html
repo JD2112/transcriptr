@@ -151,6 +151,11 @@ div.csl-indent {
   <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./disclaimer.html" class="sidebar-item-text sidebar-link">Disclaimer</a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./intro.html" class="sidebar-item-text sidebar-link">TranscriptR: Transcriptome Data Analysis Pipeline</a>
@@ -282,14 +287,14 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link active" data-scroll-target="#how-to-use"><span class="toc-section-number">4.1</span>  How to use</a>
+  <li><a href="#mds" id="toc-mds" class="nav-link active" data-scroll-target="#mds"><span class="toc-section-number">4.1</span>  MDS</a>
   <ul class="collapse">
-  <li><a href="#data-upload" id="toc-data-upload" class="nav-link" data-scroll-target="#data-upload"><span class="toc-section-number">4.1.1</span>  Data Upload</a></li>
+  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link" data-scroll-target="#how-to-use"><span class="toc-section-number">4.1.1</span>  How to use</a></li>
   </ul></li>
-  <li><a href="#analysis-result" id="toc-analysis-result" class="nav-link" data-scroll-target="#analysis-result"><span class="toc-section-number">4.2</span>  Analysis result</a>
+  <li><a href="#pca-plot" id="toc-pca-plot" class="nav-link" data-scroll-target="#pca-plot"><span class="toc-section-number">4.2</span>  PCA plot</a>
   <ul class="collapse">
-  <li><a href="#mds-plot" id="toc-mds-plot" class="nav-link" data-scroll-target="#mds-plot"><span class="toc-section-number">4.2.1</span>  MDS plot</a></li>
-  <li><a href="#pca-plot" id="toc-pca-plot" class="nav-link" data-scroll-target="#pca-plot"><span class="toc-section-number">4.2.2</span>  PCA plot</a></li>
+  <li><a href="#data-upload-1" id="toc-data-upload-1" class="nav-link" data-scroll-target="#data-upload-1"><span class="toc-section-number">4.2.1</span>  Data Upload</a></li>
+  <li><a href="#analysis-result-1" id="toc-analysis-result-1" class="nav-link" data-scroll-target="#analysis-result-1"><span class="toc-section-number">4.2.2</span>  Analysis Result</a></li>
   </ul></li>
   <li><a href="#r-packages-used" id="toc-r-packages-used" class="nav-link" data-scroll-target="#r-packages-used"><span class="toc-section-number">4.3</span>  R packages used</a></li>
   </ul>
@@ -316,49 +321,60 @@ div.csl-indent {
 </header>
 
 <p><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>In <em>methylR</em>, multiple dimensional analysis includes two type of analysis -<br>
+<p>In <em>TranscriptR</em>, multiple dimensional analysis includes two type of analysis -<br>
 1. <strong>MDS</strong>: Multidimensional Scaling<br>
 2. <strong>PCA</strong>: Prinicipal Component Analysis</p>
 <p>Multidimensional scaling is a visual representation of distances or dissimilarities between set of objects. <strong>MDS</strong> finds set of vectors in <em>p</em>-dimensional space such that the matrix of Euclidean distance among them corresponds as closely as possible to some function of the input matrix. The input to multidimensional scaling is a distance matrix. To get some more details on how to use <strong>MDS</strong> in biological data, read <span class="citation" data-cites="mugavin2008multidimensional lacher1987interpretation lacher1988comparison">(<a href="references.html#ref-mugavin2008multidimensional" role="doc-biblioref">Mugavin 2008</a>; <a href="references.html#ref-lacher1987interpretation" role="doc-biblioref">D. Lacher 1987</a>; <a href="references.html#ref-lacher1988comparison" role="doc-biblioref">D. A. Lacher and O’Donnell 1988</a>)</span><br>
 Principal Component Analysis (PCA) is the original vectors in n-dimensional space and the data are projected onto the directions in the data with the most variance.</p>
-<section id="how-to-use" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">4.1</span> How to use</h2>
-<p>For both analysis, user need to provide a TEXT (tab-delimited) file with numeric values, <em>e.g.</em> the output normalized table from methylysis, <em>i.e.</em> the normalized value table. However the user can use similar tables for the analysis.</p>
-<section id="data-upload" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">4.1.1</span> Data Upload</h3>
+<section id="mds" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="mds"><span class="header-section-number">4.1</span> MDS</h2>
+<section id="how-to-use" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">4.1.1</span> How to use</h3>
+<p>For both analysis, user need to provide a <strong>TEXT (tab-delimited) file with numeric values</strong>, <em>e.g.</em> the output normalized (CPM) table from ‘Transcriptome Analysis’. However the user can use similar tables for the analysis.</p>
+<section id="data-upload" class="level4" data-number="4.1.1.1">
+<h4 data-number="4.1.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">4.1.1.1</span> Data Upload</h4>
 <ol type="1">
-<li>Select the text file (tab-delimited file) and upload it.</li>
 <li>User can choose the option to use number of variables from the uploaded data file.</li>
-<li>On the right tab, under “MDS plot”, user will find the button to “Run MDS Analysis”</li>
-<li>Next tab is designed for the PCA plot and here user can have an input of text file to highlight the group.</li>
+<li>User can change the size of the points by using <em>‘select size’</em>.</li>
+<li>User can choose where to show which dimension (e.g.&nbsp;Select X/Y (axis) dimension - 1,2,3, etc.). Default is Dimension 1 for X-axis and Dimension 2 for Y-axis.</li>
+<li>Next, the user can change the label of X and Y-axis.</li>
+<li>Select the text file (tab-delimited file) and upload it.</li>
+<li>In addition, we added the option to colour the groups. The user needs to upload the group file - one column file with different group names (same as number of samples).</li>
+<li>To group the colour, the user needs to specify the number of groups. At present, maximum 10 groups can be coloured.</li>
 </ol>
 </section>
-</section>
-<section id="analysis-result" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="analysis-result"><span class="header-section-number">4.2</span> Analysis result</h2>
-<section id="mds-plot" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="mds-plot"><span class="header-section-number">4.2.1</span> MDS plot</h3>
+<section id="analysis-result" class="level4" data-number="4.1.1.2">
+<h4 data-number="4.1.1.2" class="anchored" data-anchor-id="analysis-result"><span class="header-section-number">4.1.1.2</span> Analysis result</h4>
 <ol type="1">
 <li>After the click on “Run MDS Analysis”, the program will take some time to generate the plot and will appear as soon the run finishes. The zoom bar can be used to zoom in/out the plot.</li>
 <li>The generated figure can be downloaded in different format, vector graphics support - PDF and SVG or PNG and TIFF. User can download all different options for the same figure.<br>
 </li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="_images/mdsPlot.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">MDS plot</figcaption><p></p>
-</figure>
-</div>
 </section>
-<section id="pca-plot" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="pca-plot"><span class="header-section-number">4.2.2</span> PCA plot</h3>
+</section>
+</section>
+<section id="pca-plot" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="pca-plot"><span class="header-section-number">4.2</span> PCA plot</h2>
+<section id="data-upload-1" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="data-upload-1"><span class="header-section-number">4.2.1</span> Data Upload</h3>
 <ol type="1">
-<li>The plot will be generated after computing the PCA, “Run PCA” with the group colors and legend.</li>
+<li>User can choose the option to use <em>number of most variables</em> (default is 1000) from the uploaded data file.</li>
+<li>User can change the size of the points by using <em>‘select size’</em> (default is 1).</li>
+<li>User can write their own <em>Main title</em> for the plot (e.g., PCA plot).</li>
+<li>User can write the <em>legend title</em> for the plot (e.g., Groups).</li>
+<li>Next, the user can change the label of X and Y-axis.</li>
+<li>User can choose to show the <em>‘Mean point’</em>. The mean point calculates the mean value of the respective group and plot them.</li>
+<li>User can <em>‘Select Colour Palette’</em> from the drop-down list.</li>
+<li>Select the text file (tab-delimited file) and upload it.</li>
+<li>User needs to <em>‘Upload group file’</em> (same as MDS) and <em>‘Run PCA Analysis’</em>.</li>
+</ol>
+</section>
+<section id="analysis-result-1" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="analysis-result-1"><span class="header-section-number">4.2.2</span> Analysis Result</h3>
+<ol type="1">
 <li>The generated plot is dynamic and positional details with the group name can be seen with mouse hovering.</li>
 <li>The plot is generated using the plotly application, it can zoom in/out, save figure as PNG format, and do all other available functionality for plotly figures.</li>
 <li>User can also download the dynamic figure as html file.</li>
-<li>To generate the PCA plot one additional TEXT file is needed. This single-column file must have “group” as header and should store the sample group in the same order as you have in the Sample_Group column of the Sample_shee.csv file. Please find <a href="https://github.com/JD2112/methylr/blob/main/data/groupData.txt">here</a> an example of this file that you can use with the test data provided with this distribution.<br>
-</li>
 </ol>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -378,7 +394,7 @@ A<br>
 B<br>
 B<br>
 B<br>
-For more, please see the <a href="https://sourceforge.net/projects/methylr/">test data</a> files.</p>
+For more, please see the <a href="https://sourceforge.net/projects/TranscriptR/">test data</a> files.</p>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">

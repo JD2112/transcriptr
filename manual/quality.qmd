@@ -1,5 +1,9 @@
 # Quality Analysis {#sec-seqqual}
 
+::: {.callout-important title="IMPORTANT" collapse=false}
+**PLEASE NOTE** WE INCLUDED THE POSSIBILITY OF THE HUMAN TRANSCRIPTOME DATA ANALYSIS FROM THE SEQUENCE DATA. NONE OF THE OWNER OF THE CODE OR DATA CENTER IS RESPONSIBLE FOR HANDLING THE HUMAN DATA. IT IS UPTO THE USER IF THEY WANT TO USE THE ONLINE VERSION FOR HUMAN DATA ANALYSIS.
+:::
+
 The *Quality Analysis* is the first section in *transcriptR*. It allows the user to asses for the quality of the RNA-seq experiment. For convenience, you can run the quality analysis without needing to run the whole RNA-seq pipeline (look at the "Transcriptome Analysis section"). The quality assessment will run [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and [MultiQC](https://multiqc.info/) in background and the user will get a complete MultiQC analysis report in *html* format. You can skip the quality analysis and run the main pipeline directly, transcriptR will perform the quality assessment at the beginning of the analysis.
 
 ![Qaulity Analysis](_images/quality/quality1.png){#fig-qual1}

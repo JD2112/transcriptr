@@ -54,7 +54,7 @@ docker run --rm -p 3838:3838 jd21/methylr:latest
 
 ::: {.callout-note}
 1. Please contact the IT support if Docker is running properly. You can also contact the developers using the [*GitHub*](https://github.com/JD2112/methylr/issues) or the [*Google groups*](https://groups.google.com/g/methylr) or directly [email the developer](mailto:methylr@googlegroups.com).
-2. If after uploading the data for methylation analysis (see @sec-methylysis), the browser get disconnected, please check you have installed the docker or docker-desktop with administrative privilages. From terminal, user can run,
+2. If after uploading the data for methylation analysis (see @sec-transcript), the browser get disconnected, please check you have installed the docker or docker-desktop with administrative privilages. From terminal, user can run,
 ```
 $ sudo usermod -aG docker $USER
 or
