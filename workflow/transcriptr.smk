@@ -284,21 +284,21 @@ rule limma:
         """
 
 
-rule zip:
-    input:
-        multiqc = rules.multiqc.output.outf,
-    output:
-        fzip = RESULTS + "results.zip",
-    params:
-        edger = RESULTS + "edgeR_results/",
-        deseq2 = RESULTS + "deseq2_results/",
-        limma = RESULTS + "limma_results/",
-        fastqc = RESULTS + "fastqc/",
-        logs = RESULTS + "logs/",
-        subread = RESULTS + "subread/",
-    threads: 
-        12
-    shell:
-        """
-        zip -r {output.fzip} {input.multiqc} {params.edger} {params.deseq2} {params.limma} {params.fastqc} {params.subread} {params.logs} 
-        """
+#rule zip:
+#    input:
+#        multiqc = rules.multiqc.output.outf,
+#    output:
+#        fzip = RESULTS + "results.zip",
+#    params:
+#        edger = RESULTS + "edgeR_results/",
+#        deseq2 = RESULTS + "deseq2_results/",
+#        limma = RESULTS + "limma_results/",
+#        fastqc = RESULTS + "fastqc/",
+#        logs = RESULTS + "logs/",
+#        subread = RESULTS + "subread/",
+#    threads: 
+#        12
+#    shell:
+#        """
+#        zip -r {output.fzip} {input.multiqc} {params.edger} {params.deseq2} {params.limma} {params.fastqc} {params.subread} {params.logs} 
+#        """
