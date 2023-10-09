@@ -1,0 +1,5 @@
+{
+    "data": "/mnt/WD1/test/transcriptR_single/Amin2021/Raw_data/",
+    "workdir": "/mnt/WD1/test/transcriptR_single/",
+    "R1_suffix": ".fastq.gz"
+}

@@ -1,6 +1,6 @@
-################################
-## STARlight RNA-seq Pipeline ##
-################################
+#############################################
+## TranscriptR single-end RNA-seq Pipeline ##
+#############################################
 
 configfile:
     "config_single.json"
