@@ -1,5 +1,5 @@
 ############################
-## Performs paired-end QC ##
+## Performs single-end QC ##
 ############################
 
 
@@ -11,7 +11,7 @@ workdir:
    config['workdir']
 
 R1SUFFIX = config['R1_suffix']
-R2SUFFIX = config['R2_suffix']
+#R2SUFFIX = config['R2_suffix']
 
 SAMPLES, = glob_wildcards(config['data'] + "{sample}" + R1SUFFIX)
 RESULTS = config['workdir'] + 'results_qc/'
@@ -21,7 +21,7 @@ LOGS = RESULTS + 'logs/'
 rule all:
     input:
         fq1 = expand(RESULTS + 'fastqc/{sample}', sample=SAMPLES),
-        fq2 = expand(RESULTS + 'fastqc/{sample}', sample=SAMPLES),
+        #fq2 = expand(RESULTS + 'fastqc/{sample}', sample=SAMPLES),
         fqc = expand(LOGS + 'fastqc/{sample}.fastqc.log', sample=SAMPLES),
         multiqc = RESULTS + 'multiqc_report.html',
 
@@ -29,7 +29,7 @@ rule all:
 rule fastqc:
     input:
         R1 = config['data'] + "{sample}" + R1SUFFIX,
-        R2 = config['data'] + "{sample}" + R2SUFFIX,
+        #R2 = config['data'] + "{sample}" + R2SUFFIX,
     output:
         out = directory(RESULTS + "fastqc/{sample}")
     log:
@@ -59,3 +59,4 @@ rule multiqc:
         cd {params.indir}
         multiqc . >> {log} 2>&1
         """
+
