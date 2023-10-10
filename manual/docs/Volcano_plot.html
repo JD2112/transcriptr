@@ -271,11 +271,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link active" data-scroll-target="#how-to-use"><span class="toc-section-number">5.1</span>  How to use</a>
   <ul class="collapse">
   <li><a href="#input-file-and-viewer" id="toc-input-file-and-viewer" class="nav-link" data-scroll-target="#input-file-and-viewer"><span class="toc-section-number">5.1.1</span>  Input File and Viewer</a></li>
+  <li><a href="#static-volcano-plot" id="toc-static-volcano-plot" class="nav-link" data-scroll-target="#static-volcano-plot"><span class="toc-section-number">5.1.2</span>  Static Volcano Plot</a></li>
+  <li><a href="#interactive-volcano-plot-with-parameters-setup" id="toc-interactive-volcano-plot-with-parameters-setup" class="nav-link" data-scroll-target="#interactive-volcano-plot-with-parameters-setup"><span class="toc-section-number">5.1.3</span>  Interactive Volcano plot with parameters setup</a></li>
   </ul></li>
   <li><a href="#analysis-result" id="toc-analysis-result" class="nav-link" data-scroll-target="#analysis-result"><span class="toc-section-number">5.2</span>  Analysis result</a>
   <ul class="collapse">
-  <li><a href="#volcano-plot" id="toc-volcano-plot" class="nav-link" data-scroll-target="#volcano-plot"><span class="toc-section-number">5.2.1</span>  Volcano plot</a></li>
-  <li><a href="#volcano-data" id="toc-volcano-data" class="nav-link" data-scroll-target="#volcano-data"><span class="toc-section-number">5.2.2</span>  Volcano data</a></li>
+  <li><a href="#download-static-plot" id="toc-download-static-plot" class="nav-link" data-scroll-target="#download-static-plot"><span class="toc-section-number">5.2.1</span>  Download static plot</a></li>
+  <li><a href="#download-interactive-volcano-plot" id="toc-download-interactive-volcano-plot" class="nav-link" data-scroll-target="#download-interactive-volcano-plot"><span class="toc-section-number">5.2.2</span>  Download interactive volcano plot</a></li>
   </ul></li>
   <li><a href="#r-packages-used" id="toc-r-packages-used" class="nav-link" data-scroll-target="#r-packages-used"><span class="toc-section-number">5.3</span>  R packages used</a></li>
   </ul>
@@ -309,26 +311,77 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="input-file-and-viewer"><span class="header-section-number">5.1.1</span> Input File and Viewer</h3>
 <ol type="1">
 <li>User needs to upload the data file (.tsv, .txt, .csv, .xls, .xlsx). At present, user can use the <em>Transcriptome Analysis</em> data file directly generated from the main analysis (see <a href="transcriptome.html"><span>Chapter&nbsp;2</span></a>). The uploaded file will be displayed in the <em>‘Input File Viewer’</em>.</li>
-<li>User need to select three columns,
+<li>User need to select three columns (see <a href="#fig-vol1">Figure&nbsp;<span>5.1</span></a>),
 <ul>
 <li><em>‘Select gene name column’</em>:</li>
 <li><em>‘Select logFC column’</em>:</li>
 <li><em>‘Select adjusted/p-value column’</em>:</li>
 </ul></li>
-<li>LogFC cut-off can also be changed as per user requirement. Default is setup to 0.3.</li>
-<li>After the file upload and setting up the cut-off for adjusted <em>p</em>-value and logFC, click the “Run Analysis” button.</li>
 </ol>
+<div id="fig-vol1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="_images/volcano/volcano1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.1: Volcano: Infut file</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="static-volcano-plot" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="static-volcano-plot"><span class="header-section-number">5.1.2</span> Static Volcano Plot</h3>
+<p>In this module, we introduced two versions of same volcano plot, static and interactive volcano plot.</p>
+<div id="fig-volstat" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="_images/volcano/volcano2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.2: Volcano plot</figcaption><p></p>
+</figure>
+</div>
+<section id="parameters" class="level4" data-number="5.1.2.1">
+<h4 data-number="5.1.2.1" class="anchored" data-anchor-id="parameters"><span class="header-section-number">5.1.2.1</span> Parameters</h4>
+<p><strong>Main parameters</strong><br>
+1. <em>Select number of genes to show</em>: User can select how many genes/gene symbols they want to display. Default is 20. The plot will display first 20 gene symbols on both upregulated and downregulated gene symbols.<br>
+2. <em>Change the genes font size</em>: Gene symbol font size can be increased by increase this parameters for better visualization. Please remember, if you want to show many gene symbols, increasing font size may overlap the gene symbols.<br>
+3. <em>Select cut-off for log2FC</em>: Users can apply a cut-off for log2FC here. The default is 1.<br>
+4. <em>Choose X-axis range</em>: X-axis range represents log2FC and user can set the range for display. The default is -10 to 10.<br>
+5. <em>Choose Y-axis range</em>: Y-axis range displays the p-value or adjusted p-value (selected by the user in column 3, mentioned as above). The default is 0 to 10.</p>
+<p><strong>Change Colors</strong><br>
+6. <em>Select color for downregulated</em>: User can select color for downregulated genes.<br>
+7. <em>Select color for upregulated</em>: User can select color for upregualted genes.<br>
+8. <em>Select color for non-significant</em>: User can select color for non-significant genes (based on log2FC and p-value/adjusted p-value cut-off).</p>
+<p><strong>Change Font size, family and color</strong><br>
+9. <em>Change the font size</em>: User can change the font size (other parameters than gene symbol font size) of X- and Y- axes.<br>
+10. <em>Select the font color</em>: User can change the font color (other parameters than gene symbol font color) of X- and Y- axes.<br>
+11. <em>Change the font family</em>: User can change the font family (other parameters than gene symbol font family) of X- and Y- axes.</p>
+<p><strong>Adjust lines</strong><br>
+12. <em>Select color for log2FC cut-off line</em>: User can change the color for the log2FC cut-off line.<br>
+13. <em>Select color for p-value cut-off line</em>: User can change the color for the p-value/adjusted p-value (as they choose in the option) cut-off line.<br>
+14. <em>Change the line type</em>: User can choose to select the line type for both log2FC and p-value/adjusted p-value cut-off lines from the drop-down list.</p>
+<p><strong>Lables and titles</strong><br>
+15. <em>X/Y-axis label</em>: We provided part of X abd Y-axis labels (<strong><em>log2/-log10</em></strong> as they are caclulated) and user can choose to write their own labels for the axes. 16. <em>Title</em>: User can write their own title of the plot.</p>
+<p>After the reuired changes in the parameter settings, user can click on <em>‘Submit’</em> button and the plot will be displayed.</p>
+</section>
+</section>
+<section id="interactive-volcano-plot-with-parameters-setup" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="interactive-volcano-plot-with-parameters-setup"><span class="header-section-number">5.1.3</span> Interactive Volcano plot with parameters setup</h3>
+<p>For interactive volcano plot, we have provided two parameter settings -</p>
+<section id="parmeters-settings" class="level4" data-number="5.1.3.1">
+<h4 data-number="5.1.3.1" class="anchored" data-anchor-id="parmeters-settings"><span class="header-section-number">5.1.3.1</span> Parmeters settings</h4>
+<ol type="1">
+<li><em>Choose p-value/ adjusted p-value cut-off</em>: User can choose their own cut-off for p-value/adjusted p-value.</li>
+<li><em>Choose log2FC cut-off</em>: User can choose their own cut-off for p-value/adjusted p-value.</li>
+</ol>
+<p>Click on <em>‘Run Analysis’</em> and the plot will be displayed after calculation.</p>
+</section>
 </section>
 </section>
 <section id="analysis-result" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="analysis-result"><span class="header-section-number">5.2</span> Analysis result</h2>
-<section id="volcano-plot" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="volcano-plot"><span class="header-section-number">5.2.1</span> Volcano plot</h3>
-<ol type="1">
-<li>The figure will generated as soon as the computation finishes. However, it might takes some more time depending on the size of the file. If user upload a file with 750K rows, it will take 3-5 minutes to generate the figure (See <a href="appendix4.html"><span>Appendix&nbsp;D</span></a>). It is noteworthy that this big data in volcano plot, may be unstable in the browser.</li>
-<li>User can download the plot as figure (same as before) and the dynamic figure as a html file.<br>
-</li>
-</ol>
+<p>The figure will generated as soon as the computation finishes. However, it might takes some more time depending on the size of the file. If user upload a file with 750K rows, it will take 3-5 minutes to generate the figure (See <a href="appendix4.html"><span>Appendix&nbsp;D</span></a>). It is noteworthy that this big data in volcano plot, may be unstable in the browser.</p>
+<section id="download-static-plot" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="download-static-plot"><span class="header-section-number">5.2.1</span> Download static plot</h3>
+<p>We addded multiple options to download the static volcano plot as can be seen <a href="#fig-volstat">Figure&nbsp;<span>5.2</span></a>. User can choose their own the file format, size, resolution to download the file.</p>
+</section>
+<section id="download-interactive-volcano-plot" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="download-interactive-volcano-plot"><span class="header-section-number">5.2.2</span> Download interactive volcano plot</h3>
+<p>User can download the plot as figure (same as before) and the dynamic figure as a html file.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -339,14 +392,8 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please note displaying of the volcano plot will take some time, even after the warning <span style="color: orange;">“generating plot, please wait…”</span> disappears. Please wait for 1-2 minutes to get the visualization. The same may happen to the volcano plot data table.</p>
+<p>Please note displaying of the volcano plot will take some time, even after the warning <span style="color: orange;">“generating plot, please wait…”</span> disappears. Please wait for 1-2 minutes to get the visualization.</p>
 </div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="_images/Volcano1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Volcano plot</figcaption><p></p>
-</figure>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -361,25 +408,12 @@ Tip
 <p>Volcano plot figure colors annotation- <span style="color: pink;">Significant &amp; Fold Change</span>, <span style="color: cyan;">Significant</span> , <span style="color: green;">FoldChange</span> or <span style="color: orange;">NotSignificant</span> </p>
 </div>
 </div>
-<ol start="3" type="1">
-<li>On the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis result (See <a href="transcriptome.html"><span>Chapter&nbsp;2</span></a>).</li>
-</ol>
-</section>
-<section id="volcano-data" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="volcano-data"><span class="header-section-number">5.2.2</span> Volcano data</h3>
-<p>One data table will be generated using the input data and will have a column marked with <span style="color: pink;">Significant &amp; Fold Change</span>, <span style="color: cyan;">Significant</span> , <span style="color: green;">FoldChange</span> or <span style="color: orange;">NotSignificant</span> depends on the adjusted <em>p</em>-value and logFC cut-off.<br>
-</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="_images/Volcano2.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Volcano data table</figcaption><p></p>
-</figure>
-</div>
 </section>
 </section>
 <section id="r-packages-used" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="r-packages-used"><span class="header-section-number">5.3</span> R packages used</h2>
 <ol type="1">
+<li><a href="">EnhancedVolcano</a></li>
 <li><a href="https://cran.r-project.org/web/packages/plotly/plotly.pdf">plotly</a></li>
 </ol>
 

@@ -8,36 +8,76 @@ Here with *TranscriptR*, we used plotly output to visualize the volcano plot to 
 ## How to use
 ### Input File and Viewer
 1. User needs to upload the data file (.tsv, .txt, .csv, .xls, .xlsx). At present, user can use the *Transcriptome Analysis* data file directly generated from the main analysis (see @sec-transcript). The uploaded file will be displayed in the *'Input File Viewer'*.
-2. User need to select three columns,
+2. User need to select three columns (see @fig-vol1),
     - *'Select gene name column'*:
     - *'Select logFC column'*:
     - *'Select adjusted/p-value column'*:
-3. LogFC cut-off can also be changed as per user requirement. Default is setup to 0.3.
-4. After the file upload and setting up the cut-off for adjusted *p*-value and logFC, click the "Run Analysis" button.
 
+![Volcano: Infut file](_images/volcano/volcano1.png){#fig-vol1}
+
+### Static Volcano Plot
+In this module, we introduced two versions of same volcano plot, static and interactive volcano plot. 
+
+![Volcano plot](_images/volcano/volcano2.png){#fig-volstat}
+
+#### Parameters 
+**Main parameters** \
+1. *Select number of genes to show*: User can select how many genes/gene symbols they want to display. Default is 20. The plot will display first 20 gene symbols on both upregulated and downregulated gene symbols. \
+2. *Change the genes font size*: Gene symbol font size can be increased by increase this parameters for better visualization. Please remember, if you want to show many gene symbols, increasing font size may overlap the gene symbols. \
+3. *Select cut-off for log2FC*: Users can apply a cut-off for log2FC here. The default is 1. \
+4. *Choose X-axis range*: X-axis range represents log2FC and user can set the range for display. The default is -10 to 10. \
+5. *Choose Y-axis range*: Y-axis range displays the p-value or adjusted p-value (selected by the user in column 3, mentioned as above). The default is 0 to 10.
+
+**Change Colors** \
+6. *Select color for downregulated*: User can select color for downregulated genes. \
+7. *Select color for upregulated*: User can select color for upregualted genes. \
+8. *Select color for non-significant*: User can select color for non-significant genes (based on log2FC and p-value/adjusted p-value cut-off).
+
+**Change Font size, family and color** \
+9. *Change the font size*: User can change the font size (other parameters than gene symbol font size) of X- and Y- axes. \
+10. *Select the font color*: User can change the font color (other parameters than gene symbol font color) of X- and Y- axes. \
+11. *Change the font family*: User can change the font family (other parameters than gene symbol font family) of X- and Y- axes.
+
+**Adjust lines** \
+12. *Select color for log2FC cut-off line*: User can change the color for the log2FC cut-off line. \
+13. *Select color for p-value cut-off line*: User can change the color for the p-value/adjusted p-value (as they choose in the option) cut-off line. \
+14. *Change the line type*: User can choose to select the line type for both log2FC and p-value/adjusted p-value cut-off lines from the drop-down list.
+
+**Lables and titles** \
+15. *X/Y-axis label*: We provided part of X abd Y-axis labels (***log2/-log10*** as they are caclulated) and user can choose to write their own labels for the axes.
+16. *Title*: User can write their own title of the plot.
+
+After the reuired changes in the parameter settings, user can click on *'Submit'* button and the plot will be displayed.
+
+### Interactive Volcano plot with parameters setup
+For interactive volcano plot, we have provided two parameter settings - 
+
+#### Parmeters settings
+1. *Choose p-value/ adjusted p-value cut-off*: User can choose their own cut-off for p-value/adjusted p-value.
+2. *Choose log2FC cut-off*: User can choose their own cut-off for p-value/adjusted p-value.
+
+Click on *'Run Analysis'* and the plot will be displayed after calculation.
 
 ## Analysis result
+The figure will generated as soon as the computation finishes. However, it might takes some more time depending on the size of the file. If user upload a file with 750K rows, it will take 3-5 minutes to generate the figure (See @sec-calctime). It is noteworthy that this big data in volcano plot, may be unstable in the browser.
 
-### Volcano plot
-1. The figure will generated as soon as the computation finishes. However, it might takes some more time depending on the size of the file. If user upload a file with 750K rows, it will take 3-5 minutes to generate the figure (See @sec-calctime). It is noteworthy that this big data in volcano plot, may be unstable in the browser.
-2. User can download the plot as figure (same as before) and the dynamic figure as a html file. \
+### Download static plot
+We addded multiple options to download the static volcano plot as can be seen @fig-volstat. User can choose their own the file format, size, resolution to download the file.
+
+### Download interactive volcano plot
+User can download the plot as figure (same as before) and the dynamic figure as a html file.
 
 ::: {.callout-note}
-Please note displaying of the volcano plot will take some time, even after the warning ["generating plot, please wait..."]{style="color: orange;"} \textcolor{orange}{"generating plot, please wait..."} disappears. Please wait for 1-2 minutes to get the visualization. The same may happen to the volcano plot data table.
+Please note displaying of the volcano plot will take some time, even after the warning ["generating plot, please wait..."]{style="color: orange;"} \textcolor{orange}{"generating plot, please wait..."} disappears. Please wait for 1-2 minutes to get the visualization. 
 :::
 
-![Volcano plot](_images/Volcano1.png)
+
 
 ::: {.callout-tip}
 Volcano plot figure colors annotation- [Significant \& Fold Change]{style="color: pink;"}\textcolor{pink}{"Significant \& Fold Change"}, [Significant]{style="color: cyan;"} \textcolor{cyan}{"Significant"}, [FoldChange]{style="color: green;"} \textcolor{green}{FoldChange} or [NotSignificant]{style="color: orange;"} \textcolor{orange}{"Notsignificant"}
 :::
 
-3. On the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis result (See @sec-transcript).
-
-### Volcano data
-One data table will be generated using the input data and will have a column marked with [Significant \& Fold Change]{style="color: pink;"}\textcolor{pink}{"Significant \& Fold Change"}, [Significant]{style="color: cyan;"} \textcolor{cyan}{"Significant"}, [FoldChange]{style="color: green;"} \textcolor{green}{FoldChange} or [NotSignificant]{style="color: orange;"} \textcolor{orange}{"Notsignificant"} depends on the adjusted *p*-value and logFC cut-off. \
-
-![Volcano data table](_images/Volcano2.png)
 
 ## R packages used
-1. [plotly](https://cran.r-project.org/web/packages/plotly/plotly.pdf)
+1. [EnhancedVolcano]()
+2. [plotly](https://cran.r-project.org/web/packages/plotly/plotly.pdf)
