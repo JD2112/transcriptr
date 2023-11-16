@@ -1,36 +1,31 @@
 # Pathway enrichment analysis {#sec-pathway}
 ^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
 
-Pathway enrichment analysis helps the user to get the mechanistic insights of the important genes from genome-wide data analysis. In *methylR*, we introduced the pathway analysis module that can compute the enriched pathways from three different databases, [KEGG](https://www.genome.jp/kegg/) [@Kanehisa2000], [Reactome](https://reactome.org/) [@Gillespie2021] and [Wikipathways](https://www.wikipathways.org/) [@pico2008plos; @martens2020nar].
+Pathway enrichment analysis helps the user to get the mechanistic insights of the important genes from genome-wide data analysis. In *TranscriptR*, we introduced the pathway analysis module that can compute the enriched pathways from three different databases, [KEGG](https://www.genome.jp/kegg/){target="_blank"} [@Kanehisa2000], [Reactome](https://reactome.org/){target="_blank"} [@Gillespie2021] and [Wikipathways](https://www.wikipathways.org/){target="_blank"} [@pico2008plos; @martens2020nar].
 
 ## How to use
 
 ### Data upload & Parameters setup
-#### Data upload
-User can upload the direct output result from the main analysis. At present, user can upload the DMC data produced by the main analysis (See @sec-transcript). The input file should be in a **text (tab-delimited)** format.
 
-#### Parameters setup
+1. **Select Database**
+User needs to select the database from the drop-down list ([KEGG](https://www.genome.jp/kegg/){target="_blank"}, [Reactome](https://reactome.org/){target="_blank"}, [Wikipathways](https://www.wikipathways.org/){target="_blank"}) for the analysis. Default is **KEGG database**
 
-1. *Choose pathway analysis type*: Please select pathway analysis type from the drop-down list
-    - Over representation analysis (ORA);
-    - Gene set enrichment analysis (GSEA);
-    By default, the tool will use the over representation analysis.
+2. **Select Organism**
+In the next step, please select the organism from the drop-down list. The default sets to **'Homo sapiens (Human)'**.
 
-2. *Choose pathway database*: user can choose to use different pathway database, namely 
-    - [Reactome](https://reactome.org/), 
-    - [KEGG](https://www.genome.jp/kegg/) or 
-    - [Wikipathways](https://www.wikipathways.org/).
-
-3. *Choose number of pathways*: Please select number of pathways for graphical display. The default is Top 20 pathways. The Top 20 enriched pathways is selected based on the adjusted P-values.
-
-::: {.callout-tip}
-1. If the analysis result does not get 20 pathways (as default setup) or the number selected by the user, then the plot will only shows the result with less number of pathways. User can change the parameters to see if they can get more number of enriched pathways.
-2. If there is no enriched pathways with selected parameters, the figure tab may show warning like ["check the logs or contact the author"]{style="color: red;"} \textcolor{red}{check the logs or contact the author}, please change the parameters and run again the analysis. If you are experiencing trouble, donot hesitate to contact us.
+::: {.callout-important collapse="true"}
+Please note that for the three different databases (KEGG, Reactome and Wikipathways), we have different sets of organisms. In KEGG, the list is added from KEGG databases *(only mammals)*, other databases are showing organisms based on the availability in bioconductor.
 :::
 
-4. *Select P-value cut-off for correction*: The default value for *p*-value correction is set to 0.05. User can set their own cut-off values.
+3. **Select analysis type**
+Choose the type of pathway enrichment analysis from the drop-down list, *Over-representation* or *GeneSet Enrichment Analysis (GSEA)*.
+The default is **over-representation**.
 
-5. *Select P-value correction method*: The default method for adjustment of P-value is the Benjamini-Hochberg (BH) correction method. User can choose different method using the drop-down list:
+4. **Select P-value cut-off for correction**
+The default value for *p*-value correction is set to 0.05. User can set their own cut-off values.
+
+5. **Select P-value correction method**
+The default method for adjustment of P-value is the Benjamini-Hochberg (BH) correction method. User can choose different method using the drop-down list:
     - Benjamini-Hochberg (BH)
     - Benjamini-Yeketuli (BY)
     - Bonferroni
@@ -40,21 +35,81 @@ User can upload the direct output result from the main analysis. At present, use
     - FDR
     - none
 
-6. *Upload data file*: The input file should be in a **text (tab-delimited)** format. The user can upload the *ChAMP* result file (DMC file) directly for the analysis.
+5. **Upload data file**
+User can upload/drag-and-drop the direct output result from the main analysis. The supported file formats are, excel (.xls, .xlsx), comma-separated (.csv) or tab-delimited (.txt). The uploaded file should have the header/column name.
 
-## Analysis result
-1. *Pathway enrichment plot*: after "Run Analysis", the plot will be generated as soon as computation has been done. Depends on the size of data, it might take few minutes (See @sec-calctime). At present the plot will be generated as a dot plot which is also a product of plotly, hence dynamic and have similar functionalities with mouse pointing. At present, with the mouse hover over, each dot will show the pathway name, count of genes from the input list for that particular pathway, the corrected p-value and gene ratio. The color scale bar shows in the legend. User can download the figure as PNG as described above and the dynamic figure as a html file. \
+6. **Select logFC/Gene name column**
+After the file upload, user needs to select the logFC and gene name (gene symbol) column (column name can be anything).
 
-::: {.callout-note}
-1. All dots (pathway enrichment terms) are clickable and will open a new tab with the respective pathway detail from the selected database (Reactome/KEGG/Wiki). 
-2. The interactive figure can be downloaded as HTML file and PNG file. The HTML file is clickable and each pathway enrichment term can open the respective database for pathway details.
+7. **Viewer panel and Run Analysis**
+Please check your upload file in the viewer panel and select the right columns for logFC and gene name/symbol.
+
+![Input files and view](_images/pathway/path1.png){#fig-path1}
+
+### Analysis Result
+In the **Analysis Result**, there are two parts, \
+    - Figure \
+    - Table
+
+The Figure and Table is interactive.
+
+**Figure parameters**
+We added few parameters in the **Figure** (see @fig-path11) - 
+
+1. *Types of figure*: User can choose between 1) Scatter plot/dot plot and 2) bar plot. The default is *dot plot*.
+
+2. *Color for high/mid/low p-value*: Colors for high (default is blue), mid (dafault is white), low (default is red) can be changed.
+
+3. *Titles*: User can write the title and x-/y-axis labels of the figure.
+
+![Figure parameters](_images/pathway/path1-1.png){#fig-path11}
+
+**Table**
+The table will display all results by pages. The user can download the whole result table as an Excel file. If the user want to select one/few enriched pathways (as dot on the plot), the table will be updated interactively with the selected list (see @fig-path12). 
+
+![Analysis Result-interactivity](_images/pathway/path1-2.png){#fig-path12}
+
+In the table, we added following information - 
+
+- KEGGID
+- *PathMap*: only available to KEGG database analysis result.
+- ID
+- Description
+- GeneRatio
+- BgRatio
+- pvalue
+- p.adjust
+- qval
+- geneID
+- Count
+
+**KEGG Pathway Map with Parameters setup**
+
+::: {.callout-important collapse="false"}
+This feature only available to KEGG pathways.
 :::
 
-![Pathway Enrichment Plot](_images/Pathway-Enrichment.png)
+If the user selected **'KEGG database'** for the analysis, then the result table will contain a column named *PathMap* which displays 'show map' option against each enriched pathway. Once clicked on the 'show map' will trigger the result, *KEGG pathway map with parameters setup* (see @fig-path12).
 
-2. *Pathway enrichment table*: with the same input file and parameter setup, user can also get the result as an excel file (current page as well as full table). \
+![Pathway map](_images/pathway/path3.png){#fig-path3}
 
-![Pathway Enrichment Table](_images/PathEnrichTable1.png)
+- In this map, user can choose their own colors for up, down or non-significant genes in the pathway map (see @fig-path3).
+
+- PLEASE NOTE, if there is no map showed in the viewer panel, run *Show Pathway Map* (see @fig-path3).
+
+- If the user wants multiple pathway map, they can choose to save in one folder and downloda all together. They can write their own folder name and download as zip (see @fig-path3).
+
+- Again, we added an option to see the 'gene details' as this was not shown on the previous table (see @fig-path4).
+
+![Gene details](_images/pathway/path4.png){#fig-path4}
+
+
+::: {.callout-note}
+1. *Pathway enrichment plot*: after "Run Analysis", the plot will be generated as soon as computation has been done. Depends on the size of data, it might take few minutes (See @sec-calctime). The plot is interactive and with the mouse hovering, each dot/bar will show the pathway name, count of genes from the input list for that particular pathway, the corrected *p*-value and gene ratio. The color scale bar shows in the legend. User can download the figure as PNG as described above and the interactive figure as a html file. The downloaded HTML file is clickable and each pathway enrichment term can open the respective database for pathway details. \
+
+2. All dots (pathway enrichment terms) are clickable and will open a new tab with the respective pathway detail from the selected database (Reactome/KEGG/Wiki). 
+
+:::
 
 ::: {.callout-warning}
 In the pathway enrichment table, the pathway ID is clickable and will open the respective pathway from the database. However, this feature is only avaible on the browser, if the user download the table, there is no such link to check the pathway source.

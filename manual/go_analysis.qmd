@@ -2,7 +2,7 @@
 ^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
 
 Gene Ontology is a very well-known method for accessing the functions of the gene identified through methylation analysis or expression analysis.
-Here in *methylR*, we used ontology analysis using the [clusterProfiler package](https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html) [@yu2012clusterprofiler; @wu2021clusterprofiler].
+Here in *TranscriptR*, we used ontology analysis using the [clusterProfiler package](https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html){target="_blank"} [@yu2012clusterprofiler; @wu2021clusterprofiler].
 
 ## How to use
 ### Data upload & Parameters setup
@@ -10,10 +10,8 @@ Here in *methylR*, we used ontology analysis using the [clusterProfiler package]
 #### Parameters setup
 1. *Choose GO analysis type*: user can choose to do the analysis whether **over-representation analysis** or the **gene-set enrichment analysis** (GSEA) from the drop-down menu.
 2. *Select the adjusted p-value*: user can also choose the adjusted *p*-value for the analysis. Default is set to 0.05.
-3. *Select the adjusted q-value*: q-value or the FDR can also be adjusted as per user's requirement. Default is 0.05.
-4. *Select number of ontology classes*: to see the number of ontologies on the graph, user can setup different number. Default is 20.
-5. *Select P-value adjustment method* As per clusterProfiler, we set different *p*-value adjustment methods, Benjamini-Hochberg, Benjamini-Yeketuli, Bonferroni, Holm, Hommel, Hochberg, FDR or none. Default is Benjamini-Hochberg.
-6. *Select ontology class*: As defined in GO classification, we included all three ontology classes which user can select to show the plot.
+3. *Select P-value adjustment method* As per clusterProfiler, we set different *p*-value adjustment methods, Benjamini-Hochberg, Benjamini-Yeketuli, Bonferroni, Holm, Hommel, Hochberg, FDR or none. Default is Benjamini-Hochberg.
+4. *Select ontology class*: As defined in GO classification, we included all three ontology classes which user can select to show the plot.
 
 #### Data upload
 At present, user can upload the DMC data produced by the main analysis (see @sec-transcript ) directly. The input file should be in a **text (tab-delimited)** format.

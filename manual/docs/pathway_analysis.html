@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -290,9 +290,9 @@ div.csl-indent {
   <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link active" data-scroll-target="#how-to-use"><span class="toc-section-number">8.1</span>  How to use</a>
   <ul class="collapse">
   <li><a href="#data-upload-parameters-setup" id="toc-data-upload-parameters-setup" class="nav-link" data-scroll-target="#data-upload-parameters-setup"><span class="toc-section-number">8.1.1</span>  Data upload &amp; Parameters setup</a></li>
+  <li><a href="#analysis-result" id="toc-analysis-result" class="nav-link" data-scroll-target="#analysis-result"><span class="toc-section-number">8.1.2</span>  Analysis Result</a></li>
   </ul></li>
-  <li><a href="#analysis-result" id="toc-analysis-result" class="nav-link" data-scroll-target="#analysis-result"><span class="toc-section-number">8.2</span>  Analysis result</a></li>
-  <li><a href="#r-packages-used" id="toc-r-packages-used" class="nav-link" data-scroll-target="#r-packages-used"><span class="toc-section-number">8.3</span>  R packages used</a></li>
+  <li><a href="#r-packages-used" id="toc-r-packages-used" class="nav-link" data-scroll-target="#r-packages-used"><span class="toc-section-number">8.2</span>  R packages used</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/JD2112/transcriptr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -317,50 +317,35 @@ div.csl-indent {
 </header>
 
 <p><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Pathway enrichment analysis helps the user to get the mechanistic insights of the important genes from genome-wide data analysis. In <em>methylR</em>, we introduced the pathway analysis module that can compute the enriched pathways from three different databases, <a href="https://www.genome.jp/kegg/">KEGG</a> <span class="citation" data-cites="Kanehisa2000">(<a href="references.html#ref-Kanehisa2000" role="doc-biblioref">Kanehisa and Goto 2000</a>)</span>, <a href="https://reactome.org/">Reactome</a> <span class="citation" data-cites="Gillespie2021">(<a href="references.html#ref-Gillespie2021" role="doc-biblioref">Gillespie et al. 2021</a>)</span> and <a href="https://www.wikipathways.org/">Wikipathways</a> <span class="citation" data-cites="pico2008plos martens2020nar">(<a href="references.html#ref-pico2008plos" role="doc-biblioref">Pico 2008</a>; <a href="references.html#ref-martens2020nar" role="doc-biblioref">Martens et al. 2020</a>)</span>.</p>
+<p>Pathway enrichment analysis helps the user to get the mechanistic insights of the important genes from genome-wide data analysis. In <em>TranscriptR</em>, we introduced the pathway analysis module that can compute the enriched pathways from three different databases, <a href="https://www.genome.jp/kegg/" target="_blank">KEGG</a> <span class="citation" data-cites="Kanehisa2000">(<a href="references.html#ref-Kanehisa2000" role="doc-biblioref">Kanehisa and Goto 2000</a>)</span>, <a href="https://reactome.org/" target="_blank">Reactome</a> <span class="citation" data-cites="Gillespie2021">(<a href="references.html#ref-Gillespie2021" role="doc-biblioref">Gillespie et al. 2021</a>)</span> and <a href="https://www.wikipathways.org/" target="_blank">Wikipathways</a> <span class="citation" data-cites="pico2008plos martens2020nar">(<a href="references.html#ref-pico2008plos" role="doc-biblioref">Pico 2008</a>; <a href="references.html#ref-martens2020nar" role="doc-biblioref">Martens et al. 2020</a>)</span>.</p>
 <section id="how-to-use" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">8.1</span> How to use</h2>
 <section id="data-upload-parameters-setup" class="level3" data-number="8.1.1">
 <h3 data-number="8.1.1" class="anchored" data-anchor-id="data-upload-parameters-setup"><span class="header-section-number">8.1.1</span> Data upload &amp; Parameters setup</h3>
-<section id="data-upload" class="level4" data-number="8.1.1.1">
-<h4 data-number="8.1.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">8.1.1.1</span> Data upload</h4>
-<p>User can upload the direct output result from the main analysis. At present, user can upload the DMC data produced by the main analysis (See <a href="transcriptome.html"><span>Chapter&nbsp;2</span></a>). The input file should be in a <strong>text (tab-delimited)</strong> format.</p>
-</section>
-<section id="parameters-setup" class="level4" data-number="8.1.1.2">
-<h4 data-number="8.1.1.2" class="anchored" data-anchor-id="parameters-setup"><span class="header-section-number">8.1.1.2</span> Parameters setup</h4>
 <ol type="1">
-<li><em>Choose pathway analysis type</em>: Please select pathway analysis type from the drop-down list
-<ul>
-<li>Over representation analysis (ORA);</li>
-<li>Gene set enrichment analysis (GSEA); By default, the tool will use the over representation analysis.</li>
-</ul></li>
-<li><em>Choose pathway database</em>: user can choose to use different pathway database, namely
-<ul>
-<li><a href="https://reactome.org/">Reactome</a>,</li>
-<li><a href="https://www.genome.jp/kegg/">KEGG</a> or</li>
-<li><a href="https://www.wikipathways.org/">Wikipathways</a>.</li>
-</ul></li>
-<li><em>Choose number of pathways</em>: Please select number of pathways for graphical display. The default is Top 20 pathways. The Top 20 enriched pathways is selected based on the adjusted P-values.</li>
+<li><p><strong>Select Database</strong> User needs to select the database from the drop-down list (<a href="https://www.genome.jp/kegg/" target="_blank">KEGG</a>, <a href="https://reactome.org/" target="_blank">Reactome</a>, <a href="https://www.wikipathways.org/" target="_blank">Wikipathways</a>) for the analysis. Default is <strong>KEGG database</strong></p></li>
+<li><p><strong>Select Organism</strong> In the next step, please select the organism from the drop-down list. The default sets to <strong>‘Homo sapiens (Human)’</strong>.</p></li>
 </ol>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Tip
+Important
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li>If the analysis result does not get 20 pathways (as default setup) or the number selected by the user, then the plot will only shows the result with less number of pathways. User can change the parameters to see if they can get more number of enriched pathways.</li>
-<li>If there is no enriched pathways with selected parameters, the figure tab may show warning like <span style="color: red;">“check the logs or contact the author”</span> , please change the parameters and run again the analysis. If you are experiencing trouble, donot hesitate to contact us.</li>
-</ol>
+<p>Please note that for the three different databases (KEGG, Reactome and Wikipathways), we have different sets of organisms. In KEGG, the list is added from KEGG databases <em>(only mammals)</em>, other databases are showing organisms based on the availability in bioconductor.</p>
 </div>
 </div>
-<ol start="4" type="1">
-<li><p><em>Select P-value cut-off for correction</em>: The default value for <em>p</em>-value correction is set to 0.05. User can set their own cut-off values.</p></li>
-<li><p><em>Select P-value correction method</em>: The default method for adjustment of P-value is the Benjamini-Hochberg (BH) correction method. User can choose different method using the drop-down list:</p>
+</div>
+<ol start="3" type="1">
+<li><p><strong>Select analysis type</strong> Choose the type of pathway enrichment analysis from the drop-down list, <em>Over-representation</em> or <em>GeneSet Enrichment Analysis (GSEA)</em>. The default is <strong>over-representation</strong>.</p></li>
+<li><p><strong>Select P-value cut-off for correction</strong> The default value for <em>p</em>-value correction is set to 0.05. User can set their own cut-off values.</p></li>
+<li><p><strong>Select P-value correction method</strong> The default method for adjustment of P-value is the Benjamini-Hochberg (BH) correction method. User can choose different method using the drop-down list:</p>
 <ul>
 <li>Benjamini-Hochberg (BH)</li>
 <li>Benjamini-Yeketuli (BY)</li>
@@ -371,17 +356,92 @@ Tip
 <li>FDR</li>
 <li>none</li>
 </ul></li>
-<li><p><em>Upload data file</em>: The input file should be in a <strong>text (tab-delimited)</strong> format. The user can upload the <em>ChAMP</em> result file (DMC file) directly for the analysis.</p></li>
+<li><p><strong>Upload data file</strong> User can upload/drag-and-drop the direct output result from the main analysis. The supported file formats are, excel (.xls, .xlsx), comma-separated (.csv) or tab-delimited (.txt). The uploaded file should have the header/column name.</p></li>
+<li><p><strong>Select logFC/Gene name column</strong> After the file upload, user needs to select the logFC and gene name (gene symbol) column (column name can be anything).</p></li>
+<li><p><strong>Viewer panel and Run Analysis</strong> Please check your upload file in the viewer panel and select the right columns for logFC and gene name/symbol.</p></li>
 </ol>
+<div id="fig-path1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="_images/pathway/path1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.1: Input files and view</figcaption><p></p>
+</figure>
+</div>
 </section>
-</section>
-</section>
-<section id="analysis-result" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="analysis-result"><span class="header-section-number">8.2</span> Analysis result</h2>
+<section id="analysis-result" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="analysis-result"><span class="header-section-number">8.1.2</span> Analysis Result</h3>
+<p>In the <strong>Analysis Result</strong>, there are two parts,<br>
+- Figure<br>
+- Table</p>
+<p>The Figure and Table is interactive.</p>
+<p><strong>Figure parameters</strong> We added few parameters in the <strong>Figure</strong> (see <a href="#fig-path11">Figure&nbsp;<span>8.2</span></a>) -</p>
 <ol type="1">
-<li><em>Pathway enrichment plot</em>: after “Run Analysis”, the plot will be generated as soon as computation has been done. Depends on the size of data, it might take few minutes (See <a href="appendix4.html"><span>Appendix&nbsp;D</span></a>). At present the plot will be generated as a dot plot which is also a product of plotly, hence dynamic and have similar functionalities with mouse pointing. At present, with the mouse hover over, each dot will show the pathway name, count of genes from the input list for that particular pathway, the corrected p-value and gene ratio. The color scale bar shows in the legend. User can download the figure as PNG as described above and the dynamic figure as a html file.<br>
-</li>
+<li><p><em>Types of figure</em>: User can choose between 1) Scatter plot/dot plot and 2) bar plot. The default is <em>dot plot</em>.</p></li>
+<li><p><em>Color for high/mid/low p-value</em>: Colors for high (default is blue), mid (dafault is white), low (default is red) can be changed.</p></li>
+<li><p><em>Titles</em>: User can write the title and x-/y-axis labels of the figure.</p></li>
 </ol>
+<div id="fig-path11" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="_images/pathway/path1-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.2: Figure parameters</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Table</strong> The table will display all results by pages. The user can download the whole result table as an Excel file. If the user want to select one/few enriched pathways (as dot on the plot), the table will be updated interactively with the selected list (see <a href="#fig-path12">Figure&nbsp;<span>8.3</span></a>).</p>
+<div id="fig-path12" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="_images/pathway/path1-2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.3: Analysis Result-interactivity</figcaption><p></p>
+</figure>
+</div>
+<p>In the table, we added following information -</p>
+<ul>
+<li>KEGGID</li>
+<li><em>PathMap</em>: only available to KEGG database analysis result.</li>
+<li>ID</li>
+<li>Description</li>
+<li>GeneRatio</li>
+<li>BgRatio</li>
+<li>pvalue</li>
+<li>p.adjust</li>
+<li>qval</li>
+<li>geneID</li>
+<li>Count</li>
+</ul>
+<p><strong>KEGG Pathway Map with Parameters setup</strong></p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>This feature only available to KEGG pathways.</p>
+</div>
+</div>
+</div>
+<p>If the user selected <strong>‘KEGG database’</strong> for the analysis, then the result table will contain a column named <em>PathMap</em> which displays ‘show map’ option against each enriched pathway. Once clicked on the ‘show map’ will trigger the result, <em>KEGG pathway map with parameters setup</em> (see <a href="#fig-path12">Figure&nbsp;<span>8.3</span></a>).</p>
+<div id="fig-path3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="_images/pathway/path3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.4: Pathway map</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>In this map, user can choose their own colors for up, down or non-significant genes in the pathway map (see <a href="#fig-path3">Figure&nbsp;<span>8.4</span></a>).</p></li>
+<li><p>PLEASE NOTE, if there is no map showed in the viewer panel, run <em>Show Pathway Map</em> (see <a href="#fig-path3">Figure&nbsp;<span>8.4</span></a>).</p></li>
+<li><p>If the user wants multiple pathway map, they can choose to save in one folder and downloda all together. They can write their own folder name and download as zip (see <a href="#fig-path3">Figure&nbsp;<span>8.4</span></a>).</p></li>
+<li><p>Again, we added an option to see the ‘gene details’ as this was not shown on the previous table (see <a href="#fig-path4">Figure&nbsp;<span>8.5</span></a>).</p></li>
+</ul>
+<div id="fig-path4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="_images/pathway/path4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.5: Gene details</figcaption><p></p>
+</figure>
+</div>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -393,26 +453,11 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>All dots (pathway enrichment terms) are clickable and will open a new tab with the respective pathway detail from the selected database (Reactome/KEGG/Wiki).</li>
-<li>The interactive figure can be downloaded as HTML file and PNG file. The HTML file is clickable and each pathway enrichment term can open the respective database for pathway details.</li>
+<li><p><em>Pathway enrichment plot</em>: after “Run Analysis”, the plot will be generated as soon as computation has been done. Depends on the size of data, it might take few minutes (See <a href="appendix4.html"><span>Appendix&nbsp;D</span></a>). The plot is interactive and with the mouse hovering, each dot/bar will show the pathway name, count of genes from the input list for that particular pathway, the corrected <em>p</em>-value and gene ratio. The color scale bar shows in the legend. User can download the figure as PNG as described above and the interactive figure as a html file. The downloaded HTML file is clickable and each pathway enrichment term can open the respective database for pathway details.<br>
+</p></li>
+<li><p>All dots (pathway enrichment terms) are clickable and will open a new tab with the respective pathway detail from the selected database (Reactome/KEGG/Wiki).</p></li>
 </ol>
 </div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="_images/Pathway-Enrichment.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Pathway Enrichment Plot</figcaption><p></p>
-</figure>
-</div>
-<ol start="2" type="1">
-<li><em>Pathway enrichment table</em>: with the same input file and parameter setup, user can also get the result as an excel file (current page as well as full table).<br>
-</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="_images/PathEnrichTable1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Pathway Enrichment Table</figcaption><p></p>
-</figure>
 </div>
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -428,8 +473,9 @@ Warning
 </div>
 </div>
 </section>
-<section id="r-packages-used" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="r-packages-used"><span class="header-section-number">8.3</span> R packages used</h2>
+</section>
+<section id="r-packages-used" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="r-packages-used"><span class="header-section-number">8.2</span> R packages used</h2>
 <ol type="1">
 <li><a href="https://bioconductor.org/packages/release/bioc/vignettes/clusterProfiler/inst/doc/clusterProfiler.html">clusterProfiler</a></li>
 </ol>

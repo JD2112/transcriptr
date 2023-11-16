@@ -1,0 +1,26 @@
+# Notes - Manuals
+1. Check figure with Interactive Volcano Plot
+2. heatmap
+3. GO, Pathway analysis, 
+4. Check Introduction again. 
+5. Change logo and remove 'methylR' from everywhere.
+
+
+# Journal selection
+## *Within Aims and Scopes*
+    - Nature Biotechnology
+    - Nature Method
+    - Nature Protocol
+    - Nucleic Acid Research (database version?)    
+    - Nature Communication
+
+# Repository selection
+## testdata
+    - sourceforge?
+    - direct dataset (testdata) link?
+## manual
+    - PDF from google drive
+    - HTML (netlify? github docs?)
+## webserver
+    - Scilifelab datacenter?
+    - LiU?
