@@ -77,7 +77,7 @@ gtf <- getGTF(
 	db = "ensembl",
 	organism = species,
 	release = release,
-	path = file.path(gtf_out),
+	path = file.path(gtf_out)
 	#assembly_type = "primary_assembly"
 )
 
