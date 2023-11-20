@@ -120,8 +120,8 @@ rule align_sort:
     threads:
         12 # set the maximum number of available cores
     shell:
-#        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
-        'STAR --runThreadN {threads} '        
+        '/STAR-2.7.10a/source/STAR --runThreadN {threads} ' # docker requirement
+#        'STAR --runThreadN {threads} '        
             '--genomeDir {input.idx} '
             '--readFilesIn <(zcat {input.R1}) '
             '--outSAMtype BAM SortedByCoordinate ' 
