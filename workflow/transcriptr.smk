@@ -36,7 +36,7 @@ rule all:
         edgeR = RESULTS + "edgeR_results" + "/sessionInfo.txt",
         DESeq2 = RESULTS + "deseq2_results" + "/sessionInfo.txt",
         limma = RESULTS + "limma_results" + "/sessionInfo.txt",
-        fzip = RESULTS + "results.zip",
+        #fzip = RESULTS + "results.zip",
 
 
 rule reference:
