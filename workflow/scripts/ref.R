@@ -53,11 +53,13 @@ release <- make_release(version)
 #out <- file.path(getwd(), "edgeR_results")
 index <- file.path(args[3], "index")
 ref_out <- file.path(index, "ref")
+rna_out <- file.path(index, "rna")
 gtf_out <- file.path(index, "gtf")
 gff_out <- file.path(index, "gff")
 
 test_output(index)
 test_output(ref_out)
+test_output(rna_out)
 test_output(gtf_out)
 test_output(gff_out)
 
@@ -71,6 +73,16 @@ ref <- getGenome(
 	gunzip = TRUE,
 	path = file.path(ref_out),
 	assembly_type = "primary_assembly"
+)
+
+rna <- getRNA(
+	db = "ensembl",
+	organism = species,
+	reference = FALSE,
+	release = release,
+#	gunzip = TRUE,
+#	assembly_type = "primary_assembly",
+	path = file.path(rna_out)
 )
 
 gtf <- getGTF(
@@ -95,6 +107,10 @@ gff <- getGFF(
 gunzip(gtf, remove=TRUE)
 un_gtf <- tools::file_path_sans_ext(gtf)
 
+gunzip(rna, remove=TRUE)
+un_rna <- tools::file_path_sans_ext(rna)
+
 rename_file(ref, file.path(ref_out, "ref.fa"))
+rename_file(un_rna, file.path(rna_out, "rna.fa"))
 rename_file(un_gtf, file.path(gtf_out, "anno.gtf"))
 rename_file(gff, file.path(gff_out, "ref.gff3"))

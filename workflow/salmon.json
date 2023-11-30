@@ -1,0 +1,29 @@
+{
+    "data": "/mnt/WD2/CFFMHS-MH-2324/catlanes/fastq/",
+    "workdir": "/mnt/WD1/test/salmon/",
+    "R1_suffix": "_R1_001.fastq.gz",
+    "R2_suffix": "_R2_001.fastq.gz",
+    "rearrangeFC": "/mnt/WD1/transcriptr/workflow/scripts/rearrangeFeatureCounts.R",
+    "refR": "/mnt/WD1/transcriptr/workflow/scripts/ref.R",
+    "edgeR": "/mnt/WD1/transcriptr/workflow/scripts/edger.R",
+    "DESeq2": "/mnt/WD1/transcriptr/workflow/scripts/deseq2.R",
+    "limma": "/mnt/WD1/transcriptr/workflow/scripts/limma.R",
+    "sampleInfo": "/mnt/WD2/CFFMHS-MH-2324/sampleInfo.txt",
+    "compsTab": "/mnt/WD2/CFFMHS-MH-2324/compsTab.txt",
+    "species": "homo_sapiens",
+    "release": "latest",
+    "overhang": 100,
+    # 'gene_id' or 'transcript_id'
+    "attribute": "gene_id",
+    # 0 (unstranded), 1 (stranded) and 2 (reversely stranded)
+    "stranded": "2",
+    # filter on poorly expressed genes
+    "cpm": "10",
+    # min number of samples to filter on poorly expressed genes
+    "nsamples": "3",
+    "logFC": "1.5",
+    "FDR": "0.05",
+    # pval could be only 0 or 1.
+    # when set to 1 filter on PValue instead of FDR.
+    "pval": "0"
+}
