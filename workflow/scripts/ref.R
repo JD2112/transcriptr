@@ -75,6 +75,14 @@ ref <- getGenome(
 	assembly_type = "primary_assembly"
 )
 
+cds <- getCDS(
+	db = "ensembl",
+	organism = species,
+	reference = FALSE,
+	release = release,
+	path = file.path(rna_out)
+)
+
 rna <- getRNA(
 	db = "ensembl",
 	organism = species,
@@ -107,10 +115,14 @@ gff <- getGFF(
 gunzip(gtf, remove=TRUE)
 un_gtf <- tools::file_path_sans_ext(gtf)
 
+gunzip(cds, remove=TRUE)
+un_cds <- tools::file_path_sans_ext(cds)
+
 gunzip(rna, remove=TRUE)
 un_rna <- tools::file_path_sans_ext(rna)
 
 rename_file(ref, file.path(ref_out, "ref.fa"))
+rename_file(un_cds, file.path(rna_out, "cds.fa"))
 rename_file(un_rna, file.path(rna_out, "rna.fa"))
 rename_file(un_gtf, file.path(gtf_out, "anno.gtf"))
 rename_file(gff, file.path(gff_out, "ref.gff3"))
