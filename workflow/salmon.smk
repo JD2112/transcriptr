@@ -98,7 +98,7 @@ rule salmon_index:
         12 # set the maximum number of available cores
     shell:
         """
-        salmon index -p {threads} -t {input.fa} -i {output.idx}
+        /salmon-1.10.2/bin/salmon index -p {threads} -t {input.fa} -i {output.idx}
         """
 
 
@@ -115,7 +115,7 @@ rule fastqc:
     shell:
         """
         mkdir {output.out}
-        fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1
+        ../../FastQC/fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1
         """
 
 #  ../../FastQC/fastqc {input.R1} {input.R2} -t {threads} -o {output.out} >> {log} 2>&1# docker requirement
@@ -139,7 +139,7 @@ rule salmon_quant:
         12 # set the maximum number of available cores
     shell:
         """
-        salmon quant -p {threads} -i {input.idx} -l {params.lib} -1 <(zcat {input.R1}) -2 <(zcat {input.R2}) -o {output.res}
+        /salmon-1.10.2/bin/salmon quant -p {threads} -i {input.idx} -l {params.lib} -1 <(zcat {input.R1}) -2 <(zcat {input.R2}) -o {output.res}
         """
 
 #Attribute choice has been moved into the rearrangeCounts rule
