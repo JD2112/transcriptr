@@ -1,0 +1,29 @@
+{
+    "data": "/mnt/WD1/test/transcriptR_single/Amin2021/Raw_data/",
+    "workdir": "/mnt/WD1/test/salmon_single/",
+    "R1_suffix": ".fastq.gz",
+    "rearrangeSalmon": "/mnt/WD1/transcriptr/workflow/scripts/rearrangeSalmonCounts.R",
+    "refR": "/mnt/WD1/transcriptr/workflow/scripts/ref.R",
+    "t2g": "/mnt/WD1/transcriptr/workflow/scripts/t2g.R",
+    "edgeR": "/mnt/WD1/transcriptr/workflow/scripts/edger.R",
+    "DESeq2": "/mnt/WD1/transcriptr/workflow/scripts/deseq2.R",
+    "limma": "/mnt/WD1/transcriptr/workflow/scripts/limma.R",
+    "sampleInfo": "/mnt/WD1/test/transcriptR_single/Amin2021/sampleInfo.txt",
+    "compsTab": "/mnt/WD1/test/transcriptR_single/Amin2021/compsTab.txt",
+    "species": "mus_musculus",
+    "release": "latest",
+    "overhang": 100,
+    # 'gene_id' or 'transcript_id'
+    "attribute": "gene_id",
+    # 0 (unstranded), 1 (stranded) and 2 (reversely stranded)
+    "stranded": "2",
+    # filter on poorly expressed genes
+    "cpm": "1",
+    # min number of samples to filter on poorly expressed genes
+    "nsamples": "3",
+    "logFC": "1.5",
+    "FDR": "0.05",
+    # pval could be only 0 or 1.
+    # when set to 1 filter on PValue instead of FDR.
+    "pval": "0"
+}

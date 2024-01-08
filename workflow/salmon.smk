@@ -1,6 +1,6 @@
-#############################################
-## TranscriptR paired-end RNA-seq Pipeline ##
-#############################################
+####################################################
+## TranscriptR Salmon paired-end RNA-seq Pipeline ##
+####################################################
 
 configfile:
     "config.json"
@@ -141,6 +141,9 @@ rule salmon_quant:
         """
         /salmon-1.10.2/bin/salmon quant -p {threads} -i {input.idx} -l {params.lib} -1 <(zcat {input.R1}) -2 <(zcat {input.R2}) -o {output.res}
         """
+
+#/salmon-1.10.2/bin/salmon quant -p {threads} -i {input.idx} -l {params.lib} -1 <(zcat {input.R1}) -2 <(zcat {input.R2}) -o {output.res} # docker requirement
+#salmon quant -p {threads} -i {input.idx} -l {params.lib} -1 <(zcat {input.R1}) -2 <(zcat {input.R2}) -o {output.res} # without docker run
 
 #Attribute choice has been moved into the rearrangeCounts rule
 #salmon quant -p {threads} -i {input.idx} -l {params.lib} -1 <(zcat {input.R1}) -2 <(zcat {input.R2}) -o {output.res} -g {input.gtf}
