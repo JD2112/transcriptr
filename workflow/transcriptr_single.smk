@@ -2,9 +2,6 @@
 ## TranscriptR STAR single-end RNA-seq Pipeline ##
 ##################################################
 
-configfile:
-    "config_single.json"
-
 workdir:
    config['workdir']
 

@@ -2,9 +2,6 @@
 ## TranscriptR Salmon paired-end RNA-seq Pipeline ##
 ####################################################
 
-configfile:
-    "config.json"
-
 workdir:
    config['workdir']
 
