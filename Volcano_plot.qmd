@@ -13,12 +13,12 @@ Here with *TranscriptR*, we used plotly output to visualize the volcano plot to 
     - *'Select logFC column'*:
     - *'Select adjusted/p-value column'*:
 
-![Volcano: Infut file](_images/volcano/volcano1.png){#fig-vol1}
+![Volcano: Infut file](images/volcano/volcano1.png){#fig-vol1}
 
 ### Static Volcano Plot
 In this module, we introduced two versions of same volcano plot, static and interactive volcano plot. 
 
-![Volcano plot](_images/volcano/volcano2.png){#fig-volstat}
+![Volcano plot](images/volcano/volcano2.png){#fig-volstat}
 
 #### Parameters 
 **Main parameters** \

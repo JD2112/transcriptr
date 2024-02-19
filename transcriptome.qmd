@@ -9,7 +9,7 @@ Transcriptome analysis has divided in several parts for the data upload, analysi
 ## Data input and parameters settings
 In this section, for better user accessibility, we divided this into 3 sub-parts -
 
-![Fastq upload](_images/transcriptome/transcript1.png){#fig-trans1}
+![Fastq upload](images/transcriptome/transcript1.png){#fig-trans1}
 
 ### Fastq upload
 1. If the user performed the ***Quality analysis*** (@sec-seqqual) already, they don't need to upload the data again, they can use ***'continue from Quality Analysis'***.
@@ -23,7 +23,7 @@ Please note it will take some time to upload the data and once the data uploaded
 In the ***Sample info*** section, users need to upload the 'sample sheet/meta data file' that includes atleast two columns ('sample name' and 'sample condition') (see @fig-trans2).
 For Differential Gene Expression (DEG) analysis, user need to provide the comparison conditions as showed in @fig-trans2. 
 
-![Sample information](_images/transcriptome/transcriptr3.png){#fig-trans2}
+![Sample information](images/transcriptome/transcriptr3.png){#fig-trans2}
 
 :::{.callout-tip}
 1. After uploading the files, all files will be appear in the browser window (see  @fig-trans2), please check and verify everything is properly uploaded.
@@ -33,13 +33,13 @@ For Differential Gene Expression (DEG) analysis, user need to provide the compar
 ### Parameters settings
 Selecting the right parameters for the analysis is the key to the successful run of **TranscriptR**. The **parameters settings** (see @fig-trans3) are sub-divided for better understanding and view - 
 
-![Parameters settings](_images/transcriptome/transcriptr4.png){#fig-trans3}
+![Parameters settings](images/transcriptome/transcriptr4.png){#fig-trans3}
 
 #### Species and database
 1. **Select Species**: The user need to select the *species* from the species list. Here we provided more than 350 species presented in the 'biomart' for the analysis. Note that all other species than 'Human', 'Mouse' and 'Rat' come with the **scientific name** as provided in ['Ensembl'](http://www.ensembl.org/info/about/species.html){target="_blank"}. The default is 'Human'.
 2. **Select release version**: The default is *latest*. The user can choose other database version as provided by [Ensembl](https://ftp.ensembl.org/pub/){target="_blank"}. Please provide the number only in the 'box', example, if you want to use version '109', provide only '109' (see @fig-trans4).
 
-![Parameters: Species and database](_images/transcriptome/transcript5.png){#fig-trans4}
+![Parameters: Species and database](images/transcriptome/transcript5.png){#fig-trans4}
 
 #### Alignment parameters
 1. **Choose R1/R2 suffix**: For *paired-end* analysis, please provide the R1 and R2 suffixes.
@@ -47,7 +47,7 @@ Selecting the right parameters for the analysis is the key to the successful run
 3. **Choose sequence type**: Choose whether the sequence is *stranded*, *unstranded* or *reverse-stranded*.
 4. **Choose ID**: Select display ID for *gene id* or *transcriptome id*. Default is *gene ID*.
 
-![Parameters: Alignment](_images/transcriptome/transcript6.png){#fig-trans5}
+![Parameters: Alignment](images/transcriptome/transcript6.png){#fig-trans5}
 
 #### DEG filtration
 As **'TranscriptR'** provides the differential gene expression (DEG) analysis result, user need to provide the required filtration for the analysis. \
@@ -56,7 +56,7 @@ As **'TranscriptR'** provides the differential gene expression (DEG) analysis re
 3. **Choose logFC value**: The default is 1.5. \
 4. **Choose FDR value**: The default is 0.05.
 
-![Parameters: DEF filtration](_images/transcriptome/transcript7.png){#fig-trans6}
+![Parameters: DEF filtration](images/transcriptome/transcript7.png){#fig-trans6}
 
 ## Visualization: MultiQC
 Please see @sec-seqqual for details.
@@ -64,7 +64,7 @@ Please see @sec-seqqual for details.
 ## Visualization: Plots
 Since **TranscriptR** provides differential gene expression (DEG) analysis by **three** different pipelines, namely *EdgeR*, *DESeq2* and *limma*, all plots are divided into these three results.
 
-![Visualization: plots](_images/transcriptome/transcript8.png){#fig-trans7}
+![Visualization: plots](images/transcriptome/transcript8.png){#fig-trans7}
 
 :::{.callout-note}
 1. The plots will be displayed as @fig-trans7 in a PDF format. All of these can be downloaded when the user download the results from the *'Download results'* tab.
@@ -77,7 +77,7 @@ We provided differential gene expression (DEG) analysis result as a table format
 1. choose the analysis type (as **TranscriptR** provides three different pipeline results), such as *EdgeR analysis*, *DESeq analysis* or *limma analysis* and \
 2. select DEG table from the drop-down list. The list is generated from the information provided by the *comparison table*.
 
-![Visualization: DEG table](_images/transcriptome/transcript9.png){#fig-trans8}
+![Visualization: DEG table](images/transcriptome/transcript9.png){#fig-trans8}
 
 In the DEG table, we added information for - \
 1. **ID**: ENSEMBL *gene ID* or *transcript ID* \
@@ -107,7 +107,7 @@ Further, we implemented intersection function for the above-mentioned three type
 3. To download the full table, check to show **all** entries (see @fig-trans9). \
 4. The Venn diagram can be downloaded in different file format with respective height, width or resolution (see @fig-trans9).
 
-![InterSect result](_images/transcriptome/transcript10.png){#fig-trans9}
+![InterSect result](images/transcriptome/transcript10.png){#fig-trans9}
 
 Below is the details of *'InterSect DEG'* table result (see @fig-trans9) - \
 1. **id** \

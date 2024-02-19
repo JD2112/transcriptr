@@ -44,7 +44,7 @@ After the file upload, user needs to select the logFC and gene name (gene symbol
 7. **Viewer panel and Run Analysis**
 Please check your upload file in the viewer panel and select the right columns for logFC and gene name/symbol.
 
-![Input files and view](_images/pathway/path1.png){#fig-path1}
+![Input files and view](images/pathway/path1.png){#fig-path1}
 
 ### Analysis Result
 In the **Analysis Result**, there are two parts, \
@@ -62,12 +62,12 @@ We added few parameters in the **Figure** (see @fig-path11) -
 
 3. *Titles*: User can write the title and x-/y-axis labels of the figure.
 
-![Figure parameters](_images/pathway/path1-1.png){#fig-path11}
+![Figure parameters](images/pathway/path1-1.png){#fig-path11}
 
 **Table**
 The table will display all results by pages. The user can download the whole result table as an Excel file. If the user want to select one/few enriched pathways (as dot on the plot), the table will be updated interactively with the selected list (see @fig-path12). 
 
-![Analysis Result-interactivity](_images/pathway/path1-2.png){#fig-path12}
+![Analysis Result-interactivity](images/pathway/path1-2.png){#fig-path12}
 
 In the table, we added following information - 
 
@@ -91,7 +91,7 @@ This feature only available to KEGG pathways.
 
 If the user selected **'KEGG database'** for the analysis, then the result table will contain a column named *PathMap* which displays 'show map' option against each enriched pathway. Once clicked on the 'show map' will trigger the result, *KEGG pathway map with parameters setup* (see @fig-path12).
 
-![Pathway map](_images/pathway/path3.png){#fig-path3}
+![Pathway map](images/pathway/path3.png){#fig-path3}
 
 - In this map, user can choose their own colors for up, down or non-significant genes in the pathway map (see @fig-path3).
 
@@ -101,7 +101,7 @@ If the user selected **'KEGG database'** for the analysis, then the result table
 
 - Again, we added an option to see the 'gene details' as this was not shown on the previous table (see @fig-path4).
 
-![Gene details](_images/pathway/path4.png){#fig-path4}
+![Gene details](images/pathway/path4.png){#fig-path4}
 
 
 ::: {.callout-note}

@@ -13,13 +13,13 @@ We will describe three methods to create a zip file:
 ### Description
 Users need to collect the Sample_sheet.csv file and all the idat files belonging to the analysis as they come from the sequencer. All the methods require to create a New folder (you can give any name, for example **testData**) and move the *Sample_sheet.csv* file inside. Enter the testData directory and then create a folder named **idat**, then move all the directories generated with the analysis and containing the *idat files* (green and red) into this idat folder. In the end you will get this kind of organisation:
 
-![How to create zip: Figure 1](_images/zip1.png)
+![How to create zip: Figure 1](images/zip1.png)
 
 ## 1. Windows zip utility (Windows 7, 8, 10, 11)
 1. Right-click on the New folder you created with the file structure discussed above.
 2. Then click Send to > Compressed (zipped) folder
 
-![How to create zip: Figure 2](_images/zip2.png)
+![How to create zip: Figure 2](images/zip2.png)
 
 ## 2. 7-zip utility (Windows 7, 8, 10, 11)
 7-Zip is a free open-source file archiver with a high compression ratio. You can use 7-Zip on any computer, including a computer in a commercial organization. You don't need to register or pay for 7-Zip. You can download 7-zip for Windows at ([https://www.7-zip.org/](https://www.7-zip.org/)). If you have installed 7-zip and want to create the input file for *methylR* you just:
@@ -27,7 +27,7 @@ Users need to collect the Sample_sheet.csv file and all the idat files belonging
 1. Right-click on the New folder you created with the file structure discussed above.
 2. Then click 7-Zip > Add to archive...
 
-![How to create zip: Figure 3](_images/zip3.png)
+![How to create zip: Figure 3](images/zip3.png)
 
 ## 3. Bash script (MacOS/Linux)
 We provide an automathized bash script that is able to create the file structure discussed above for you.

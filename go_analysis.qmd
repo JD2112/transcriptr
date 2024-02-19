@@ -25,17 +25,17 @@ At present, user can upload the DMC data produced by the main analysis (see @sec
 :::
 
 ### Biological processes
-![Gene Ontology - Biological Processes](_images/GO-BP.png)
+![Gene Ontology - Biological Processes](images/GO-BP.png)
 
 ### Cellular component
-![Gene Ontology - Cellular Component](_images/GO-CC.png)
+![Gene Ontology - Cellular Component](images/GO-CC.png)
 
 ### Molecular function
-![Gene Ontology - Molecular Function](_images/GO-MF.png)
+![Gene Ontology - Molecular Function](images/GO-MF.png)
 
 2. On the second right tab, user will get the result as a table format. It might takes some time to compute result and generates the table. User can download the result as an Excel file from the current page or the entire result. \
 
-![Gene Ontology data table](_images/GO-table.png)
+![Gene Ontology data table](images/GO-table.png)
 
 ::: {.callout-warning}
 1. In the gene onlogy enrichment table, the GO ID is clickable and will open the respective GO class from the AmiGO database. However, this feature is only avaible on the browser, if the user download the table, there is no such link to check the GO source.

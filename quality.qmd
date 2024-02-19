@@ -6,7 +6,7 @@
 
 The *Quality Analysis* is the first section in *transcriptR*. It allows the user to asses for the quality of the RNA-seq experiment. For convenience, you can run the quality analysis without needing to run the whole RNA-seq pipeline (look at the "Transcriptome Analysis section"). The quality assessment will run [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and [MultiQC](https://multiqc.info/) in background and the user will get a complete MultiQC analysis report in *html* format. You can skip the quality analysis and run the main pipeline directly, transcriptR will perform the quality assessment at the beginning of the analysis.
 
-![Qaulity Analysis](_images/quality/quality1.png){#fig-qual1}
+![Qaulity Analysis](images/quality/quality1.png){#fig-qual1}
 
 ## How to use
 Details are provided below -
@@ -18,13 +18,13 @@ The current version can handle the upload of single fastq files. You can select 
 Please note it will take some time to upload the data and once the data uploaded, the list will be displayed in the browser (see @fig-qual2)
 :::
 
-![Upload fastq](_images/quality/quality2.png){#fig-qual2}
+![Upload fastq](images/quality/quality2.png){#fig-qual2}
 
 ## Parameters configurations
 
 We provided the ***JSON*** file (see @fig-qual3) to the user if they want to use the transcriptr snakemake pipeline by their own. Please download a copy of your JSON file.
 
-![JSON file for quality analysis](_images/quality/quality3.png){#fig-qual3}
+![JSON file for quality analysis](images/quality/quality3.png){#fig-qual3}
 
 ## Run and Visualization
 
@@ -39,12 +39,12 @@ Please remember, the *fastqc* will use 12 cores in the background to estimate th
 #### Run logs
 We provided ***'shiny logs'*** box @fig-qual4 to show the user the background run. It might be possible after submitting the job, the browser hangs and cannot be reloaded. Please wait till the background job finished. The *sucess/failure* in the run will appear in the ***'shiny logs'*** box.
 
-![shiny logs](_images/quality/quality4.png){#fig-qual4}
+![shiny logs](images/quality/quality4.png){#fig-qual4}
 
 #### Result - MultiQC
 Once the run sucessfully finished, the user can view the *MultiQC* result in the ***MultiQC result*** box. Please click to *'show MultiQC'*.
 
-![MultiQC result](_images/quality/quality5.png){#fig-qual5}
+![MultiQC result](images/quality/quality5.png){#fig-qual5}
 
 :::{.callout-note}
 If *MultiQC result* box cannot display any result (see @fig-qual5), please reload the browser and check again. Make sure all jobs finished successfully.

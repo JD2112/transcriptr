@@ -75,7 +75,7 @@ PLEASE NOTE: ***"OR enter set combinations/expression"*** has the priority over 
 
 User can download the figure in different format, PDF, PNG, SVG or TIFF.
 
-![UpSet plot](_images/upset.png)
+![UpSet plot](images/upset.png)
 
 ## R packages used
 1. [UpSetR](http://gehlenborglab.org/research/projects/upsetr/)

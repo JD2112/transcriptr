@@ -8,4 +8,4 @@ Thanks to **IGV-Shiny**, we have included a sub-section to visualize the BedGrap
 4. Click on *'Add as BedGraph'* to view the result on the chromosome level.
 5. Use cursor to zoom in/out on the location/region. 
 
-![Genome View](_images/igv/igv1.png){#fig-igv1}
+![Genome View](images/igv/igv1.png){#fig-igv1}

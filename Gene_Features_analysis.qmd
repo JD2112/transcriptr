@@ -24,12 +24,12 @@ The basic requirement to run the tool is to have the following gene feature in t
 ### Gene Feature Plot
 An interactive pie chart will be generated with different regions and number of DMCs. \
 
-![Genomic Feature plot](_images/GeneFea1.png)
+![Genomic Feature plot](images/GeneFea1.png)
 
 ### Gene Feature Table
 The result will also be displayed as table, available for download. \
 
-![Genomic Feature Table](_images/GeneFea2.png)
+![Genomic Feature Table](images/GeneFea2.png)
 
 ## R packages used
 1. [plotly](https://cran.r-project.org/web/packages/plotly/plotly.pdf)

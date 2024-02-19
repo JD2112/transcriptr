@@ -39,7 +39,7 @@ Below given the details for the use of Venn analysis module.
 ## Results
 User can download the figure in different format, PDF, PNG, SVG or TIFF.
 
-![Venn Result](_images/Venndiag.png)
+![Venn Result](images/Venndiag.png)
 
 ## R packages used
 1. [Vennerable](https://github.com/js229/Vennerable)

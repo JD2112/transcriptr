@@ -59,7 +59,7 @@ B \
 For more, please see the [test data](https://sourceforge.net/projects/TranscriptR/) files.
 :::
 
-![Principal Component Analysis plot](_images/PCA.png)
+![Principal Component Analysis plot](images/PCA.png)
 
 
 ## R packages used

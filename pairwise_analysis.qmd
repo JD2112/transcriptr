@@ -39,21 +39,21 @@ We added a tab for the user to build the heatmap matrix by starting from the res
 ## Analysis result
 1. **Heatmap** - the figure will be shown in the adjacent panel. It can be downloaded in the following formats, PDF, PNG, SVG and TIFF. \
 
-![Static Heatmap](_images/heatmap.png)
+![Static Heatmap](images/heatmap.png)
 
 ::: {.callout-tip}
 **Correlation plot** - for correlation plot, please adjust the 'Settings', 'Plot type' to ***Corrplot*** and 'Correlation Coefficient' to ***Pearson/Spearman/Kendall***.
 :::
 
-![Correlation plot](_images/correlationplot-setting.png)
+![Correlation plot](images/correlationplot-setting.png)
 
 2. **Interactive heatmap** - an interactive heatmap will also be generated and can be downloaded as HTML file. \
 
-![Interactive Heatmap](_images/heatmap2.png)
+![Interactive Heatmap](images/heatmap2.png)
 
 3. **Data table** - a data table will be generated from the heatmap figure data.
 
-![Heatmap/Correlation data table](_images/heatmap-datatable.png)
+![Heatmap/Correlation data table](images/heatmap-datatable.png)
 
 ## R packages used
 1. [heatmap2](https://biocorecrg.github.io/CRG_RIntroduction/heatmap-2-function-from-gplots-package.html)

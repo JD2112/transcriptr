@@ -21,7 +21,7 @@ After performing the sequencing, the major part is the analysis of the raw data 
 
 Here, in *TranscriptR*, we presented a shiny-based web server approach to minimize the above-mentioned difficulties. TranscriptR has graphical user interface to support and understand the various options used in the transcriptome data analysis with an extensive manual/tutorial how to use it. The background computational power depends on the user's computer (local use) which can also be optimized. We successfully tested the pipeline on Linux based system. \
 
-![Pipeline description and Figures](_images/Figure1.png)
+![Pipeline description and Figures](images/Figure1.png)
 
 ## Requirements
 - **LinuxOS** - (AMD64)
