@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/user/fe95275f-909a-4147-a45d-624981173898/project/1d8c7d96-1ddf-4c37-a4ef-94fe552559a0.svg)](https://wakatime.com/badge/user/fe95275f-909a-4147-a45d-624981173898/project/1d8c7d96-1ddf-4c37-a4ef-94fe552559a0)
+
 # transcriptr
 Graphical User Interface-based RNAsequnce analysis
 
