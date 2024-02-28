@@ -11,8 +11,8 @@ book:
   sharing: [twitter, facebook]
   subtitle: "Reproducible RNA-seq data analysis using TranscriptR"
   margin-header: |
-    ![](_images/logo-final.png)
-  body-footer: "Copyright &copy; 2023-2024. Massimiliano Volpe and Jyotirmoy Das."
+    ![](/images/logo-final.png)
+  body-footer: <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Massimiliano Volpe, Jyotirmoy Das All Rights Reserved</p>
   author:
     - name: Massimiliano Volpe
     - name: Jyotirmoy Das
@@ -50,6 +50,11 @@ format:
     theme: cosmo
     cover-image: cover.png
     page-layout: article
+    lightbox:
+      match: auto
+      effect: fade
+      desc-position: right
+      loop: false
   epub:
     cover-image: cover.png
   pdf:
@@ -78,8 +83,6 @@ format:
     title-bg-location: "UL"
     title-bg-size: 0.5
     keep-tex: true
-    template-partials:
-        - title.tex
     include-in-header:
           text: |
             \usepackage[noblocks]{authblk}

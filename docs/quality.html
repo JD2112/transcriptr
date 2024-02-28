@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -41,13 +41,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,8 +65,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -66,14 +77,18 @@ ul.task-list li input[type="checkbox"] {
 
 <body class="nav-sidebar floating">
 
-
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Analysis</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">TranscriptR: Transcriptome Data Analysis Pipeline</a></li><li class="breadcrumb-item"><a href="./quality.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Analysis</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -81,178 +96,204 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">TranscriptR manual</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/JD2112/transcriptr" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./TranscriptR-manual.pdf">
-            <i class="bi bi-bi-file-pdf pe-1"></i>
-          Download PDF
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./TranscriptR-manual.epub">
-            <i class="bi bi-bi-journal pe-1"></i>
-          Download ePub
-          </a>
-        </li>
-    </ul>
-    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-    </ul>
+    <a href="https://github.com/JD2112/transcriptr" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./TranscriptR-manual.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./TranscriptR-manual.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgements</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./disclaimer.html" class="sidebar-item-text sidebar-link">Disclaimer</a>
+  <a href="./disclaimer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Disclaimer</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./intro.html" class="sidebar-item-text sidebar-link">TranscriptR: Transcriptome Data Analysis Pipeline</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TranscriptR: Transcriptome Data Analysis Pipeline</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./quality.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Analysis</span></a>
+  <a href="./quality.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./transcriptome.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Transcriptome Analysis</span></a>
+  <a href="./transcriptome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Transcriptome Analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./igv.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Integrative Genome Viewer</span></a>
+  <a href="./igv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Integrative Genome Viewer</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Multi_D_Analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dimensional Analysis</span></a>
+  <a href="./Multi_D_Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dimensional Analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Volcano_plot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Volcano plot</span></a>
+  <a href="./Volcano_plot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Volcano plot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./heatmap.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">HeatMap</span></a>
+  <a href="./heatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">HeatMap</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./assco.html" class="sidebar-item-text sidebar-link">Enrichment Analysis</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a href="./assco.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Enrichment Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./go_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Gene Ontology (GO) enrichment analysis</span></a>
+  <a href="./go_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Gene Ontology (GO) enrichment analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pathway_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pathway enrichment analysis</span></a>
+  <a href="./pathway_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pathway enrichment analysis</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./setana.html" class="sidebar-item-text sidebar-link">Set Analysis</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a href="./setana.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Set Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./venn_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Venn analysis</span></a>
+  <a href="./venn_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Venn analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./upset_plot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">UpSet Plots</span></a>
+  <a href="./upset_plot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">UpSet Plots</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Create the input zip file for <em>methylR</em></span></a>
+  <a href="./appendix1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Create the input zip file for <em>methylR</em></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Use of Docker Container</span></a>
+  <a href="./appendix2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Use of Docker Container</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Convert DMCs table to BED</span></a>
+  <a href="./appendix3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Convert DMCs table to BED</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix4.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Time calculation</span></a>
+  <a href="./appendix4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Time calculation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">FAQs/Troubleshooting</span></a>
+  <a href="./appendix5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">FAQs/Troubleshooting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -260,33 +301,34 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
-<p><img src="_images/logo-final.png" class="img-fluid"></p>
+<p><a href="./images/logo-final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="./images/logo-final.png" class="img-fluid"></a></p>
 </div></div>
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link active" data-scroll-target="#how-to-use"><span class="toc-section-number">1.1</span>  How to use</a>
+  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link active" data-scroll-target="#how-to-use"><span class="header-section-number">1.1</span> How to use</a>
   <ul class="collapse">
-  <li><a href="#data-upload" id="toc-data-upload" class="nav-link" data-scroll-target="#data-upload"><span class="toc-section-number">1.1.1</span>  Data upload</a></li>
+  <li><a href="#data-upload" id="toc-data-upload" class="nav-link" data-scroll-target="#data-upload"><span class="header-section-number">1.1.1</span> Data upload</a></li>
   </ul></li>
-  <li><a href="#parameters-configurations" id="toc-parameters-configurations" class="nav-link" data-scroll-target="#parameters-configurations"><span class="toc-section-number">1.2</span>  Parameters configurations</a></li>
-  <li><a href="#run-and-visualization" id="toc-run-and-visualization" class="nav-link" data-scroll-target="#run-and-visualization"><span class="toc-section-number">1.3</span>  Run and Visualization</a>
+  <li><a href="#parameters-configurations" id="toc-parameters-configurations" class="nav-link" data-scroll-target="#parameters-configurations"><span class="header-section-number">1.2</span> Parameters configurations</a></li>
+  <li><a href="#run-and-visualization" id="toc-run-and-visualization" class="nav-link" data-scroll-target="#run-and-visualization"><span class="header-section-number">1.3</span> Run and Visualization</a>
   <ul class="collapse">
-  <li><a href="#run-quality-analysis" id="toc-run-quality-analysis" class="nav-link" data-scroll-target="#run-quality-analysis"><span class="toc-section-number">1.3.1</span>  Run Quality Analysis</a></li>
-  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization"><span class="toc-section-number">1.3.2</span>  Visualization</a></li>
+  <li><a href="#run-quality-analysis" id="toc-run-quality-analysis" class="nav-link" data-scroll-target="#run-quality-analysis"><span class="header-section-number">1.3.1</span> Run Quality Analysis</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization"><span class="header-section-number">1.3.2</span> Visualization</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/JD2112/transcriptr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/JD2112/transcriptr/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">TranscriptR: Transcriptome Data Analysis Pipeline</a></li><li class="breadcrumb-item"><a href="./quality.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Analysis</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-seqqual" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Analysis</span></span></h1>
+<h1 class="title"><span id="sec-seqqual" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quality Analysis</span></span></h1>
 </div>
 
 
@@ -299,29 +341,35 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<div class="callout-important callout callout-style-default callout-captioned">
+
+<div class="callout callout-style-default callout-important callout-titled" title="IMPORTANT">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Important
+<div class="callout-title-container flex-fill">
+IMPORTANT
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body" title="IMPORTANT">
+<div class="callout-body-container callout-body">
 <p><strong>PLEASE NOTE</strong> WE INCLUDED THE POSSIBILITY OF THE HUMAN TRANSCRIPTOME DATA ANALYSIS FROM THE SEQUENCE DATA. NONE OF THE OWNER OF THE CODE OR DATA CENTER IS RESPONSIBLE FOR HANDLING THE HUMAN DATA. IT IS UPTO THE USER IF THEY WANT TO USE THE ONLINE VERSION FOR HUMAN DATA ANALYSIS.</p>
 </div>
 </div>
 </div>
 <p>The <em>Quality Analysis</em> is the first section in <em>transcriptR</em>. It allows the user to asses for the quality of the RNA-seq experiment. For convenience, you can run the quality analysis without needing to run the whole RNA-seq pipeline (look at the “Transcriptome Analysis section”). The quality assessment will run <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a> and <a href="https://multiqc.info/">MultiQC</a> in background and the user will get a complete MultiQC analysis report in <em>html</em> format. You can skip the quality analysis and run the main pipeline directly, transcriptR will perform the quality assessment at the beginning of the analysis.</p>
-<div id="fig-qual1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/quality/quality1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.1: Qaulity Analysis</figcaption><p></p>
+<div id="fig-qual1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-qual1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/quality/quality1.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="images/quality/quality1.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qual1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Qaulity Analysis
+</figcaption>
 </figure>
 </div>
 <section id="how-to-use" class="level2" data-number="1.1">
@@ -330,34 +378,42 @@ Important
 <section id="data-upload" class="level3" data-number="1.1.1">
 <h3 data-number="1.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">1.1.1</span> Data upload</h3>
 <p>The current version can handle the upload of single fastq files. You can select all of the fastq. User can browse through the folder to upload data or drag &amp; drop files directly.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please note it will take some time to upload the data and once the data uploaded, the list will be displayed in the browser (see <a href="#fig-qual2">Figure&nbsp;<span>1.2</span></a>)</p>
+<p>Please note it will take some time to upload the data and once the data uploaded, the list will be displayed in the browser (see <a href="#fig-qual2" class="quarto-xref">Figure&nbsp;<span>1.2</span></a>)</p>
 </div>
 </div>
-<div id="fig-qual2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/quality/quality2.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.2: Upload fastq</figcaption><p></p>
+<div id="fig-qual2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-qual2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/quality/quality2.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="images/quality/quality2.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qual2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Upload fastq
+</figcaption>
 </figure>
 </div>
 </section>
 </section>
 <section id="parameters-configurations" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="parameters-configurations"><span class="header-section-number">1.2</span> Parameters configurations</h2>
-<p>We provided the <strong><em>JSON</em></strong> file (see <a href="#fig-qual3">Figure&nbsp;<span>1.3</span></a>) to the user if they want to use the transcriptr snakemake pipeline by their own. Please download a copy of your JSON file.</p>
-<div id="fig-qual3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/quality/quality3.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.3: JSON file for quality analysis</figcaption><p></p>
+<p>We provided the <strong><em>JSON</em></strong> file (see <a href="#fig-qual3" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>) to the user if they want to use the transcriptr snakemake pipeline by their own. Please download a copy of your JSON file.</p>
+<div id="fig-qual3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-qual3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/quality/quality3.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="images/quality/quality3.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qual3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3: JSON file for quality analysis
+</figcaption>
 </figure>
 </div>
 </section>
@@ -366,12 +422,12 @@ Note
 <section id="run-quality-analysis" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="run-quality-analysis"><span class="header-section-number">1.3.1</span> Run Quality Analysis</h3>
 <p>Once all fastq (<strong>fastq.gz files only!</strong>) files are uploaded on the browser, please check the names and click <strong><em>‘Run Quality Analysis’</em></strong> to submit the job.</p>
-<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Important
 </div>
 </div>
@@ -384,42 +440,50 @@ Important
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="visualization"><span class="header-section-number">1.3.2</span> Visualization</h3>
 <section id="run-logs" class="level4" data-number="1.3.2.1">
 <h4 data-number="1.3.2.1" class="anchored" data-anchor-id="run-logs"><span class="header-section-number">1.3.2.1</span> Run logs</h4>
-<p>We provided <strong><em>‘shiny logs’</em></strong> box <a href="#fig-qual4">Figure&nbsp;<span>1.4</span></a> to show the user the background run. It might be possible after submitting the job, the browser hangs and cannot be reloaded. Please wait till the background job finished. The <em>sucess/failure</em> in the run will appear in the <strong><em>‘shiny logs’</em></strong> box.</p>
-<div id="fig-qual4" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/quality/quality4.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.4: shiny logs</figcaption><p></p>
+<p>We provided <strong><em>‘shiny logs’</em></strong> box <a href="#fig-qual4" class="quarto-xref">Figure&nbsp;<span>1.4</span></a> to show the user the background run. It might be possible after submitting the job, the browser hangs and cannot be reloaded. Please wait till the background job finished. The <em>sucess/failure</em> in the run will appear in the <strong><em>‘shiny logs’</em></strong> box.</p>
+<div id="fig-qual4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-qual4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/quality/quality4.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5"><img src="images/quality/quality4.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qual4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.4: shiny logs
+</figcaption>
 </figure>
 </div>
 </section>
 <section id="result---multiqc" class="level4" data-number="1.3.2.2">
 <h4 data-number="1.3.2.2" class="anchored" data-anchor-id="result---multiqc"><span class="header-section-number">1.3.2.2</span> Result - MultiQC</h4>
 <p>Once the run sucessfully finished, the user can view the <em>MultiQC</em> result in the <strong><em>MultiQC result</em></strong> box. Please click to <em>‘show MultiQC’</em>.</p>
-<div id="fig-qual5" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/quality/quality5.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.5: MultiQC result</figcaption><p></p>
+<div id="fig-qual5" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-qual5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/quality/quality5.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6"><img src="images/quality/quality5.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qual5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.5: MultiQC result
+</figcaption>
 </figure>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If <em>MultiQC result</em> box cannot display any result (see <a href="#fig-qual5">Figure&nbsp;<span>1.5</span></a>), please reload the browser and check again. Make sure all jobs finished successfully.</p>
+<p>If <em>MultiQC result</em> box cannot display any result (see <a href="#fig-qual5" class="quarto-xref">Figure&nbsp;<span>1.5</span></a>), please reload the browser and check again. Make sure all jobs finished successfully.</p>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Tip
 </div>
 </div>
@@ -429,11 +493,22 @@ Tip
 </div>
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;1.1: Qaulity Analysis</span>
+<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;1.2: Upload fastq</span>
+<span class="glightbox-desc lightbox-desc-4">Figure&nbsp;1.3: JSON file for quality analysis</span>
+<span class="glightbox-desc lightbox-desc-5">Figure&nbsp;1.4: shiny logs</span>
+<span class="glightbox-desc lightbox-desc-6">Figure&nbsp;1.5: MultiQC result</span>
+</div>
 </section>
 </section>
 </section>
 
-<p>Copyright © 2023-2024. Massimiliano Volpe and Jyotirmoy Das.</p></main> <!-- /main -->
+<p>
+Copyright ©
+<script>document.write(new Date().getFullYear())</script>
+Massimiliano Volpe, Jyotirmoy Das All Rights Reserved
+</p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -461,9 +536,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -499,10 +588,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -512,8 +600,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -528,6 +625,238 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -569,17 +898,43 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link">
+      <a href="./intro.html" class="pagination-link" aria-label="TranscriptR: Transcriptome Data Analysis Pipeline">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">TranscriptR: Transcriptome Data Analysis Pipeline</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./transcriptome.html" class="pagination-link">
+      <a href="./transcriptome.html" class="pagination-link" aria-label="Transcriptome Analysis">
         <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Transcriptome Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/JD2112/transcriptr/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"fade","descPosition":"right","closeEffect":"fade","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
 
 
 
